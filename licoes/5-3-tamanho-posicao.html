@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculando o tamanho da posição · Lição 5.3 · Trading do Zero</title>
+  <meta name="description" content="O erro letal do tamanho fixo. Aprenda como a distância gráfica do seu Stop Loss deve ditar exatamente o número de ações que você pode comprar no day trade.">
+  <meta name="keywords" content="position sizing, tamanho da posição, lotes b3, gestão de risco day trade, calcular lotes, stop loss, andrew aziz">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Calculando o tamanho da posição · Lição 5.3 · Trading do Zero">
+  <meta property="og:description" content="O erro letal do tamanho fixo. Aprenda como a distância gráfica do seu Stop Loss deve ditar exatamente o número de ações que você pode comprar no day trade.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/5-3-tamanho-posicao.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculando o tamanho da posição · Lição 5.3 · Trading do Zero">
+  <meta name="twitter:description" content="O erro letal do tamanho fixo. Aprenda como a distância gráfica do seu Stop Loss deve ditar exatamente o número de ações que você pode comprar no day trade.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/5-3-tamanho-posicao.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Calculando o tamanho da posição · Lição 5.3",
+  "description": "O erro letal do tamanho fixo. Aprenda como a distância gráfica do seu Stop Loss deve ditar exatamente o número de ações que você pode comprar no day trade.",
+  "url": "https://tradingdozero.com/licoes/5-3-tamanho-posicao.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "PT7M",
+  "wordCount": 1271,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 5: Gestão de risco",
+    "url": "https://tradingdozero.com/modulos/risco.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/risco.html" class="nav-cta">Módulo 5</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/risco.html">módulo 05</a>
+      <span class="sep">/</span>
+      <span>lição 5.3</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 5.3 · avançado</div>
+        <h1>Calculando o tamanho<br>da sua <em>posição</em>.</h1>
+        <p class="lesson-summary">
+          Comprar "sempre 5 contratos" ou "sempre 1000 ações" é a marca do amador. O tamanho do seu lote nunca deve ser fixo; ele deve ser determinado pela distância visual do seu stop loss no gráfico.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-avancado">avançado</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Agora nós juntamos a <strong>Regra dos 2%</strong> (Lição 5.1) com os níveis de <strong>Suporte/Resistência</strong> (Lição 3.3). É assim que as engrenagens da máquina de risco funcionam juntas.
+        </p>
+
+        <p>
+          O erro comum de quem migra para a conta real é abrir a boleta de envio de ordens, digitar a quantidade que "sente" que está confortável (ex: 500 ações) e depois colocar o stop. A matemática correta o obriga a pensar de trás para a frente: o stop define as ações, não o inverso.
+        </p>
+
+        <h2>A Fórmula de Position Sizing (Tamanho da Posição)</h2>
+
+        <p>
+          A quantidade de lotes ou ações que você pode comprar para um trade específico tem uma equação única:
+        </p>
+
+        <div style="background-color: var(--card-bg); border: 1px solid var(--line); padding: var(--space-4); text-align: center; font-family: JetBrains Mono, monospace; margin: var(--space-6) 0; border-radius: var(--radius-md);">
+          Número de Ações = (Risco Máximo em $) ÷ (Distância do Stop Loss em $)
+        </div>
+
+        <p>Vamos dissecar isto passo a passo com um exemplo prático.</p>
+
+        <h3>Passo 1: Definir o seu Risco em Capital (A Regra dos 2%)</h3>
+        <p>
+          A sua conta na corretora tem <strong>R$ 5.000,00</strong>. 
+          <br>Você é conservador e decide arriscar no máximo <strong>1%</strong> por trade.
+          <br>Risco Máximo Permitido = <strong>R$ 50,00</strong>. (Este valor fica fixo para si).
+        </p>
+
+        <h3>Passo 2: Encontrar o Stop no Gráfico</h3>
+        <p>
+          Você está observando a VALE3 a R$ 60,00 e ela acabou de formar uma <em>Bull Flag</em>. 
+          <br>Você quer comprar o rompimento a <strong>R$ 60,05</strong>. 
+          <br>Onde é o suporte óbvio da base da bandeira que invalida o trade? Você olha para o gráfico e o suporte técnico está em <strong>R$ 59,85</strong>.
+        </p>
+
+        <h3>Passo 3: Calcular a Distância de Stop</h3>
+        <p>
+          Preço de Entrada (60,05) - Preço de Stop (59,85) = <strong>R$ 0,20</strong>.
+          <br>Este é o seu "Risco por Ação". Se o trade correr mal, você perde 20 centavos por cada ação comprada.
+        </p>
+
+        <h3>Passo 4: A Matemática Final</h3>
+        <p>
+          Divida o seu Risco de Capital Global pela Distância de Stop daquele trade:
+          <br>R$ 50,00 (Dinheiro máximo a perder) ÷ R$ 0,20 (Risco por ação) = <strong>250 ações</strong>.
+        </p>
+
+        <p>
+          <em>Resultado:</em> Você digita na sua plataforma a compra exata de 250 ações. Se o preço bater no seu stop loss no suporte exato do gráfico, você perde os exatos R$ 50. Você protegeu matematicamente a sua conta.
+        </p>
+
+        <h2>A Consequência da Volatilidade</h2>
+
+        <p>
+          O brilhantismo deste método é que o <strong>seu lote se ajusta à volatilidade do mercado</strong> de forma automática.
+        </p>
+
+        <p>
+          Imagine que noutro dia você vai operar a mesma VALE3, mas o mercado está caótico. O candle está gigante. A sua entrada é nos mesmos R$ 60,05, mas o suporte seguro (base do candle enorme) está agora lá embaixo, em R$ 59,55.
+          <br>Distância do stop = R$ 0,50.
+        </p>
+
+        <p>
+          Vamos calcular de novo o lote para manter a perda nos mesmos R$ 50:
+          <br>R$ 50,00 ÷ R$ 0,50 = <strong>100 ações</strong>.
+        </p>
+
+        <p>
+          Observe o que aconteceu: Como o mercado está mais perigoso e volátil (stop mais distante), <strong>a fórmula forçou-o automaticamente a diminuir a mão</strong> e comprar menos ações. Se bater no seu stop muito largo, você ainda assim só perde R$ 50. A sua defesa está blindada, independente da loucura do gráfico.
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">A Falácia do "Stop Financeiro"</div>
+          <p>
+            O erro reverso também é letal: O trader amador entra com "sempre 500 ações". Ele não quer perder mais do que R$ 50. Então, ele diz à plataforma para travar no stop de 10 centavos, porque (500 ações * 0,10 = R$ 50). 
+            O problema? 10 centavos fica <strong>no meio do ar</strong>, sem nenhum suporte do Price Action a defendê-lo. O mercado desce num solavanco natural, bate no seu stop de "esperança financeira", e depois sobe para o alvo sem ele. O Stop deve ser colocado nos <strong>pontos geográficos do gráfico (Suportes)</strong>, não nas necessidades matemáticas arbitrárias da sua carteira. O lote é que tem de dobrar-se à vontade do gráfico.
+          </p>
+        </div>
+
+        <h2>Position sizing em minicontratos (WIN e WDO)</h2>
+
+        <p>
+          O exemplo acima usa ações, mas no Brasil muitos day traders operam <strong>minicontratos</strong> — mini-índice (WIN) e mini-dólar (WDO). A lógica é a mesma, mas a unidade de risco é diferente. Em vez de centavos por ação, são <strong>pontos por contrato</strong>:
+        </p>
+
+        <ul>
+          <li><strong>WIN (mini-índice):</strong> cada ponto vale R$ 0,20. Um stop de 100 pontos = R$ 20 por contrato.</li>
+          <li><strong>WDO (mini-dólar):</strong> cada ponto vale R$ 10. Um stop de 10 pontos = R$ 100 por contrato.</li>
+        </ul>
+
+        <p>
+          Cenário típico em WIN com conta de R$ 5.000, risco de 1% (R$ 50):
+        </p>
+
+        <ul>
+          <li>Setup ABCD no WIN, entrada em 130.000 pontos, stop em 129.850 pontos. Distância = 150 pontos.</li>
+          <li>Risco por contrato = 150 × R$ 0,20 = R$ 30.</li>
+          <li>Número de contratos = R$ 50 ÷ R$ 30 = <strong>1 contrato</strong> (arredondar para baixo, sempre).</li>
+        </ul>
+
+        <p>
+          Importante: o mini-contrato não permite fracções. Você opera 1, 2, 3 contratos — não 1,67. A fórmula dá uma indicação; arredonde para o inteiro <em>abaixo</em> para nunca exceder o risco. No WDO, isto é especialmente relevante porque cada contrato move muito dinheiro rapidamente.
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">o problema do iniciante no mini-índice</div>
+          <p>
+            Erro frequente: o iniciante abre conta com R$ 2.000 e quer operar 3 contratos de WIN. Cada ponto move R$ 0,60 (3 × R$ 0,20). Um stop normal de 200 pontos custa R$ 120 — <strong>6% da conta num único trade</strong>. Três trades perdedores consecutivos liquidam 18% do capital. Antes do segundo mês, conta destruída. A solução é sempre a mesma: ajustar o tamanho ao capital, não o contrário.
+          </p>
+        </div>
+
+        <h2>Como escalar o tamanho da posição</h2>
+
+        <p>
+          Quando você começa a ter consistência, surge a pergunta: como aumentar o tamanho da posição sem perder a disciplina? Há um método simples que protege psicologicamente:
+        </p>
+
+        <ol>
+          <li><strong>Defina o seu tamanho-base com 1% de risco.</strong> Mantenha-o estável durante pelo menos 4 semanas consecutivas positivas no diário.</li>
+          <li><strong>Quando atingir consistência, aumente o tamanho em 25%.</strong> Não 100%, não 50% — 25%. Por exemplo: se operava 200 ações de PETR4, passa a operar 250.</li>
+          <li><strong>Mantenha o novo tamanho por 4 semanas.</strong> O cérebro precisa habituar-se à nova magnitude de oscilação financeira por trade. Se a disciplina se mantém, suba mais 25%.</li>
+          <li><strong>Se uma semana der prejuízo significativo, <em>volte ao tamanho anterior</em>.</strong> Sem ego. O sinal de que subiu cedo demais é claro: a oscilação emocional do novo tamanho está afetando a execução. Recue, consolide, volte a subir mais tarde.</li>
+        </ol>
+
+        <p>
+          Esta escalada gradual leva 6-12 meses para chegar a uma posição substancial — mas é a única forma de escalar sustentável. Tentar saltar de 1 para 10 contratos em duas semanas costuma terminar em conta zerada e abandono da atividade.
+        </p>
+
+        <h2>Erros frequentes em position sizing</h2>
+
+        <p>
+          Três erros que aparecem nos diários de iniciantes:
+        </p>
+
+        <ul>
+          <li><strong>"Hoje vou aumentar o lote porque estou confiante."</strong> Confiança não é estatística. A semana excepcional não justifica romper o limite de risco. Aumentar o tamanho em dias eufóricos é como aumentar a velocidade depois de evitar um acidente — exatamente o oposto do correto.</li>
+          <li><strong>"Vou recuperar o que perdi com um lote maior."</strong> Revenge sizing. Discutido na Lição 6.3. A psicologia de querer recuperar leva ao trade maior, exatamente quando o cérebro está menos preparado para tomar boas decisões. Caminho garantido para a margem chamada.</li>
+          <li><strong>"Não tenho stop claro, vou operar lote pequeno como compensação."</strong> Erro conceitual. Sem stop claro, o trade não existe. Operar com lote pequeno "compensando" a falta de stop é apenas uma forma de perder dinheiro mais devagar — não de operar com disciplina.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">a regra inquebrável do position sizing</div>
+          <p>
+            O tamanho da posição é <strong>derivado</strong> — nunca é <strong>premissa</strong>. Você começa por: capital × % risco → R$ máximo a perder. Depois: análise técnica → onde fica o stop. Só depois: matemática → tamanho da posição. Se o resultado é "0 ações" ou "0 contratos" porque o stop está longe demais, então o trade não é para fazer — não é para mudar o stop nem para usar mais capital.
+          </p>
+        </div>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>Nunca opere com quantidades fixas em todos os trades (sempre X contratos).</li>
+            <li>O limite financeiro de risco é o seu norte (a Regra dos 2%).</li>
+            <li>Encontre primeiro o Stop Loss técnico, lógico, ancorado no Price Action (gráfico).</li>
+            <li>Submeta a distância desse Stop Loss gráfico na fórmula para descobrir o tamanho exato da posição que o fará perder apenas o valor programado caso a operação falhe.</li>
+            <li>Em minicontratos, arredonde sempre para baixo. WIN: 1 ponto = R$ 0,20. WDO: 1 ponto = R$ 10. Calcule sempre antes.</li>
+            <li>Escale o tamanho em incrementos de 25% após 4 semanas consistentes. Volte ao tamanho anterior se a semana for negativa.</li>
+            <li>Position sizing é <em>derivado</em> da análise + risco — nunca premissa. Se a conta exige "0 ações", o trade não existe.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="5-2-risco-retorno.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">5.2 Relação Risco:Retorno</span>
+          </a>
+          <a href="5-4-limite-diario.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">5.4 Limite de perda diária e Drawdowns</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+          <li><a href="../modulos/risco.html">Gestão de Risco</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+
+

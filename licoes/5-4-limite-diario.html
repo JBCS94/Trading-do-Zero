@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drawdowns e o Limite de Perda Diária · Lição 5.4 · Trading do Zero</title>
+  <meta name="description" content="Aprenda a definir o seu Limite de Perda Diária (Daily Stop Loss) e como configurar a plataforma para se proteger nos dias mais difíceis.">
+  <meta name="keywords" content="limite de perda diária, daily stop loss, drawdown day trade, gerenciamento de risco, dia de fúria, bloquear profit pro">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Drawdowns e o Limite de Perda Diária · Lição 5.4 · Trading do Zero">
+  <meta property="og:description" content="Aprenda a definir o seu Limite de Perda Diária (Daily Stop Loss) e como configurar a plataforma para se proteger nos dias mais difíceis.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/5-4-limite-diario.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Drawdowns e o Limite de Perda Diária · Lição 5.4 · Trading do Zero">
+  <meta name="twitter:description" content="Aprenda a definir o seu Limite de Perda Diária (Daily Stop Loss) e como configurar a plataforma para se proteger nos dias mais difíceis.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/5-4-limite-diario.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Drawdowns e o Limite de Perda Diária · Lição 5.4",
+  "description": "Aprenda a definir o seu Limite de Perda Diária (Daily Stop Loss) e como configurar a plataforma para se proteger nos dias mais difíceis.",
+  "url": "https://tradingdozero.com/licoes/5-4-limite-diario.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Beginner",
+  "timeRequired": "PT6M",
+  "wordCount": 1100,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 5: Gestão de risco",
+    "url": "https://tradingdozero.com/modulos/risco.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/risco.html" class="nav-cta">Módulo 5</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/risco.html">módulo 05</a>
+      <span class="sep">/</span>
+      <span>lição 5.4</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 5.4 · básico</div>
+        <h1>Drawdowns e o <em>Limite de Perda Diária</em>.</h1>
+        <p class="lesson-summary">
+          Você terá dias horríveis. Dias em que o mercado parece contrariar tudo o que você aprendeu e dias em que você cometerá erros estúpidos. O disjuntor de segurança do seu capital é o Stop Diário.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~6 min</strong></span>
+          <span>nível <strong class="nivel-basico">básico</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Na Lição 5.1 aprendemos que não podemos perder mais do que 2% do capital num *único trade*. Mas o que acontece se você tiver um dia amaldiçoado e errar 5 trades consecutivos?
+        </p>
+
+        <p>
+          Se não houver um teto global para o dia, você continuará operando guiado pela raiva (o famoso *Revenge Trading*, que veremos no módulo de psicologia). E quem opera com raiva perde ainda mais rápido. É aqui que entra o <strong>Limite de Perda Diária (Daily Stop Loss)</strong>.
+        </p>
+
+        <h2>A Regra dos Três Strikes (ou Máximo Diário)</h2>
+
+        <p>
+          As mesas proprietárias (onde traders operam o dinheiro do banco) têm um sistema de risco automatizado implacável: se um trader atinge um limite X de perda no dia, o computador desliga a conta dele até amanhã de manhã. Ele não pode clicar, não pode comprar, não pode vender. Ele está ejetado.
+        </p>
+
+        <p>
+          Você precisa aplicar a mesma disciplina militar à sua conta de varejo.
+        </p>
+
+        <p>
+          <strong>Sugestão Prática:</strong> O seu Limite de Perda Diária nunca deve ultrapassar <strong>4% ou 5%</strong> da sua conta global. 
+          <br>Isto significa que, se você usa um risco de 2% por trade, você tem direito a errar feio duas vezes seguidas no dia. Se perder os dois trades (somando -4%), <strong>o seu dia de trading acabou</strong>. 
+        </p>
+
+        <h2>O poder do "Amanhã"</h2>
+
+        <p>
+          A dor de fechar a plataforma com prejuízo é brutal. O instinto humano grita "Faz só mais um trade para recuperar o prejuízo de hoje! Não queiras ir dormir no vermelho!".
+        </p>
+
+        <p>
+          O problema é que o mercado não sabe que você perdeu dinheiro, e não lhe deve nada. Se você forçar operações que não estão no seu plano apenas para "recuperar", os seus 4% de perda se transformam em 20% em menos de meia-hora. Aquele prejuízo que levaria um dia bom para recuperar, agora vai levar duas semanas.
+        </p>
+
+        <div class="lesson-quote">
+          Se você bateu no seu Limite Diário, aceite a derrota. O mercado vai abrir amanhã exatamente à mesma hora, com as mesmas oportunidades. Vá descansar.
+        </div>
+
+        <h2>Bloqueio de Plataforma (O Disjuntor Mecânico)</h2>
+
+        <p>
+          Como seres humanos somos fracos. Confiar puramente na força de vontade para não clicar no mouse depois de perder muito dinheiro é perigoso.
+        </p>
+
+        <p>
+          Felizmente, plataformas profissionais brasileiras como o <strong>Profit Pro</strong> possuem ferramentas nativas de Gestão de Risco. Você pode (e DEVE) entrar nas configurações de Risco do Profit e preencher:
+        </p>
+
+        <ul>
+          <li><strong>Bloquear envio de ordens ao atingir Perda Total Maior que:</strong> R$ [O seu valor limite].</li>
+          <li><strong>Bloquear edição de risco até o próximo dia útil.</strong> (Isto impede que você burle o seu próprio limite no meio de um surto de raiva).</li>
+        </ul>
+
+        <p>
+          Ao configurar isto, se você atingir a perda diária, a plataforma rejeitará qualquer ordem. A tela ficará vermelha, o computador salvou a sua conta. Levante-se e vá viver o seu dia.
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">Drawdown (A Derrapagem)</div>
+          <p>
+            O Drawdown é a distância entre o pico máximo da sua conta e o ponto onde ela se encontra. Se você tinha R$ 10.000, subiu para R$ 12.000, e depois perdeu caindo para R$ 9.000, o seu Max Drawdown foi de R$ 3.000. O limite de perda diária serve precisamente para achatar esses drawdowns, transformando penhascos (quedas de 40%) em escadas suaves (quedas de 5%).
+          </p>
+        </div>
+
+        <h2>Os três níveis de limite — diário, semanal, mensal</h2>
+
+        <p>
+          O limite diário é apenas a primeira camada. Profissionais sérios trabalham com três níveis encadeados, cada um a proteger horizontes maiores:
+        </p>
+
+        <table class="lesson-table">
+          <thead>
+            <tr><th>nível</th><th>valor típico</th><th>significado quando atingido</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Diário</strong></td><td>4-6% da conta</td><td>"Hoje foi um dia mau. Amanhã recomeça."</td></tr>
+            <tr><td><strong>Semanal</strong></td><td>8-10% da conta</td><td>"Algo está sistematicamente errado. Pausa para revisão.</td></tr>
+            <tr><td><strong>Mensal</strong></td><td>15-20% da conta</td><td>"Há um problema estrutural. Voltar ao simulador.</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+          Cada nível tem consequência diferente. O diário é só "vai descansar". O semanal exige revisão sistemática do diário de trading (Lição 7.3) — algo está padronizadamente errado e precisa ser identificado. O mensal é alarme grave: a estratégia, ou a execução, ou as condições de mercado mudaram — o trader não está em condições de operar com dinheiro real.
+        </p>
+
+        <h2>A meta de lucro diário — o irmão esquecido</h2>
+
+        <p>
+          Tanto se fala de limite de perda que se esquece o outro lado: <strong>a meta de lucro diário</strong>. Quando você atinge um certo ganho num dia, também há razões para parar:
+        </p>
+
+        <ul>
+          <li><strong>Você atingiu o objetivo do dia.</strong> Por que arriscar mais? O que está garantido vale mais do que o potencial adicional.</li>
+          <li><strong>O cérebro pós-vitória entra em modo dopamina.</strong> Avaliações pioram após ganhos seguidos. É exatamente o estado em que se devolve tudo.</li>
+          <li><strong>A consistência exige limites em ambos os lados.</strong> Dia bom de 6% seguido de dia mau de -4% dá +2% ao mês. Dia bom de 6% seguido de dia em revenge porque tentou repetir o sucesso e perdeu 8% dá -2%.</li>
+        </ul>
+
+        <p>
+          Sugestão prática: <strong>meta de lucro diário = 2× o limite de perda diário</strong>. Se o stop diário é 4%, a meta de lucro é 8%. Atingiu? Plataforma fechada. Vai aproveitar o dia.
+        </p>
+
+        <p>
+          Tem que ser regra mecânica, não negociável. Sem "só mais um trade porque está fluindo". O fluir é dopamina; a regra é matemática.
+        </p>
+
+        <h2>A matemática da recuperação — depois de bater no limite</h2>
+
+        <p>
+          Bater no limite diário não é o fim do mundo, mas tem custo real. Vale visualizar:
+        </p>
+
+        <ul>
+          <li>Você tinha R$ 10.000. Bateu no limite diário de 5% → R$ 9.500.</li>
+          <li>Para recuperar os 5% no dia seguinte, precisa fazer 5,26% de ganho (a matemática da recuperação é sempre assimétrica).</li>
+          <li>Para recuperar uma semana ruim de 10%, precisa de 11,1% nas semanas seguintes.</li>
+          <li>Para recuperar um mês ruim de 20%, precisa de 25%.</li>
+        </ul>
+
+        <p>
+          Por isso o limite mecânico é tão importante: <strong>perdas pequenas se recuperam naturalmente. Perdas grandes exigem milagres matemáticos.</strong> Cada nível de limite que você respeita evita que a perda de hoje vire o trauma da semana — e que a semana vire o desastre do mês.
+        </p>
+
+        <h2>Como configurar no Profit Pro</h2>
+
+        <p>
+          O passo-a-passo concreto, para quem usa Profit Pro (na MetaTrader o conceito é igual mas o menu diferente):
+        </p>
+
+        <ol>
+          <li>Abra a plataforma logado na conta real.</li>
+          <li>Vá a <em>Configurações → Risco → Limites Diários</em>.</li>
+          <li>Preencha "Perda máxima por dia": valor em R$ correspondente a 4-5% da conta.</li>
+          <li>Ative "Bloquear envio de ordens ao atingir limite".</li>
+          <li>Ative "Manter bloqueio até próximo dia útil" — esta é a opção crítica, sem ela é fácil burlar.</li>
+          <li>Defina senha para alteração desta configuração — e <strong>dê a senha a uma pessoa próxima</strong>. Se quiser alterá-la em momento de raiva, vai ter que pedir. Esse atrito de 30 segundos é frequentemente suficiente para a cabeça fria voltar.</li>
+        </ol>
+
+        <p>
+          Pode parecer exagerado. Não é. Os traders que mais sobrevivem na carreira de day trade são justamente os que configuraram este tipo de proteção <em>antes</em> de precisar dela, não depois.
+        </p>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>Defina um limite estrito de perda por dia, que não seja superior a 4% ou 5% da conta.</li>
+            <li>Quando atingir esse valor, o dia acabou. A recuperação será tentada nos dias seguintes, de cabeça fria.</li>
+            <li>A força de vontade falha sob stress. Utilize as ferramentas de Gestão de Risco da sua plataforma (Profit, MetaTrader) para o bloquear fisicamente.</li>
+            <li>Sobreviver para poder operar no dia seguinte é a única métrica que importa no final da sessão.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="5-3-tamanho-posicao.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">5.3 Calculando o tamanho da posição</span>
+          </a>
+          <a href="5-5-trailing-stop.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">5.5 Trailing Stop e realização parcial</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+          <li><a href="../modulos/risco.html">Gestão de Risco</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+
+

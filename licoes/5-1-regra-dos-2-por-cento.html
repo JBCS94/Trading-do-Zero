@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A matemática da ruína e a Regra dos 2% · Lição 5.1 · Trading do Zero</title>
+  <meta name="description" content="A Regra dos 2% é a defesa fundamental do seu capital. Entenda a matemática da recuperação e por que perdas controladas garantem a sobrevivência.">
+  <meta name="keywords" content="regra dos 2%, gestão de risco, matemática da ruína, drawdown, risco por trade, andrew aziz, day trade">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="A matemática da ruína e a Regra dos 2% · Lição 5.1 · Trading do Zero">
+  <meta property="og:description" content="A Regra dos 2% é a defesa fundamental do seu capital. Entenda a matemática da recuperação e por que perdas controladas são a chave para sobreviver e crescer no day trade.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/5-1-regra-dos-2-por-cento.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A matemática da ruína e a Regra dos 2% · Lição 5.1 · Trading do Zero">
+  <meta name="twitter:description" content="A Regra dos 2% é a defesa fundamental do seu capital. Entenda a matemática da recuperação e por que perdas controladas são a chave para sobreviver e crescer no day trade.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/5-1-regra-dos-2-por-cento.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "A matemática da ruína e a Regra dos 2% · Lição 5.1",
+  "description": "A Regra dos 2% é a defesa fundamental do seu capital. Entenda a matemática da recuperação e por que perdas controladas são a chave para sobreviver e crescer no day trade.",
+  "url": "https://tradingdozero.com/licoes/5-1-regra-dos-2-por-cento.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Beginner",
+  "timeRequired": "PT7M",
+  "wordCount": 1108,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 5: Gestão de risco",
+    "url": "https://tradingdozero.com/modulos/risco.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/risco.html" class="nav-cta">Módulo 5</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/risco.html">módulo 05</a>
+      <span class="sep">/</span>
+      <span>lição 5.1</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 5.1 · básico</div>
+        <h1>A Matemática da Ruína:<br><em>A Regra dos 2%</em>.</h1>
+        <p class="lesson-summary">
+          A diferença entre um amador que destrói as suas economias num mês e um profissional que ganha a vida a operar não é a estratégia. É a defesa rígida e matemática do capital.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-basico">básico</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Qualquer macaco treinado pode ganhar dinheiro num dia em que o mercado sobe de forma reta. O verdadeiro trabalho de um day trader não é maximizar os lucros, é <strong>gerenciar o risco</strong>. Você é um gestor de risco.
+        </p>
+
+        <p>
+          A matemática da perda é cruel e assimétrica. Se você tem R$ 10.000 e tem um bom mês onde ganha 50%, a sua conta vai para R$ 15.000. Mas se no mês seguinte você tiver um dia de fúria e perder os mesmos 50%, você não volta para R$ 10.000. Você afunda para R$ 7.500. A porcentagem de recuperação não é igual à porcentagem de perda.
+        </p>
+
+        <h2>A Assimetria da Recuperação</h2>
+
+        <p>
+          Veja quão difícil se torna recuperar a sua conta à medida que você permite que as perdas (Drawdowns) cresçam:
+        </p>
+
+        <table class="lesson-table">
+          <thead>
+            <tr>
+              <th>Capital Perdido</th>
+              <th>Ganho necessário APENAS para empatar (voltar a zero)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Perda de 5%</td>
+              <td>Necessário ganho de <strong>5,3%</strong></td>
+            </tr>
+            <tr>
+              <td>Perda de 10%</td>
+              <td>Necessário ganho de <strong>11%</strong></td>
+            </tr>
+            <tr>
+              <td>Perda de 20%</td>
+              <td>Necessário ganho de <strong>25%</strong></td>
+            </tr>
+            <tr>
+              <td>Perda de 50%</td>
+              <td>Necessário ganho de <strong>100%</strong> <em>(dobrar o capital restante)</em></td>
+            </tr>
+            <tr>
+              <td>Perda de 90%</td>
+              <td>Necessário ganho de <strong>900%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          É por isso que traders amadores quebram. Eles entram num trade de <em>Bull Flag</em> com 50% do capital da conta sem stop loss. O trade dá errado, eles perdem 30% num único dia. Para recuperar, eles agora têm que fazer 43% de lucro com um capital menor, o que os força a correr mais riscos, gerando uma espiral de morte (A matemática da ruína).
+        </p>
+
+        <h2>A Regra de Ouro: Os 2% (The 2% Rule)</h2>
+
+        <p>
+          A regra fundamental de sobrevivência, adotada por 99% das mesas de operações proprietárias (<em>prop firms</em>) e por todo trader profissional sério, é cristalina:
+        </p>
+
+        <div class="lesson-quote">
+          Você NUNCA pode arriscar perder mais do que 2% do total do capital da sua conta num único trade.
+        </div>
+
+        <p>
+          Nota: "Arriscar 2%" não significa comprar ações com 2% do seu dinheiro. Significa que, se o trade for contra você e bater no seu <strong>Stop Loss</strong>, o dinheiro vaporizado (o prejuízo da operação) não pode ser superior a 2% do seu capital total disponível.
+        </p>
+
+        <p>
+          Se a sua conta tem R$ 10.000:
+          <br>Risco Máximo por Trade = R$ 200.
+        </p>
+
+        <p>
+          Se o seu trade bater no stop loss, você perdeu R$ 200. A sua conta ainda tem R$ 9.800. Você está vivo e saudável para operar amanhã.
+        </p>
+
+        <div class="callout">
+          <div class="callout-label">Para contas menores, 1% é melhor</div>
+          <p>
+            Muitos profissionais na verdade usam apenas <strong>1%</strong> ou até 0,5% de risco por trade. A regra dos 2% é o teto máximo absoluto. Se você usa 2%, você precisaria errar cerca de 50 trades <em>consecutivos</em> para aniquilar a sua conta. Se errar 5 trades seguidos, perdeu apenas cerca de 10%. É frustrante, mas não é o fim da sua carreira.
+          </p>
+        </div>
+
+        <h2>Desapegando do Dinheiro</h2>
+
+        <p>
+          A Regra dos 2% tem um segundo propósito além da matemática: <strong>o fator psicológico</strong>.
+        </p>
+
+        <p>
+          Quando você entra num trade onde a perda máxima possível é de apenas 1% a 2% da sua conta, o seu coração não bate rápido. As suas mãos não suam. Se o preço estiver quase batendo no seu Stop Loss, você aceita o stop mecanicamente, porque a perda é irrelevante para a sua sobrevivência. Você retira o componente emocional da operação e passa a agir como um robô.
+        </p>
+
+        <p>
+          Quando você arrisca 20% da sua conta num só trade, você entra em negação se o trade for mal, paralisa, cancela o stop loss rezando para a cotação voltar, e transforma um dia mau numa catástrofe irreparável.
+        </p>
+
+        <h2>Calcular o tamanho da posição a partir do risco</h2>
+
+        <p>
+          A regra dos 2% determina <strong>quanto você pode perder</strong>, não quantas ações comprar. O número de ações é uma consequência do risco e da distância ao stop loss. A fórmula é simples:
+        </p>
+
+        <div class="callout">
+          <div class="callout-label">fórmula do position size</div>
+          <p style="font-family: var(--font-mono); font-size: 1rem;">
+            Tamanho da posição = (Capital × % de risco) ÷ Distância ao stop
+          </p>
+        </div>
+
+        <p>
+          Exemplo concreto. Conta de R$ 20.000. Risco máximo por trade = 1,5% = R$ 300. Você quer comprar PETR4, que está em R$ 38,50, e o seu stop loss tem que ficar em R$ 38,20 (logo abaixo de um suporte claro). Distância ao stop = R$ 0,30 por ação.
+        </p>
+
+        <p>
+          Tamanho máximo da posição = R$ 300 ÷ R$ 0,30 = <strong>1.000 ações</strong>. Você compra 1.000 ações de PETR4 a R$ 38,50, investindo R$ 38.500 — sim, mais do que tem na conta. É aí que entra a alavancagem intraday que toda corretora oferece para day trade. Se o stop estourar, perde os R$ 300 (1,5%). Se o trade for ao alvo de R$ 39,30, ganha R$ 800 (R:R 1:2,7).
+        </p>
+
+        <p>
+          Mude o stop para R$ 38,00 (distância de R$ 0,50)? Agora o tamanho cai para 600 ações. <strong>Stop mais largo significa menos ações — sempre.</strong> Isto é o que blinda a sua conta: nunca você arrisca mais do que os 1,5% pré-definidos, qualquer que seja a operação.
+        </p>
+
+        <h2>O limite agregado — diário, semanal, mensal</h2>
+
+        <p>
+          A regra dos 2% é por trade. Mas há limites agregados que valem implementar em paralelo, e que separam o trader profissional do amador disciplinado:
+        </p>
+
+        <table class="lesson-table">
+          <thead>
+            <tr><th>limite</th><th>valor típico</th><th>o que acontece se for atingido</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>perda diária máxima</strong></td>
+              <td>4% a 6% do capital</td>
+              <td>parar de operar no dia. Voltar amanhã.</td>
+            </tr>
+            <tr>
+              <td><strong>perda semanal máxima</strong></td>
+              <td>8% a 10%</td>
+              <td>parar de operar até segunda da semana seguinte. Revisar o que está dando errado.</td>
+            </tr>
+            <tr>
+              <td><strong>perda mensal máxima</strong></td>
+              <td>15% a 20%</td>
+              <td>parar de operar até o mês seguinte. Voltar ao simulador. Algo está estruturalmente errado.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Estes limites são <strong>circuit breakers pessoais</strong>. Eles existem porque quando você está perdendo, é exatamente quando NÃO consegue tomar boas decisões. A psicologia entra no caminho da matemática. Ter regras pré-definidas para "quando parar" é o que protege você de você mesmo.
+        </p>
+
+        <h2>Ajustar risco por convicção do setup</h2>
+
+        <p>
+          Há uma sofisticação que traders experientes acrescentam à regra fixa de 1-2%: <strong>variar o risco em função da qualidade do setup</strong>. Não todos os trades nascem iguais.
+        </p>
+
+        <p>
+          Um ABCD perfeito em PETR4, com volume confirmando, na primeira hora do pregão, com S&P 500 a favor — é um setup A+. Aqui faz sentido arriscar até o teto da regra: 2% do capital. Já um setup B-, mais ambíguo (ponto C não está totalmente confirmado, volume morno, contexto duvidoso), merece talvez 0,5% ou simplesmente ficar fora.
+        </p>
+
+        <p>
+          Esta calibração é uma das competências que se desenvolvem ao longo de meses de diário de trades (Lição 7.3). Você aprende a categorizar os seus próprios setups por nota, e a dimensionar a posição de acordo. <strong>Não é arbitrário — é matemática aplicada à sua estatística pessoal de acerto.</strong>
+        </p>
+
+        <div class="lesson-quote">
+          Gestão de risco não é o que você faz quando o trade dá errado. É <em>o que você decide antes</em> do trade começar, e que o impede de te destruir quando dá errado.
+        </div>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>A matemática da recuperação é assimétrica: perdas grandes exigem ganhos desproporcionalmente maiores para empatar.</li>
+            <li>Nunca arrisque mais de 2% do capital total num único trade. Iniciantes devem usar 1% ou menos.</li>
+            <li>O tamanho da posição é uma consequência: posição = (capital × % risco) ÷ distância ao stop.</li>
+            <li>Stop mais largo = posição menor. Sempre. O risco em reais é fixo, o tamanho varia.</li>
+            <li>Implemente circuit breakers diários (4-6%), semanais (8-10%) e mensais (15-20%). Pare quando bater no limite, sem desculpas.</li>
+            <li>O limite de risco mecânico remove o medo irracional e devolve clareza de decisão na tela.</li>
+            <li>Traders experientes ajustam o tamanho da posição pela qualidade do setup — setups A+ recebem mais, setups B- recebem menos ou nada.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="../modulos/risco.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">módulo anterior</span>
+            <span class="lesson-nav-title">Módulo 5: Gestão de Risco</span>
+          </a>
+          <a href="5-2-risco-retorno.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">5.2 Relação Risco:Retorno (Risk:Reward)</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+          <li><a href="../modulos/risco.html">Gestão de Risco</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+
+

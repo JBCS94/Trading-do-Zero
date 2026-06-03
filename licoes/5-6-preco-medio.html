@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O veneno do preço médio · Lição 5.6 · Trading do Zero</title>
+  <meta name="description" content="Averaging Down: A técnica que mais atrasa traders iniciantes. Por que tentar consertar um trade ruim costuma piorar a situação — e como sair dessa armadilha.">
+  <meta name="keywords" content="preço médio day trade, averaging down, paul tudor jones, erro fatal day trade, gestão de risco">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="O veneno do preço médio · Lição 5.6 · Trading do Zero">
+  <meta property="og:description" content="Averaging Down: A técnica que mais atrasa traders iniciantes. Por que tentar consertar um trade ruim costuma piorar a situação — e como sair dessa armadilha.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/5-6-preco-medio.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="O veneno do preço médio · Lição 5.6 · Trading do Zero">
+  <meta name="twitter:description" content="Averaging Down: A técnica que mais atrasa traders iniciantes. Por que tentar consertar um trade ruim costuma piorar a situação — e como sair dessa armadilha.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/5-6-preco-medio.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "O veneno do preço médio · Lição 5.6",
+  "description": "Averaging Down: A técnica que mais atrasa traders iniciantes. Por que tentar consertar um trade ruim costuma piorar a situação — e como sair dessa armadilha.",
+  "url": "https://tradingdozero.com/licoes/5-6-preco-medio.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "PT7M",
+  "wordCount": 1250,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 5: Gestão de risco",
+    "url": "https://tradingdozero.com/modulos/risco.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/risco.html" class="nav-cta">Módulo 5</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/risco.html">módulo 05</a>
+      <span class="sep">/</span>
+      <span>lição 5.6</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 5.6 · avançado</div>
+        <h1>O veneno do<br><em>preço médio</em> (Averaging Down).</h1>
+        <p class="lesson-summary">
+          Em Wall Street diz-se: "Losers average losers" (Perdedores fazem preço médio em operações perdedoras). Aprenda por que esta técnica destrói contas numa questão de horas.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-avancado">avançado</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Existe um conceito perigoso que os investidores de longo prazo usam e que os day traders importam de forma fatal: o preço médio.
+        </p>
+
+        <p>
+          Se o Warren Buffett compra uma ação a R$ 50 para mantê-la por 10 anos e no mês seguinte ela cai para R$ 40, ele compra mais. O preço médio dele cai para R$ 45. Como a empresa é sólida e ele tem todo o tempo do mundo, é uma jogada lógica.
+        </p>
+
+        <p>
+          <strong>No day trade intraday, isso é um erro grave que pode liquidar a conta.</strong>
+        </p>
+
+        <h2>A anatomia do erro (O Canto da Sereia)</h2>
+
+        <p>
+          O trader entra num trade na abertura do mercado. Compra 500 ações a R$ 20,00 apostando na alta.
+          <br>Dez minutos depois, o balanço é fraco e a ação cai como uma pedra para R$ 19,50.
+        </p>
+
+        <p>
+          Em vez de aceitar o Stop Loss (a Regra dos 2%) e assumir a dor de uma perda de R$ 250, o ego humano entra em ação. O trader recusa-se a aceitar que estava errado. 
+        </p>
+
+        <p>
+          A sua mente cria a ilusão: "Caiu tanto que agora está barata. Vou comprar mais 500 ações a R$ 19,50. Assim o meu preço médio de entrada baixa para R$ 19,75. Se ela der um mísero repique de 25 centavos, eu saio no zero-a-zero."
+        </p>
+
+        <p>
+          <strong>Isto é o "Averaging Down". E é o beijo da morte.</strong>
+        </p>
+
+        <p>
+          Neste cenário, o que quase sempre acontece é o mercado ignorar os seus desejos. A ação cai para R$ 19,00. Agora, você não tem apenas 500 ações perdendo dinheiro. Você tem 1.000 ações perdendo o dobro do dinheiro, em queda livre. O pânico apodera-se do seu corpo, a sua corretora aciona a "Chamada de Margem" (Margin Call) e liquida a sua posição à força no pior preço do dia, aniquilando a sua conta.
+        </p>
+
+        <div class="lesson-quote">
+          Há um ditado de Wall Street, atribuído a Paul Tudor Jones, que vale a pena guardar: <em>losers average losers</em>. Tradução livre: quem perde, faz preço médio para baixo.
+        </div>
+
+        <h2>Averaging UP (A forma profissional)</h2>
+
+        <p>
+          Fazer preço médio não é proibido por si só — desde que seja para <strong>CIMA</strong>, não para baixo. 
+        </p>
+
+        <p>
+          Os traders profissionais costumam usar o <strong>Averaging Up</strong> (Aumentar a posição vencedora):
+        </p>
+
+        <ol>
+          <li>Você compra 200 ações (um tamanho menor) no rompimento inicial de um ABCD.</li>
+          <li>O trade começa a fluir a seu favor (verde). O ativo prova que a sua tese está certa.</li>
+          <li>Ele faz um recuo (pullback) seguro e você <strong>adiciona mais 200 ações</strong> nesse fundo superior.</li>
+          <li>O seu preço médio de entrada aumenta ligeiramente, mas você está adicionando risco <em>apenas a uma operação vencedora comprovada</em>. O risco principal da segunda compra está protegido pelo lucro que a primeira já deu.</li>
+        </ol>
+
+        <div class="callout warn">
+          <div class="callout-label">Se for vermelho, corte.</div>
+          <p>
+            Nunca, sob nenhuma circunstância de mercado, adicione capital a uma posição que está negativa (em drawdown) num day trade. Adicionar a perdedores não é uma estratégia de investimento, é uma oração à esperança. E o mercado não atende orações.
+          </p>
+        </div>
+
+        <h2>Por que o preço médio descendente parece tentador</h2>
+
+        <p>
+          Vale entender por que o cérebro humano caem tantas vezes nesta armadilha. A psicologia do trader em momento de perda passa por uma sequência previsível:
+        </p>
+
+        <ol>
+          <li><strong>Negação.</strong> "A ação não vai cair mais. Isto é só um teste." O cérebro tem dificuldade em aceitar que estava errado, então rejeita a evidência do gráfico.</li>
+          <li><strong>Racionalização.</strong> "Os fundamentos não mudaram, está só uma correção." Procura razões para manter a posição mesmo quando o preço diz o contrário.</li>
+          <li><strong>Cálculo do "preço justo".</strong> "Se eu comprar mais agora, o meu preço médio fica menor. Só preciso de um repique pequeno para sair no zero-a-zero." É aqui que a armadilha se fecha.</li>
+          <li><strong>A compra adicional.</strong> O trader compra mais. Sente uma momentânea sensação de "controle da situação".</li>
+          <li><strong>Realidade.</strong> O preço continua a cair. Agora a posição é o dobro. A dor é o dobro. As decisões pioram exponencialmente.</li>
+        </ol>
+
+        <p>
+          A sensação de controle do passo 4 é uma ilusão neurológica. O cérebro confunde "fazer alguma coisa" com "fazer a coisa certa". <strong>A acção correta era cortar a perda — não amplificá-la.</strong>
+        </p>
+
+        <h2>Um exemplo numérico — a espiral catastrófica</h2>
+
+        <p>
+          Vamos quantificar o estrago. Trader com conta de R$ 10.000, regra de risco 1% (R$ 100 por trade):
+        </p>
+
+        <ul>
+          <li><strong>Entrada inicial:</strong> 500 ações de PETR4 a R$ 38,00. Stop em R$ 37,80 — risco R$ 100, dentro da regra.</li>
+          <li><strong>Preço cai para R$ 37,80:</strong> deveria estopar e perder R$ 100 (1% da conta). Em vez disso, decide fazer preço médio.</li>
+          <li><strong>Adiciona 500 ações a R$ 37,80.</strong> Agora tem 1.000 ações ao preço médio de R$ 37,90. Perda actual = R$ 100 (50 cêntimos abaixo das primeiras 500). Mas <strong>risco efectivo dobrou</strong>.</li>
+          <li><strong>Preço continua a cair até R$ 37,40.</strong> Agora tem 1.000 ações a R$ 37,90 com preço actual R$ 37,40. Perda = R$ 500. Já é 5% da conta — limite diário rompido.</li>
+          <li><strong>Em pânico, adiciona mais 500 a R$ 37,40.</strong> Total 1.500 ações ao preço médio de R$ 37,73. Continua a cair.</li>
+          <li><strong>R$ 37,00:</strong> perda total = R$ 1.095. Quase 11% da conta perdida num único trade.</li>
+          <li><strong>Margem chamada:</strong> a corretora liquida a R$ 36,80. Perda final: R$ 1.395. Mais de 13% da conta destruída.</li>
+        </ul>
+
+        <p>
+          <strong>Note a aritmética cruel:</strong> o stop original na entrada teria limitado a R$ 100. Cada decisão de "fazer preço médio" multiplicou a perda. Em vez de um trade ruim normal (1% perdido, recuperável em 1-2 dias), tornou-se um evento catastrófico que demora meses a reverter — se for possível mentalmente recuperar do trauma.
+        </p>
+
+        <h2>Quando o preço médio descendente é técnica válida</h2>
+
+        <p>
+          Para honestidade, há um único contexto em que o preço médio descendente faz sentido: <strong>investimento de longo prazo em empresas sólidas, com horizonte de anos, e tese fundamentalista intacta</strong>. Quem compra Itaúsa para 10 anos pode comprar mais quando o preço cai, porque a tese é a empresa, não o gráfico de hoje.
+        </p>
+
+        <p>
+          <strong>Mas isto não é day trade.</strong> No day trade:
+        </p>
+
+        <ul>
+          <li>O horizonte é horas, não anos.</li>
+          <li>A tese é técnica (price action), não fundamentalista.</li>
+          <li>Não há "tempo para recuperar" — o pregão acaba às 17h.</li>
+          <li>A alavancagem amplifica perdas mais rapidamente.</li>
+          <li>O stop existe precisamente para definir o ponto em que a tese morre.</li>
+        </ul>
+
+        <p>
+          Quem importa práticas de investidor de longo prazo para day trade está confundindo duas atividades fundamentalmente diferentes. <em>O que funciona para Buffett não funciona para day trader. E vice-versa.</em>
+        </p>
+
+        <h2>A regra única que evita tudo isto</h2>
+
+        <p>
+          Há uma forma simples de proteger-se de toda esta armadilha psicológica: <strong>configurar o stop loss como ordem efectiva na plataforma, simultaneamente à entrada</strong>. Não como "stop mental". Stop real, na corretora, executando automaticamente quando o preço atingir o nível definido.
+        </p>
+
+        <p>
+          Quando o stop é automático, o trader não tem oportunidade de "decidir" se faz preço médio. A plataforma fecha a posição. O trauma é evitado. O capital é preservado. A regra dos 2% mantém-se.
+        </p>
+
+        <p>
+          Esta é uma regra tão simples que parece banal — mas é uma das que mais frequentemente é violada. "Vou usar stop mental hoje" é a frase que precede a maioria dos desastres. Não use stop mental no day trade. Nunca. Sob nenhuma circunstância.
+        </p>
+
+        <h2>O Fecho do Escudo</h2>
+
+        <p>
+          Chegamos ao fim da Gestão de Risco. Com a Regra dos 2%, com o cálculo exato do lote da Lição 5.3, com a regra do Breakeven e o veto absoluto ao preço médio negativo, você está **matematicamente blindado** contra o mercado financeiro. 
+        </p>
+
+        <p>
+          Nenhum fundo institucional vai conseguir zerar a sua conta se você obedecer a estas 6 lições. A única pessoa capaz de destruir o seu escudo... é você mesmo. É sobre isso que falaremos no Módulo de Psicologia.
+        </p>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>Fazer preço médio para trás (adicionar mais dinheiro a um trade negativo) destrói carreiras de traders numa única manhã.</li>
+            <li>Se a ação atingiu o seu suporte técnico, execute o Stop Loss e saia. Não tente "consertar" uma aposta falhada com mais lotes.</li>
+            <li>Sinta-se livre para "Fazer Preço Médio para a Frente" (Averaging Up), aumentando a sua posição apenas em trades que já estão lucrativos.</li>
+            <li>Lembre-se da placa de Paul Tudor Jones: Perdedores fazem preço médio de perdedores.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="5-5-trailing-stop.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">5.5 Trailing Stop e realização parcial</span>
+          </a>
+          <a href="../modulos.html#m6" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próximo módulo</span>
+            <span class="lesson-nav-title">Módulo 6: Psicologia e Disciplina</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+          <li><a href="../modulos/risco.html">Gestão de Risco</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+
+

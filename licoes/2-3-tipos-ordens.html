@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipos de ordens na prática · Lição 2.3 · Trading do Zero</title>
+  <meta name="description" content="Aprenda a diferença entre ordens a mercado, limite, stop e stop-limit. Descubra como usar as ordens OCO no day trade e evite o perigo do slippage.">
+  <meta name="keywords" content="tipos de ordens, ordem a mercado, ordem limit, stop loss, ordem OCO, slippage, day trade">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tipos de ordens na prática · Lição 2.3 · Trading do Zero">
+  <meta property="og:description" content="Aprenda a diferença entre ordens a mercado, limite, stop e stop-limit. Descubra como usar as ordens OCO no day trade e evite o perigo do slippage.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/2-3-tipos-ordens.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tipos de ordens na prática · Lição 2.3 · Trading do Zero">
+  <meta name="twitter:description" content="Aprenda a diferença entre ordens a mercado, limite, stop e stop-limit. Descubra como usar as ordens OCO no day trade e evite o perigo do slippage.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/2-3-tipos-ordens.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Tipos de ordens na prática · Lição 2.3",
+  "description": "Aprenda a diferença entre ordens a mercado, limite, stop e stop-limit. Descubra como usar as ordens OCO no day trade e evite o perigo do slippage.",
+  "url": "https://tradingdozero.com/licoes/2-3-tipos-ordens.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Beginner",
+  "timeRequired": "PT9M",
+  "wordCount": 1427,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 2: Ferramentas e infraestrutura",
+    "url": "https://tradingdozero.com/modulos/ferramentas.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/ferramentas.html" class="nav-cta">Módulo 2</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/ferramentas.html">módulo 02</a>
+      <span class="sep">/</span>
+      <span>lição 2.3</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 2.3 · básico</div>
+        <h1>Tipos de ordens:<br><em>mercado, limite e stop</em>.</h1>
+        <p class="lesson-summary">
+          Comprar não é apenas apertar um botão. Se você não souber a diferença entre uma ordem a mercado e uma ordem limit, o mercado vai roubar o seu lucro centavo a centavo na forma de slippage.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~9 min</strong></span>
+          <span>nível <strong class="nivel-basico">básico</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Há um choque de realidade que atinge todo novato no primeiro dia de conta real. Ele vê no gráfico que as ações da Petrobras estão a R$ 38,00. Ele clica em "Comprar". Quando vai olhar o preço de entrada da operação, não está R$ 38,00, mas R$ 38,04. Ele já começa no vermelho.
+        </p>
+
+        <p>
+          O que aconteceu? Ele usou a ordem errada, e foi vítima do <em>Slippage</em> (deslize de preço).
+        </p>
+
+        <p>
+          A plataforma de trading profissional não tem apenas o botão "Comprar" e "Vender". Ela exige que você instrua o sistema sobre <strong>como</strong> você quer que a operação seja executada. Vamos aos quatro tipos fundamentais de ordens.
+        </p>
+
+        <h2>1. Ordem a Mercado (Market Order)</h2>
+
+        <p>
+          A instrução que você dá ao sistema: <em>"Eu quero comprar (ou vender) AGORA. Não me interessa o preço, apenas garanta que a execução seja feita imediatamente."</em>
+        </p>
+
+        <p>
+          A ordem a mercado ataca o Book de Ofertas. Ela vai agredir quem estiver disposto a vender. Se o preço no visor mostra R$ 38,00, mas a melhor oferta de venda real no book naquele exato microssegundo é de R$ 38,03, a sua compra sairá a R$ 38,03.
+        </p>
+
+        <p>
+          <strong>Vantagem:</strong> Execução 100% garantida. Se você quer entrar, você entra. Se quer sair com urgência, você sai.<br>
+          <strong>Desvantagem:</strong> Preço não garantido. Em momentos de alta volatilidade, o <em>slippage</em> pode devorar todo o seu lucro planejado.
+        </p>
+
+        <table class="lesson-table">
+          <thead>
+            <tr>
+              <th>Situação</th>
+              <th>Recomendação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Entrar em um rompimento (breakout) veloz</td>
+              <td>Aceitável usar a Mercado para não perder o movimento</td>
+            </tr>
+            <tr>
+              <td>Sair de um trade porque o limite de perda estourou</td>
+              <td><strong>Obrigatório</strong> usar a Mercado. Fuja o mais rápido possível</td>
+            </tr>
+            <tr>
+              <td>Mercado calmo ou em lateralização</td>
+              <td>Não use. É dar dinheiro de graça aos provedores de liquidez</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>2. Ordem Limitada (Limit Order)</h2>
+
+        <p>
+          A instrução que você dá ao sistema: <em>"Eu quero comprar, mas SÓ pago até um preço máximo. Se não for nesse preço, não quero."</em>
+        </p>
+
+        <p>
+          Se a Petrobras está a R$ 38,10, você pode colocar uma Ordem Limit de compra a R$ 38,00. Sua ordem vai para a "fila de espera" no book. Ela só será executada se o preço cair até os R$ 38,00 e houver alguém querendo te vender lá.
+        </p>
+
+        <p>
+          <strong>Vantagem:</strong> O preço é garantido. Você não sofre slippage nunca.<br>
+          <strong>Desvantagem:</strong> A execução NÃO é garantida. Se o preço chegar a R$ 38,01 e depois disparar para cima, você fica chupando no dedo, assistindo ao trade sem você.
+        </p>
+
+        <p>
+          Para o day trader, as ordens Limit são frequentemente usadas para <strong>realizar lucros</strong> (o seu "alvo") ou para entrar em <em>pullbacks</em> (retornos de preço a um suporte).
+        </p>
+
+        <h2>3. Ordem Stop (Stop Order)</h2>
+
+        <p>
+          A Ordem Stop é um "gatilho". A instrução é: <em>"Fica invisível. Se o preço tocar num determinado valor, dispare imediatamente uma Ordem a Mercado."</em>
+        </p>
+
+        <p>
+          O uso mais famoso é o <strong>Stop Loss</strong> (parar perda). Você está comprado em PETR4 a R$ 38,00 e o seu plano diz que se o preço cair para R$ 37,80, a operação deu errado e você precisa sair. Você posiciona uma ordem de Venda Stop a R$ 37,80. Quando e se a cotação bater lá, o sistema joga uma ordem a mercado para te tirar do trade de qualquer jeito, mesmo que a execução saia a R$ 37,78.
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">Atenção ao Slippage no Stop</div>
+          <p>
+            Como o gatilho gera uma ordem a mercado, pular num "buraco de liquidez" é possível. É por isso que em eventos catastróficos (notícias surpresa fortíssimas), o seu stop que estava no R$ 37,80 pode te ejetar a R$ 37,50. É ruim, mas é melhor do que não ter stop.
+          </p>
+        </div>
+
+        <h2>4. Ordem Stop-Limit</h2>
+
+        <p>
+          Esta mistura os dois conceitos. A instrução é: <em>"Se o preço tocar X (o gatilho Stop), envie uma ordem do tipo Limit no preço Y."</em>
+        </p>
+
+        <p>
+          O day trader costuma usar isso para <strong>entrar</strong> numa operação de rompimento. Se a resistência do dia é R$ 38,50, você quer comprar se o preço quebrar essa barreira. Você programa:<br>
+          Gatilho (Stop): R$ 38,51.<br>
+          Limite de execução: R$ 38,55.
+        </p>
+
+        <p>
+          Ou seja: "Quando bater 38,51, mande comprar, mas pague no máximo 38,55. Se for mais caro do que isso na derrapada de preço, cancele."
+        </p>
+
+        <h2>OCO: O Santo Graal do Day Trader</h2>
+
+        <p>
+          No day trade, a velocidade é tudo. Se você entra num trade, você já precisa saber onde vai perder e onde vai ganhar. As plataformas criaram as ordens <strong>OCO (One Cancels the Other - Uma Cancela a Outra)</strong> para automatizar a sua gestão de risco.
+        </p>
+
+        <p>
+          Funciona assim: No Profit ou MetaTrader, você configura uma estratégia OCO previamente. Quando você clica em "Comprar" a mercado, a plataforma envia a ordem de entrada, mas também envia <strong>simultaneamente</strong> duas ordens amarradas:
+        </p>
+
+        <ul>
+          <li>Uma Ordem Limit (o seu alvo, acima do preço).</li>
+          <li>Uma Ordem Stop (o seu risco, abaixo do preço).</li>
+        </ul>
+
+        <p>
+          As duas ordens são "irmãs". Se o preço subir e atingir o seu alvo de lucro (Limit), o sistema lucra para você e <em>cancela instantaneamente</em> a ordem Stop para que você não acabe vendendo acidentalmente depois. Se o trade for contra você e pegar o seu Stop, a plataforma fecha no prejuízo e cancela o seu alvo para que ele não fique solto no book.
+        </p>
+
+        <div class="lesson-quote">
+          Há um princípio que separa o trader profissional do amador: <strong>o stop está no sistema, não na cabeça</strong>. Antes de entrar no trade, o profissional já sabe exatamente onde vai sair se as coisas correrem mal — e essa ordem já está armada na plataforma via hotkey ou OCO. Stops mentais ("vou sair se cair muito") são uma das formas mais comuns de explodir contas, porque a hora da dor é a pior hora para tomar decisões.
+        </div>
+
+        <h2>Configurando OCO no Profit Pro — passo a passo</h2>
+
+        <p>
+          Por ser tão crítico, vale o detalhe operacional. Na plataforma Profit Pro:
+        </p>
+
+        <ol>
+          <li>Abra <em>Configurações → Risco → Estratégias OCO</em>.</li>
+          <li>Crie uma nova estratégia. Dê-lhe um nome reconhecível ("OCO padrão 1% risco" por exemplo).</li>
+          <li>Configure os parâmetros relativos: stop a X centavos da entrada (ou X pontos no caso de mini-contratos), alvo a Y centavos.</li>
+          <li>Para day trade típico em ações, valores razoáveis de partida: stop 20 centavos, alvo 60 centavos (R:R 1:3).</li>
+          <li>Ative "Aplicar automaticamente em todas as entradas".</li>
+          <li>Atribua hotkeys diferentes a estratégias diferentes — uma para R:R 1:2, outra para 1:3, outra para 1:5.</li>
+        </ol>
+
+        <p>
+          Resultado: quando você aperta a hotkey de compra, a plataforma envia 3 ordens em sequência rapidíssima: a entrada a mercado, o stop, e o alvo. Em menos de 1 segundo o trade está completo, com toda a gestão de risco armada. Não há decisões adicionais para tomar enquanto o preço se move.
+        </p>
+
+        <h2>Erros comuns com tipos de ordens</h2>
+
+        <p>
+          Três armadilhas frequentes em iniciantes:
+        </p>
+
+        <ul>
+          <li><strong>Usar ordem a mercado para sair de lucro em ativos pouco líquidos.</strong> Você ganhou R$ 200 num trade. Pressa para vender, usa a mercado. A primeira venda do book está 8 centavos abaixo do que aparecia no gráfico — você acabou de devolver R$ 20 em slippage. Em ativos não-blue-chip, sempre ordem limitada para realizar lucro.</li>
+          <li><strong>Stop loss como ordem limitada (e não stop).</strong> Erro perigoso. Se você programa "vender limitada a R$ 37,80" em vez de "vender stop a R$ 37,80", o que acontece quando o preço cai? Quando passa R$ 37,80 com força, a sua ordem limitada não executa (porque o mercado já está abaixo desse preço). O stop é o tipo correto — gera ordem a mercado quando o preço é atingido.</li>
+          <li><strong>OCO mal configurado com alvos absurdos.</strong> Quem configura stop 10 centavos e alvo 5 reais está usando mecânica OCO mas com matemática suicida. O R:R configurado tem de fazer sentido para o setup específico. Não há "OCO universal" — é só uma ferramenta que executa o que você definir, certo ou errado.</li>
+        </ul>
+
+        <h2>Quando usar cada tipo — guia rápido</h2>
+
+        <table class="lesson-table">
+          <thead>
+            <tr><th>situação</th><th>tipo de ordem ideal</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Entrada num rompimento confirmado em ação líquida</td><td>Mercado (não perde o movimento)</td></tr>
+            <tr><td>Entrada num pullback esperado para suporte</td><td>Limitada no nível do suporte</td></tr>
+            <tr><td>Entrada antecipada acima de resistência (gatilho)</td><td>Stop-limit (gatilho + limite de preço)</td></tr>
+            <tr><td>Saída por stop loss</td><td>Stop (vira ordem a mercado quando atingido)</td></tr>
+            <tr><td>Saída no alvo planejado em ação líquida</td><td>Limitada no nível do alvo</td></tr>
+            <tr><td>Saída de emergência (notícia ruim, pânico)</td><td>Mercado (urgência absoluta)</td></tr>
+            <tr><td>Gestão completa do trade (entrada + stop + alvo)</td><td>OCO/Bracket order</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <div class="callout-label">a vantagem do bracket</div>
+          <p>
+            Plataformas profissionais oferecem o que chamam de <em>bracket order</em> — uma versão integrada do OCO em que todas as três ordens (entrada, stop, alvo) são submetidas simultaneamente como um único trade. A vantagem é a atomicidade: ou as três entram, ou nenhuma entra. Em situações de alta volatilidade, isto previne que a entrada execute mas o stop ainda não esteja no servidor — momento em que uma queda violenta poderia causar prejuízo descontrolado.
+          </p>
+        </div>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li><strong>Ordem a Mercado:</strong> Garante execução. Não garante preço. Use para sair de emergência (stop loss na mão).</li>
+            <li><strong>Ordem Limit:</strong> Garante preço. Não garante execução. Use para realizar lucros (alvos) ou pegar retornos no preço.</li>
+            <li><strong>Ordem Stop:</strong> É um gatilho que dispara uma ordem a mercado. Protege o seu capital e tira você de perdedores de forma impiedosa.</li>
+            <li><strong>Ordens OCO:</strong> Indispensáveis. Permitem que você mande o alvo e o stop simultaneamente no momento da entrada. Retiram o estresse emocional de decidir na hora.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="2-2-plataformas.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">2.2 Plataformas de execução</span>
+          </a>
+          <a href="2-4-book-ofertas.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">2.4 Book de ofertas e Level 2</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="../modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+              </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+
+

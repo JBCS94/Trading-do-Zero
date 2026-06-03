@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4: Estratégias de day trade · Trading do Zero</title>
+  <meta name="description" content="Módulo 4: Estratégias de day trade. Padrão ABCD, Bull Flags, Reversão de Topo, VWAP, Red-to-Green e ORB. Aprenda os setups profissionais para atuar na Bolsa.">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Módulo 4: Estratégias de day trade · Trading do Zero">
+  <meta property="og:description" content="Módulo 4: Estratégias de day trade. Padrão ABCD, Bull Flags, Reversão de Topo, VWAP, Red-to-Green e ORB. Aprenda os setups profissionais para atuar na Bolsa.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/modulos/estrategias.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Módulo 4: Estratégias de day trade · Trading do Zero">
+  <meta name="twitter:description" content="Módulo 4: Estratégias de day trade. Padrão ABCD, Bull Flags, Reversão de Topo, VWAP, Red-to-Green e ORB. Aprenda os setups profissionais para atuar na Bolsa.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/modulos/estrategias.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Módulo 4: Estratégias e setups",
+  "description": "ABCD, Bull/Bear Flag, reversões, VWAP/MA Trend, Red-to-Green e ORB.",
+  "url": "https://tradingdozero.com/modulos/estrategias.html",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "educationalLevel": "Intermediate",
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com/modulos.html"
+  },
+  "hasPart": [
+    {
+      "@type": "LearningResource",
+      "name": "O Padrão ABCD e Reverse ABCD · Lição 4.1",
+      "url": "https://tradingdozero.com/licoes/4-1-padrao-abcd.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Beginner"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Bandeiras: Bull Flag e Bear Flag · Lição 4.2",
+      "url": "https://tradingdozero.com/licoes/4-2-bull-bear-flag.html",
+      "timeRequired": "PT8M",
+      "educationalLevel": "Intermediate"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Top Reversal e Fallen Angel · Lição 4.3",
+      "url": "https://tradingdozero.com/licoes/4-3-top-reversal-fallen-angel.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Intermediate"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Operando a VWAP e MA Trend · Lição 4.4",
+      "url": "https://tradingdozero.com/licoes/4-4-vwap-ma-trend.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Intermediate"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Estratégia Red-to-Green (e G2R) · Lição 4.5",
+      "url": "https://tradingdozero.com/licoes/4-5-red-to-green.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Beginner"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Opening Range Breakout (ORB) e Timing · Lição 4.6",
+      "url": "https://tradingdozero.com/licoes/4-6-orb.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Intermediate"
+    }
+  ],
+  "numberOfLessons": 6
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos.html" class="nav-cta">Ver currículo</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <span>módulo 04</span>
+    </nav>
+
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">módulo 04 · avançado</div>
+    <h1>Estratégias de<br><em>day trade</em>.</h1>
+    <p class="lead" style="color: var(--ink-muted); margin-top: var(--space-4); max-width: 60ch;">
+      O coração do curso. Não existem setups 100% infalíveis, mas existem padrões com <strong>alta probabilidade matemática</strong>. Aprenda as 9 estratégias clássicas que sobreviveram ao teste do tempo, com gatilhos de entrada e regras de stop exatas.
+    </p>
+
+    <div class="module-meta">
+      <span>tempo estimado <strong>~43 MIN</strong></span>
+      <span>lições <strong>6</strong></span>
+      <span>nível <strong style="color: var(--accent);">avançado</strong></span>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top: 0;">
+  <div class="container">
+
+    <div class="section-header reveal" style="margin-bottom: var(--space-5);">
+      <div class="eyebrow">lições do módulo</div>
+    </div>
+
+    <div class="lessons-list">
+
+      <a href="../licoes/4-1-padrao-abcd.html" class="lesson-item reveal">
+        <div class="lesson-num">4.1</div>
+        <div class="lesson-content">
+          <h4>O Padrão ABCD e Reverse ABCD</h4>
+          <p>O setup mais básico e mais consistente do mercado. Como comprar a confirmação do fundo e como apostar contra ativos esticados.</p>
+        </div>
+        <div>
+          <span class="lesson-badge basic">básico</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/4-2-bull-bear-flag.html" class="lesson-item reveal">
+        <div class="lesson-num">4.2</div>
+        <div class="lesson-content">
+          <h4>Bandeiras: Bull Flag e Bear Flag</h4>
+          <p>A força da continuidade. Como entrar num ativo que acabou de dar uma arrancada violenta sem pagar caro no topo.</p>
+        </div>
+        <div>
+          <span class="lesson-badge advanced">avançado</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/4-3-top-reversal-fallen-angel.html" class="lesson-item reveal">
+        <div class="lesson-num">4.3</div>
+        <div class="lesson-content">
+          <h4>Top Reversal e Fallen Angel</h4>
+          <p>Pegando a faca a cair (ou a voar). Técnicas para identificar e operar exaustão de tendência de forma segura.</p>
+        </div>
+        <div>
+          <span class="lesson-badge advanced">avançado</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/4-4-vwap-ma-trend.html" class="lesson-item reveal">
+        <div class="lesson-num">4.4</div>
+        <div class="lesson-content">
+          <h4>Operando a VWAP e MA Trend</h4>
+          <p>Como usar as médias institucionais para encontrar trades de reversão à média e seguidores de tendência puros.</p>
+        </div>
+        <div>
+          <span class="lesson-badge advanced">avançado</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/4-5-red-to-green.html" class="lesson-item reveal">
+        <div class="lesson-num">4.5</div>
+        <div class="lesson-content">
+          <h4>Estratégia Red-to-Green (e G2R)</h4>
+          <p>O poder psicológico de um ativo mudar de negativo para positivo no dia, e como faturar em cima dos short sellers em pânico.</p>
+        </div>
+        <div>
+          <span class="lesson-badge basic">básico</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/4-6-orb.html" class="lesson-item reveal">
+        <div class="lesson-num">4.6</div>
+        <div class="lesson-content">
+          <h4>Opening Range Breakout (ORB) e Timing</h4>
+          <p>O setup das 10 da manhã. Como operar a loucura absoluta da abertura do mercado de ações com gestão de risco.</p>
+        </div>
+        <div>
+          <span class="lesson-badge advanced">avançado</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Navegação entre módulos -->
+    <div style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+      <a href="analise.html" class="btn btn-secondary">
+        <span style="display: inline-block; transform: rotate(180deg);">→</span>
+        Módulo 3: Análise
+      </a>
+      <a href="risco.html" class="btn btn-primary">
+        Módulo 5: Gestão de Risco
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="../modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+              </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprar (long) e vender (short): operar nos dois sentidos · Lição 1.3 · Trading do Zero</title>
+  <meta name="description" content="Como ganhar com a queda de um ativo? Long e short explicados em linguagem simples, com diagrama, exemplos com PETR4 e o risco da venda a descoberto.">
+  <meta name="keywords" content="long e short, venda a descoberto, aluguel de ações, short selling Brasil, day trade short">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Comprar (long) e vender (short): operar nos dois sentidos · Lição 1.3 · Trading do Zero">
+  <meta property="og:description" content="Como funciona ganhar dinheiro com a queda de um ativo? Long e short explicados em linguagem simples, com diagrama, exemplos com PETR4 e o risco assimétrico da venda a descoberto.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/1-3-long-short.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comprar (long) e vender (short): operar nos dois sentidos · Lição 1.3 · Trading do Zero">
+  <meta name="twitter:description" content="Como funciona ganhar dinheiro com a queda de um ativo? Long e short explicados em linguagem simples, com diagrama, exemplos com PETR4 e o risco assimétrico da venda a descoberto.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/1-3-long-short.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Comprar (long) e vender (short): operar nos dois sentidos · Lição 1.3",
+  "description": "Como funciona ganhar dinheiro com a queda de um ativo? Long e short explicados em linguagem simples, com diagrama, exemplos com PETR4 e o risco assimétrico da venda a descoberto.",
+  "url": "https://tradingdozero.com/licoes/1-3-long-short.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Beginner",
+  "timeRequired": "PT7M",
+  "wordCount": 1300,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 1: Fundamentos do trading",
+    "url": "https://tradingdozero.com/modulos/fundamentos.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/fundamentos.html" class="nav-cta">Módulo 1</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/fundamentos.html">módulo 01</a>
+      <span class="sep">/</span>
+      <span>lição 1.3</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 1.3 · básico</div>
+        <h1>Comprado e vendido:<br>operar <em>nos dois sentidos</em>.</h1>
+        <p class="lesson-summary">
+          Todo mundo entende que comprar barato e vender caro dá lucro. Mas como é possível ganhar dinheiro com a queda de um ativo? Aqui está o conceito que define metade das oportunidades no day trade.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-basico">básico</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Imagina a seguinte cena. Você abre o jornal e lê que as ações da Petrobras caíram 4% na última semana. A reação natural é pensar: "que pena para quem tinha". A pergunta que poucos fazem é: <strong>"quem ganhou dinheiro com essa queda?"</strong>
+        </p>
+
+        <p>
+          Porque alguém ganhou. No mercado financeiro, quase todo movimento de preço cria lucro para um lado e prejuízo para o outro. Se há quem perde quando o preço cai, há quem ganha. E essas pessoas não são adivinhas — são traders que sabem operar <em>vendido</em>.
+        </p>
+
+        <p>
+          Esta lição existe para tirar o mistério desse conceito. No fim, você vai entender exatamente como funciona ganhar dinheiro com a queda, por que isso é possível, e por que envolve um tipo de risco que merece muito respeito.
+        </p>
+
+        <h2>Estar comprado (long)</h2>
+
+        <p>
+          Vamos pelo fácil primeiro. Estar <em>long</em>, ou estar <strong>comprado</strong>, é o que todo mundo entende intuitivamente:
+        </p>
+
+        <ol>
+          <li>Você acha que o preço de um ativo vai subir.</li>
+          <li>Compra esse ativo agora, ao preço de mercado.</li>
+          <li>Espera o preço subir.</li>
+          <li>Vende a um preço mais alto.</li>
+          <li>A diferença, menos custos, é o seu lucro.</li>
+        </ol>
+
+        <p>
+          Exemplo concreto. Imagine que você compra 100 ações da Petrobras (PETR4) a R$ 38,00 cada. Investiu R$ 3.800. Algumas horas depois, o preço sobe para R$ 38,50 e você vende. Recebeu R$ 3.850. Lucro bruto: <strong>R$ 50</strong> (R$ 0,50 × 100 ações). Descontando custos da corretora e impostos, sobram talvez R$ 35–40.
+        </p>
+
+        <p>
+          Quando um trader diz "<em>estou long em PETR4</em>", ou "<em>tô comprado em PETR4</em>", significa exatamente isso: ele comprou e está à espera que o preço suba. Quanto mais subir, mais ganha. Se cair, perde.
+        </p>
+
+        <p>
+          Numa posição comprada, o seu <strong>prejuízo máximo é o valor investido</strong> — se a ação cair a zero, você perde tudo o que pôs. Mas o <strong>lucro é teoricamente ilimitado</strong>: a ação pode subir 10%, 50%, 200%, e você acompanha o movimento.
+        </p>
+
+        <h2>Estar vendido (short)</h2>
+
+        <p>
+          Aqui vem a parte que confunde 90% dos iniciantes. Como é possível <em>vender</em> uma coisa que você não tem?
+        </p>
+
+        <p>
+          A resposta envolve um mecanismo simples e antigo: o <strong>aluguel</strong>. Você pega emprestadas as ações de alguém que tem, vende essas ações no mercado ao preço atual, espera o preço cair, recompra mais barato, devolve as ações ao dono original, e fica com a diferença.
+        </p>
+
+        <p>
+          Em câmera lenta, com PETR4 como exemplo:
+        </p>
+
+        <ol>
+          <li>Você acha que o preço da PETR4 vai cair de R$ 38,00 para R$ 37,00.</li>
+          <li>Pede 100 ações emprestadas ao seu corretor — que tem ações disponíveis para alugar de outros clientes (investidores de longo prazo, fundos).</li>
+          <li>Vende essas 100 ações no mercado ao preço atual: R$ 38,00. Você recebe R$ 3.800 na sua conta.</li>
+          <li>O preço cai, como você previu, para R$ 37,00.</li>
+          <li>Você compra de volta as 100 ações no mercado, agora a R$ 37,00, gastando R$ 3.700.</li>
+          <li>Devolve as 100 ações ao seu corretor (afinal, eram emprestadas).</li>
+          <li>Ficou com a diferença: <strong>R$ 100 de lucro bruto</strong>, mais a taxa de aluguel que você paga ao dono original.</li>
+        </ol>
+
+        <p>
+          Estranho? Sim, da primeira vez parece. Mas funciona exatamente assim na prática. E no day trade é especialmente prático porque você abre e fecha a operação no mesmo dia — o "empréstimo" das ações dura horas, às vezes minutos. Em muitos casos, no day trade, você nem paga taxa de aluguel porque é uma operação intradiária.
+        </p>
+
+        <figure class="lesson-figure">
+          <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama comparativo entre operação comprada (long) e vendida (short)">
+            <!-- Background -->
+            <rect width="700" height="360" fill="#15130F"/>
+
+            <!-- Divider -->
+            <line x1="350" y1="30" x2="350" y2="330" stroke="#2A2620" stroke-width="1" stroke-dasharray="2 4"/>
+
+            <!-- LONG (left side) -->
+            <text x="175" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7A9D6F" letter-spacing="2">COMPRADO · LONG</text>
+
+            <!-- Long: timeline with arrow up -->
+            <path d="M 50 250 Q 130 240 175 180 Q 220 130 300 100"
+                  stroke="#7A9D6F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="50" cy="250" r="5" fill="#7A9D6F"/>
+            <circle cx="300" cy="100" r="5" fill="#7A9D6F"/>
+
+            <!-- Long labels -->
+            <text x="50" y="275" font-family="JetBrains Mono, monospace" font-size="10" fill="#EDE6D6">compra</text>
+            <text x="50" y="290" font-family="JetBrains Mono, monospace" font-size="10" fill="#8A8275">R$ 38,00</text>
+
+            <text x="300" y="85" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#EDE6D6">venda</text>
+            <text x="300" y="72" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#7A9D6F">R$ 38,50</text>
+
+            <!-- Long profit arrow -->
+            <text x="175" y="200" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#7A9D6F">lucro com a alta</text>
+
+            <!-- Long bottom annotation -->
+            <text x="175" y="325" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#8A8275">aposta na alta do preço</text>
+
+            <!-- SHORT (right side) -->
+            <text x="525" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#C75B3E" letter-spacing="2">VENDIDO · SHORT</text>
+
+            <!-- Short: timeline with arrow down -->
+            <path d="M 400 100 Q 480 110 525 170 Q 570 220 650 250"
+                  stroke="#C75B3E" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="400" cy="100" r="5" fill="#C75B3E"/>
+            <circle cx="650" cy="250" r="5" fill="#C75B3E"/>
+
+            <!-- Short labels -->
+            <text x="400" y="85" font-family="JetBrains Mono, monospace" font-size="10" fill="#EDE6D6">venda (alugada)</text>
+            <text x="400" y="72" font-family="JetBrains Mono, monospace" font-size="10" fill="#C75B3E">R$ 38,00</text>
+
+            <text x="650" y="275" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#EDE6D6">recompra</text>
+            <text x="650" y="290" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#8A8275">R$ 37,00</text>
+
+            <!-- Short profit arrow -->
+            <text x="525" y="200" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#C75B3E">lucro com a queda</text>
+
+            <!-- Short bottom annotation -->
+            <text x="525" y="325" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#8A8275">aposta na queda do preço</text>
+          </svg>
+          <figcaption>fig. 1 — As duas direções possíveis no mercado</figcaption>
+        </figure>
+
+        <h2>Por que isso é legal e quem empresta as ações?</h2>
+
+        <p>
+          Pergunta justa: porque é que alguém aceitaria emprestar ações para um trader que vai apostar contra elas?
+        </p>
+
+        <p>
+          A resposta tem várias camadas. Primeiro, o dono das ações <strong>não vende</strong> nada — apenas as empresta temporariamente, em troca de uma taxa (o aluguel). Para um investidor de longo prazo que pretende segurar a ação durante anos, ganhar uma renda extra alugando essas ações é dinheiro grátis. As ações continuam dele, ele continua a receber os dividendos, e ainda fatura uma taxinha de juros.
+        </p>
+
+        <p>
+          Segundo, a operação é <strong>regulada e garantida pela B3</strong>. O sistema de empréstimo de ações no Brasil chama-se <strong>BTC</strong> (Banco de Títulos da CBLC). Tem regras claras, garantias, e prazos. Não é uma transação obscura entre duas pessoas — é um mecanismo de mercado padronizado, com taxas públicas.
+        </p>
+
+        <p>
+          Terceiro, e talvez o mais importante: <strong>a venda a descoberto é saudável para o mercado</strong>. Quando muitos traders vêem que uma empresa está sobrevalorizada, eles vendem short e pressionam o preço para baixo, em direção ao valor justo. Sem short sellers, os preços ficariam inflados artificialmente, criando bolhas perigosas. Mercados desenvolvidos têm vendedores descobertos. Sempre tiveram.
+        </p>
+
+        <h2>O risco assimétrico do short</h2>
+
+        <p>
+          Apesar de ser uma ferramenta legítima e útil, vender short <strong>não é apenas o "inverso" de comprar</strong>. Há uma diferença fundamental no risco que precisa ficar muito clara.
+        </p>
+
+        <div class="callout warn">
+          <div class="callout-label">cuidado</div>
+          <p>
+            Quando você compra uma ação por R$ 38, o seu prejuízo máximo é R$ 38 — se a empresa quebrar e o preço for a zero, você perde tudo, mas não pode perder <em>mais do que pôs</em>.
+          </p>
+          <p>
+            Quando você vende a ação short por R$ 38, e o preço sobe para R$ 50, R$ 100, R$ 200 — <strong>não há teto para o seu prejuízo</strong>. Você vai ter que recomprar mais caro, e a diferença sai do seu bolso. Em tese, o prejuízo é ilimitado.
+          </p>
+        </div>
+
+        <p>
+          Esta assimetria explica por que mesmo traders experientes operam vendido com mais cautela do que comprado. Os stops são mais apertados. As posições, menores. A atenção, maior.
+        </p>
+
+        <p>
+          Há também o fenômeno do <strong>short squeeze</strong> — um aperto de vendedores. Acontece quando muitos traders estão vendidos numa ação que começa a subir. À medida que sobe, os vendidos são forçados a recomprar para limitar o prejuízo, e essa recompra empurra o preço ainda mais para cima, num espiral. Vendidos que não saem rápido tomam prejuízos enormes em minutos. O caso mais famoso recente foi o da GameStop (GME) em janeiro de 2021, onde fundos perderam bilhões de dólares neste tipo de movimento.
+        </p>
+
+        <h2>No mercado brasileiro: ações vs futuros</h2>
+
+        <p>
+          Há um detalhe prático importante. No Brasil, vender ações short envolve o sistema de aluguel (BTC) — exige que o corretor tenha estoque de ações disponíveis para te emprestar, e cobra uma taxa.
+        </p>
+
+        <p>
+          Mas <strong>no mini-índice (WIN) e no mini-dólar (WDO)</strong>, que são contratos futuros, não há aluguel envolvido. Você simplesmente "vende" o contrato, e está vendido. Mais tarde recompra para fechar a posição. É mais simples e mais rápido — uma das razões pelas quais o mini-índice é tão popular entre day traders brasileiros.
+        </p>
+
+        <p>
+          Em ações americanas (via corretoras como Interactive Brokers, Avenue, Nomad), o processo é parecido com o brasileiro, mas com taxas geralmente menores e estoque enorme — muito mais ações disponíveis para alugar.
+        </p>
+
+        <h2>Quando usar long vs short?</h2>
+
+        <p>
+          Não há uma resposta certa. Bons day traders <strong>não têm preferência</strong> — operam comprado quando o setup indica alta, vendido quando indica queda. O preço não tem opinião política. Subir e descer são igualmente legítimos no mercado.
+        </p>
+
+        <p>
+          Dito isso, no início da carreira, muitos iniciantes ficam mais confortáveis operando apenas long. Faz sentido — é mais intuitivo, e o risco é limitado. Conforme a experiência cresce, e principalmente quando o trader aprende as estratégias específicas de reversão e bear flag (estratégias que veremos no Módulo 4), o short entra naturalmente no repertório.
+        </p>
+
+        <p>
+          A grande mensagem desta lição é que <strong>o mercado oferece duas direções de oportunidade</strong>. Quem só sabe operar comprado está vendo metade do filme. O day trader profissional não tem viés direcional — segue o que o gráfico mostra, em qualquer sentido.
+        </p>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li><strong>Long (comprado):</strong> compra primeiro, vende depois. Ganha com a alta. Prejuízo máximo é o valor investido.</li>
+            <li><strong>Short (vendido):</strong> vende primeiro (com ações alugadas), recompra depois. Ganha com a queda. Prejuízo teoricamente ilimitado.</li>
+            <li>No Brasil, vender ações short usa o sistema BTC da B3, com taxa de aluguel. Em mini-índice e mini-dólar (futuros), não há aluguel.</li>
+            <li>Short selling é legal, regulado e essencial à saúde do mercado — impede bolhas de preço.</li>
+            <li>O risco do short é assimétrico: prejuízo sem teto, lucro limitado pelo zero. Mereça mais respeito que uma operação comprada.</li>
+            <li>Bons traders não têm viés direcional. Operam o que o gráfico mostra, comprado ou vendido.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="1-2-trading-vs-day-trading.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">1.2 Trading vs investimento vs day trading vs swing</span>
+          </a>
+          <a href="1-4-quem-esta-do-outro-lado.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">1.4 Quem está do outro lado do trade</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="../modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+              </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>
+        <strong style="color: var(--accent);">Aviso importante.</strong>
+        Este site é exclusivamente educacional. Não somos consultores financeiros nem analistas de valores mobiliários e não emitimos recomendações de compra ou venda. Investir e operar no mercado financeiro envolve riscos significativos, inclusive a perda total do capital.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+

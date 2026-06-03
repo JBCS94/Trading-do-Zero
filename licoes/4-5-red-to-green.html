@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estratégia Red-to-Green (e G2R) · Lição 4.5 · Trading do Zero</title>
+  <meta name="description" content="Operando a psicologia do pânico. Como usar a Linha d'Água (fechamento do dia anterior) para operar rompimentos massivos da estratégia Red-to-Green.">
+  <meta name="keywords" content="red to green, green to red, linha de fechamento, linha d'água, short squeeze, price action, day trade psicologico">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Estratégia Red-to-Green (e G2R) · Lição 4.5 · Trading do Zero">
+  <meta property="og:description" content="Operando a psicologia do pânico. Como usar a Linha d'Água (fechamento do dia anterior) para operar rompimentos massivos da estratégia Red-to-Green.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/4-5-red-to-green.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Estratégia Red-to-Green (e G2R) · Lição 4.5 · Trading do Zero">
+  <meta name="twitter:description" content="Operando a psicologia do pânico. Como usar a Linha d'Água (fechamento do dia anterior) para operar rompimentos massivos da estratégia Red-to-Green.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/4-5-red-to-green.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Estratégia Red-to-Green (e G2R) · Lição 4.5",
+  "description": "Operando a psicologia do pânico. Como usar a Linha d'Água (fechamento do dia anterior) para operar rompimentos massivos da estratégia Red-to-Green.",
+  "url": "https://tradingdozero.com/licoes/4-5-red-to-green.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Beginner",
+  "timeRequired": "PT7M",
+  "wordCount": 1298,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 4: Estratégias e setups",
+    "url": "https://tradingdozero.com/modulos/estrategias.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/estrategias.html" class="nav-cta">Módulo 4</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/estrategias.html">módulo 04</a>
+      <span class="sep">/</span>
+      <span>lição 4.5</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 4.5 · básico</div>
+        <h1>Estratégia <em>Red-to-Green</em><br>(e G2R).</h1>
+        <p class="lesson-summary">
+          Quando uma ação está perdendo e de repente vira positiva no dia, o pânico apodera-se de quem estava vendido a descoberto. Aprenda a capitalizar em cima desse exato momento de ruptura psicológica.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-basico">básico</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          O day trade não se trata apenas de linhas e números, trata-se de psicologia. A estratégia <strong>Red-to-Green</strong> (R2G) aproveita o momento mais doloroso do dia para um determinado grupo de traders: a mudança de humor da multidão.
+        </p>
+
+        <p>
+          Para entender esta estratégia, precisamos primeiro de definir a linha mais importante além da VWAP: <strong>A Linha do Fecho do Dia Anterior</strong> (muitas vezes chamada no Brasil de "Linha d'Água").
+        </p>
+
+        <h2>A Linha do Fechamento Anterior</h2>
+
+        <p>
+          Se a ação PETR4 (Petrobras) fechou às 17h00 de ontem cotada a R$ 38,00, essa linha mágica de R$ 38,00 vai ditar todo o clima do dia de hoje.
+        </p>
+
+        <ul>
+          <li>Se hoje, às 10h15, o preço estiver a R$ 37,50, dizemos que a ação está <strong>vermelha (Red)</strong>. Ela está caindo -1,3% no dia.</li>
+          <li>Se estiver a R$ 38,50, ela está <strong>verde (Green)</strong>. Está subindo +1,3%.</li>
+        </ul>
+
+        <figure class="lesson-figure">
+          <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Red to Green: o preco abre abaixo da linha do fechamento anterior (zona vermelha), recupera e cruza essa linha virando verde, ponto de entrada na compra">
+            <rect width="700" height="320" fill="#15130F"/>
+
+            <!-- Zona vermelha (abaixo da linha) e verde (acima) -->
+            <rect x="40" y="160" width="630" height="120" fill="#C75B3E" opacity="0.06"/>
+            <rect x="40" y="40" width="630" height="120" fill="#7A9D6F" opacity="0.06"/>
+
+            <!-- Linha d'água: fechamento anterior -->
+            <line x1="40" y1="160" x2="670" y2="160" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="610" y="150" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#D4A574">fecho de ontem</text>
+            <text x="90" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#7A9D6F">VERDE</text>
+            <text x="90" y="260" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#C75B3E">VERMELHO</text>
+
+            <!-- Preço: abre vermelho, recupera, cruza para verde -->
+            <path d="M 60 190 L 100 230 L 140 250 L 180 220 L 220 195 L 280 165 L 330 130 L 390 95 L 460 65" stroke="#807A6C" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- segmento verde após o cruzamento -->
+            <path d="M 305 160 L 330 130 L 390 95 L 460 65" stroke="#7A9D6F" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+
+            <!-- Ponto de cruzamento / entrada -->
+            <circle cx="305" cy="160" r="6" fill="#D4A574"/>
+            <text x="305" y="145" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#D4A574" font-weight="bold">entrada</text>
+            <text x="305" y="300" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#8A8275">o painel vira de vermelho para verde</text>
+          </svg>
+          <figcaption>fig. 1 — Red-to-Green: cruzar a linha do fechamento anterior</figcaption>
+        </figure>
+
+        <h2>O Pânico do Short Squeeze</h2>
+
+        <p>
+          Imagine que a ação abriu o dia vermelha (em queda). Muitos traders de retalho começam a vender agressivamente, esperando que seja um "dia de banho de sangue" e a ação caia mais 4%.
+        </p>
+
+        <p>
+          Mas a queda perde força. Devagarinho, o preço começa a subir. Aproxima-se da Linha d'Água (o fecho de ontem). 
+        </p>
+
+        <p>
+          Quando a ação cruza os R$ 38,00 e vira R$ 38,01, o painel de cotações das corretoras <strong>muda de vermelho para verde</strong>. Psiquicamente, o mercado acabou de gritar: "Hoje é um dia de alta!".
+        </p>
+
+        <p>
+          Os milhares de traders que venderam a descoberto de manhã entram em pânico instantâneo, porque todos estão agora no prejuízo. O que eles têm que fazer para estopar e sair? <strong>Eles têm que Comprar a mercado</strong>. Essa avalanche de ordens de compra dispara o preço para o espaço. Isto é um mini-<em>Short Squeeze</em> intradiário.
+        </p>
+
+        <h2>O Setup: Operando o R2G</h2>
+
+        <p><strong>A Preparação:</strong></p>
+        <ol>
+          <li>Você identifica um ativo que abriu num pequeno <em>gap de baixa</em> (abriu valendo menos que ontem).</li>
+          <li>O ativo caiu inicialmente, mas formou um suporte claro (Ponto B do nosso ABCD) e está subindo com fôlego, aproximando-se silenciosamente do fechamento do dia anterior.</li>
+        </ol>
+
+        <p><strong>A Execução:</strong></p>
+        <ol>
+          <li>Você não espera cruzar a linha. Você aguarda que o preço pare ligeiramente imediatamente ABAIXO da linha de fechamento anterior (uma mini consolidação, o Ponto C).</li>
+          <li>Você coloca uma ordem de compra gatilho imediatamente um centavo <strong>acima</strong> da linha do fecho anterior.</li>
+          <li>Quando a ação romper e "ficar verde", o gatilho dispara, você entra na operação e o pânico dos short sellers puxará o seu trade para a estratosfera.</li>
+          <li><strong>O Stop Loss:</strong> Deve ser colocado 10 a 15 centavos abaixo (ou na mínima da pequena consolidação que se formou antes do rompimento). Se falhar a virada para verde, saia imediatamente.</li>
+        </ol>
+
+        <div class="callout warn">
+          <div class="callout-label">Atenção ao Volume</div>
+          <p>
+            O setup R2G só funciona se houver volume. A ação precisa cruzar a linha de fecho com ímpeto (uma enxurrada de ordens a cruzar a tela do Level 2). Se ela rastejar lentamente acima da linha com um volume minúsculo de dezenas de lotes, fuja. Será um Fakeout (Lição 3.4).
+          </p>
+        </div>
+
+        <h2>Estratégia Inversa: Green-to-Red (G2R)</h2>
+
+        <p>
+          Exatamente o mesmo princípio psicológico, mas para venda a descoberto (Short).
+        </p>
+
+        <p>
+          A ação acorda eufórica e sobe. Depois o fôlego acaba e ela desce silenciosamente. Quando cruza a linha de fecho anterior para baixo, o painel muda de "Alta de +0,01%" para "Queda de -0,01%". O psicológico quebra, os compradores de manhã vomitam as suas posições e o pânico vendedouro entra. 
+        </p>
+
+        <p>
+          Você vende no rompimento dessa linha para o vermelho, posicionando o stop loss ligeiramente acima.
+        </p>
+
+        <h2>Exemplo numérico — VALE3 às 10h35</h2>
+
+        <p>
+          Cenário concreto de Red-to-Green. VALE3 numa terça-feira:
+        </p>
+
+        <ul>
+          <li><strong>Fechamento ontem:</strong> R$ 64,00. Esta é a linha d'água do dia.</li>
+          <li><strong>Abertura hoje:</strong> R$ 63,30 (gap de baixa de 1,1%). O dia começa vermelho.</li>
+          <li><strong>10h00–10h20:</strong> a ação cai mais até R$ 62,90, depois forma fundo claro e começa a subir. Volume cresce.</li>
+          <li><strong>10h30:</strong> o preço chega a R$ 63,90 — apenas 10 centavos abaixo da linha d'água. Faz uma pequena consolidação. Aparecem 3-4 candles pequenos entre R$ 63,85 e R$ 63,95.</li>
+          <li><strong>10h35:</strong> rompe R$ 64,00 com candle verde de 5 min e volume duplo da média. O painel de cotação fica verde.</li>
+        </ul>
+
+        <p>
+          Setup operacional:
+        </p>
+
+        <ul>
+          <li><strong>Entrada long:</strong> 100 ações a R$ 64,05 (assim que confirma rompimento).</li>
+          <li><strong>Stop:</strong> R$ 63,80 — abaixo da mini-consolidação. Risco = R$ 0,25 × 100 = R$ 25.</li>
+          <li><strong>Alvo 1 (50%):</strong> R$ 64,55 (próxima resistência do diário). Ganho R$ 25 sobre 50 ações.</li>
+          <li><strong>Alvo 2 (50%):</strong> trailing pela EMA 9 para capturar continuação. Tipicamente o squeeze leva o preço 1-2% acima da linha d'água.</li>
+        </ul>
+
+        <p>
+          Característica única do R2G: <strong>os primeiros 10-15 minutos após o rompimento costumam ser explosivos</strong>. Há vendedores a estopar simultaneamente, criando demanda artificial. Esta é a janela onde se faz a maior parte do lucro do trade.
+        </p>
+
+        <h2>Quando o R2G funciona melhor</h2>
+
+        <p>
+          Não é todo dia que o R2G é setup adequado. Há condições que favorecem o seu sucesso:
+        </p>
+
+        <ul>
+          <li><strong>Gap de baixa moderado.</strong> Funciona melhor quando a abertura é entre 0,5% e 2% abaixo do fechamento. Gaps de baixa muito grandes (3%+) frequentemente são notícia ruim séria e a ação não recupera.</li>
+          <li><strong>Volume crescente durante o pullback de subida.</strong> Se a ação caiu e está subindo com volume aumentando, há demanda real — não é apenas falta de vendedor.</li>
+          <li><strong>Manhã do pregão.</strong> O R2G é fenômeno tipicamente das primeiras 2 horas. Após as 12h, o efeito psicológico do fechamento anterior perde força.</li>
+          <li><strong>Mercado geral em alta.</strong> Se o Ibovespa está subindo, ações individuais que cruzam para o verde ganham vento favorável adicional.</li>
+        </ul>
+
+        <h2>Filtros que eliminam o trade</h2>
+
+        <p>
+          Sinais de que o R2G provavelmente vai falhar:
+        </p>
+
+        <ol>
+          <li><strong>Volume baixo na aproximação.</strong> Se o preço está chegando à linha d'água com candles minúsculos e volume morto, não há squeeze esperado. O rompimento provável é fake.</li>
+          <li><strong>Notícia macro ruim em curso.</strong> Petróleo em queda forte para VALE/PETR, Selic em alta para bancos. O contexto pode anular o efeito técnico do R2G.</li>
+          <li><strong>Distância grande ao próximo nível.</strong> Se acima da linha d'água há resistência forte 30 centavos depois, o R2G tem pouco espaço para correr — R:R fica ruim.</li>
+          <li><strong>Já houve tentativa falhada de cruzar no mesmo dia.</strong> Se o preço já tentou cruzar a linha 2-3 vezes e voltou, há vendedor forte defendendo o nível. A próxima tentativa provavelmente também falha.</li>
+        </ol>
+
+        <div class="callout">
+          <div class="callout-label">o R2G como complemento, não como principal</div>
+          <p>
+            O Red-to-Green não é um setup que aparece todos os dias com qualidade. Talvez 2-3 vezes por semana num conjunto de 5 ativos da watchlist. Não force o setup — é complementar ao seu arsenal, não o principal. Foque-se nos ABCDs e bandeiras como base, e adicione o R2G quando aparece com volume e contexto adequados.
+          </p>
+        </div>
+
+        <h2>Por que o R2G funciona — a psicologia colectiva</h2>
+
+        <p>
+          Vale entender por que este setup tem fundamento estatístico. Não é técnica isolada — é a manifestação visível de uma dinâmica psicológica que afeta milhares de participantes simultaneamente:
+        </p>
+
+        <ul>
+          <li><strong>Os shorts da abertura.</strong> Quando o ativo abre vermelho, há sempre traders que vendem a descoberto apostando em queda continuada. Estes traders posicionam stops normalmente acima do fechamento anterior. Quando o preço cruza esse nível, todos os stops disparam em cascata.</li>
+          <li><strong>Os comprados do dia anterior.</strong> Quem comprou ontem (a R$ 64,00 no exemplo) está hoje a "respirar" — quando o preço regressa ao seu break-even, alguns vendem para sair zero-a-zero. Outros mantêm. Em conjunto, o nível cria luta real entre forças.</li>
+          <li><strong>Os algoritmos institucionais.</strong> Vários sistemas algorítmicos monitorizam justamente a virada para o verde como sinal de mudança de momento intraday. Eles entram a comprar automaticamente, amplificando o movimento.</li>
+          <li><strong>Os retardatários do varejo.</strong> Quem viu o ativo cair pela manhã e estava à espera de "comprar quando virar a tendência" entra exatamente no cruzamento — adicionando demanda.</li>
+        </ul>
+
+        <p>
+          A combinação destes quatro grupos a comprar simultaneamente nos minutos seguintes ao cruzamento explica a velocidade do squeeze. Não é magia — é dinâmica de massas com gatilho técnico bem definido.
+        </p>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>A linha do "fechamento do dia anterior" é o divisor de águas psicológico de qualquer ativo.</li>
+            <li>A passagem de uma ação do vermelho (negativa) para o verde (positiva) cria dor imediata aos short sellers, forçando-os a cobrir na compra.</li>
+            <li>Esta entrada produz impulsos rápidos, sendo excelente para tirar uma parte do lucro em questão de poucos minutos após o rompimento.</li>
+            <li>Trate o fechamento do dia anterior como uma barreira maciça. Como todas as barreiras, espere ver forte volume no rompimento.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="4-4-vwap-ma-trend.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">4.4 Operando a VWAP e MA Trend</span>
+          </a>
+          <a href="4-6-orb.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">4.6 Opening Range Breakout (ORB)</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="../modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+              </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+

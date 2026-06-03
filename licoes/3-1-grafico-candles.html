@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como ler um gráfico de candles · Lição 3.1 · Trading do Zero</title>
+  <meta name="description" content="O alfabeto do day trade. Aprenda a anatomia dos candlesticks japoneses, a diferença entre candles verdes e vermelhos e como ler as sombras.">
+  <meta name="keywords" content="candlesticks, gráfico de velas, velas japonesas, price action, touros e ursos, leitura gráfica, day trade">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Como ler um gráfico de candles · Lição 3.1 · Trading do Zero">
+  <meta property="og:description" content="O alfabeto do day trade. Aprenda a anatomia dos candlesticks japoneses, a diferença entre candles verdes (touros) e vermelhos (ursos) e como interpretar as sombras.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/3-1-grafico-candles.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como ler um gráfico de candles · Lição 3.1 · Trading do Zero">
+  <meta name="twitter:description" content="O alfabeto do day trade. Aprenda a anatomia dos candlesticks japoneses, a diferença entre candles verdes (touros) e vermelhos (ursos) e como interpretar as sombras.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/3-1-grafico-candles.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Como ler um gráfico de candles · Lição 3.1",
+  "description": "O alfabeto do day trade. Aprenda a anatomia dos candlesticks japoneses, a diferença entre candles verdes (touros) e vermelhos (ursos) e como interpretar as sombras.",
+  "url": "https://tradingdozero.com/licoes/3-1-grafico-candles.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Beginner",
+  "timeRequired": "PT7M",
+  "wordCount": 1347,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 3: Análise técnica essencial",
+    "url": "https://tradingdozero.com/modulos/analise.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/analise.html" class="nav-cta">Módulo 3</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/analise.html">módulo 03</a>
+      <span class="sep">/</span>
+      <span>lição 3.1</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 3.1 · básico</div>
+        <h1>A linguagem visual:<br>os <em>candlesticks</em>.</h1>
+        <p class="lesson-summary">
+          Antes de aplicar estratégias complexas, você precisa saber ler as sílabas do mercado. Cada vela no gráfico conta a história de uma batalha exata entre compradores (touros) e vendedores (ursos).
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-basico">básico</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Se você olhar para as cotações financeiras num jornal antigo, verá gráficos de linha simples. Uma linha une o preço de fechamento do ativo ao longo dos dias. Isso serve para ver a tendência geral de longo prazo, mas esconde absolutamente tudo o que aconteceu no meio do caminho. 
+        </p>
+
+        <p>
+          Para um day trader, o "meio do caminho" é onde o dinheiro é feito. É por isso que o padrão global do mercado é o gráfico de <strong>Candlesticks (velas japonesas)</strong>. Criadas no século XVIII por Munehisa Homma para acompanhar os preços do arroz no Japão, as velas são uma representação visual fantástica da psicologia das massas.
+        </p>
+
+        <h2>A Anatomia de um Candle</h2>
+
+        <p>
+          Um candle não é apenas um retângulo verde ou vermelho. Ele resume todas as transações feitas num período de tempo pré-determinado. Se você está olhando para um "gráfico de 5 minutos", cada candle representa exatamente o que aconteceu naqueles 5 minutos.
+        </p>
+
+        <p>
+          Para desenhar um candle, você só precisa de 4 informações sobre esse período (o famoso <strong>OHLC</strong>):
+        </p>
+        <ul>
+          <li><strong>O</strong>pen (Abertura): O preço da primeira transação.</li>
+          <li><strong>H</strong>igh (Máxima): O preço mais alto negociado.</li>
+          <li><strong>L</strong>ow (Mínima): O preço mais baixo negociado.</li>
+          <li><strong>C</strong>lose (Fecho): O preço da última transação.</li>
+        </ul>
+
+        <figure class="lesson-figure">
+          <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomia dos candlesticks: vela de alta (verde) e vela de baixa (vermelha)">
+            <rect width="700" height="400" fill="#15130F"/>
+            
+            <!-- Linha de divisão -->
+            <line x1="350" y1="40" x2="350" y2="360" stroke="#2A2620" stroke-width="1" stroke-dasharray="2 4"/>
+
+            <!-- CANDLE DE ALTA (VERDE) -->
+            <text x="175" y="60" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7A9D6F" letter-spacing="2">VELA DE ALTA</text>
+            <text x="175" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#8A8275">Fechou acima da abertura</text>
+            
+            <!-- Sombras/Pavios -->
+            <line x1="175" y1="110" x2="175" y2="150" stroke="#7A9D6F" stroke-width="4"/> <!-- Top shadow -->
+            <line x1="175" y1="250" x2="175" y2="310" stroke="#7A9D6F" stroke-width="4"/> <!-- Bottom shadow -->
+            
+            <!-- Corpo -->
+            <rect x="150" y="150" width="50" height="100" fill="#7A9D6F"/>
+
+            <!-- Labels Alta -->
+            <text x="135" y="115" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Máxima (High)</text>
+            <text x="135" y="160" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Fecho (Close)</text>
+            <text x="135" y="245" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Abertura (Open)</text>
+            <text x="135" y="315" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Mínima (Low)</text>
+
+
+            <!-- CANDLE DE BAIXA (VERMELHO) -->
+            <text x="525" y="60" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#C75B3E" letter-spacing="2">VELA DE BAIXA</text>
+            <text x="525" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#8A8275">Fechou abaixo da abertura</text>
+
+            <!-- Sombras/Pavios -->
+            <line x1="525" y1="130" x2="525" y2="170" stroke="#C75B3E" stroke-width="4"/> <!-- Top shadow -->
+            <line x1="525" y1="280" x2="525" y2="320" stroke="#C75B3E" stroke-width="4"/> <!-- Bottom shadow -->
+            
+            <!-- Corpo -->
+            <rect x="500" y="170" width="50" height="110" fill="#C75B3E"/>
+
+            <!-- Labels Baixa -->
+            <text x="565" y="135" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Máxima (High)</text>
+            <text x="565" y="180" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Abertura (Open)</text>
+            <text x="565" y="275" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Fecho (Close)</text>
+            <text x="565" y="325" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">Mínima (Low)</text>
+
+            <!-- Setas descritivas -->
+            <path d="M 175 220 L 175 170 L 170 175 M 175 170 L 180 175" stroke="#15130F" stroke-width="2" fill="none" opacity="0.5"/>
+            <path d="M 525 200 L 525 250 L 520 245 M 525 250 L 530 245" stroke="#15130F" stroke-width="2" fill="none" opacity="0.5"/>
+
+          </svg>
+          <figcaption>fig. 1 — Anatomia dos candlesticks (OHLC)</figcaption>
+        </figure>
+
+        <h2>Lendo a Batalha</h2>
+
+        <p>
+          O jargão de Wall Street divide o mercado em dois times: os <strong>Touros (Bulls)</strong>, que compram e empurram o preço para cima com os chifres, e os <strong>Ursos (Bears)</strong>, que vendem e esmagam o preço para baixo com as patas.
+        </p>
+
+        <p>
+          Se o preço de fechamento foi <em>superior</em> ao preço de abertura, o candle é <strong>verde (Bullish)</strong>. Os touros ganharam aquele período. A procura foi maior do que a oferta, forçando os preços a subir.
+        </p>
+
+        <p>
+          Se o preço de fechamento foi <em>inferior</em> ao de abertura, o candle é <strong>vermelho (Bearish)</strong>. Os ursos ganharam. Havia mais gente desesperada para vender do que disposta a comprar.
+        </p>
+
+        <h2>O tamanho do corpo importa</h2>
+
+        <p>
+          Antes de avançar para as sombras, há um detalhe que muita gente passa por cima: <strong>o tamanho do corpo conta uma história por si só</strong>. Um corpo gordo e longo significa que houve domínio claro de um dos lados — a abertura ficou muito longe do fechamento, sem hesitação no meio. Um corpo magrinho, quase sem altura, mostra que abertura e fechamento ficaram quase no mesmo preço, mesmo que o preço tenha mexido durante o período.
+        </p>
+
+        <p>
+          Exemplo prático. Imagine que está vendo o gráfico de 5 minutos do mini-índice (WIN) às 10h05, logo depois da abertura. Aparece um candle verde com corpo de 200 pontos e sem sombras. Tradução: nos 5 minutos da abertura, os compradores assumiram o controle, empurraram o preço sem parar, e fecharam no topo absoluto do período. <strong>Isto é força de manada</strong>. Provavelmente vai haver continuação na vela seguinte.
+        </p>
+
+        <p>
+          Agora muda o cenário. Mesmo horário, mas o candle de 5 minutos é verde com corpo minúsculo de 20 pontos e duas sombras enormes de 100 pontos cada. Tradução: foi uma briga feia. O preço subiu, caiu, voltou — e ninguém ganhou. Os compradores tiveram um pequeno saldo positivo no final, mas a indecisão é evidente. <strong>Não é momento de entrar</strong>.
+        </p>
+
+        <h2>A importância das sombras (pavios)</h2>
+
+        <p>
+          Muitos iniciantes olham apenas para a cor do corpo, o que é um erro primário. As "linhas" finas que saem do topo e da base do corpo são chamadas de Sombras ou Pavios (Wicks). Elas são a parte mais reveladora da psicologia do mercado.
+        </p>
+
+        <p>
+          <strong>Uma longa sombra inferior</strong> (cauda comprida para baixo) significa que, durante aquele período, os ursos empurraram o preço com muita força para baixo. Mas antes que o tempo acabasse, os touros contra-atacaram, compraram tudo o que havia no fundo, e forçaram o preço de volta para cima. É uma demonstração de rejeição de preços baixos — um sinal de que há força compradora forte à espreita ali.
+        </p>
+
+        <p>
+          <strong>Uma longa sombra superior</strong> (pavio comprido para cima) significa o oposto. Os touros tentaram puxar o preço, chegaram a um nível alto, mas lá em cima encontraram uma marreta de ursos vendedores que atiraram o preço de volta para baixo. É uma rejeição de alta.
+        </p>
+
+        <h2>Quatro velas que merecem nome</h2>
+
+        <p>
+          A indústria criou centenas de nomes para combinações específicas de corpo e sombras. A maioria é folclore. Quatro, porém, valem mesmo a pena reconhecer no gráfico:
+        </p>
+
+        <ul>
+          <li><strong>Marubozu</strong> — candle com corpo grande e <strong>sem sombras nenhumas</strong>. Significa que o preço abriu numa ponta e fechou na outra, sem oscilação. É força máxima — uma das leituras mais limpas que existem.</li>
+          <li><strong>Spinning top</strong> (pião) — corpo pequeno no meio de sombras grandes para os dois lados. Tradução: o preço foi para cima e para baixo, mas ninguém ganhou. <strong>Indecisão pura</strong>. Em momentos de tendência forte, aparecer um spinning top é o primeiro sinal de cansaço.</li>
+          <li><strong>Hammer</strong> (martelo) — corpo pequeno no topo, sombra longa para baixo. Aparece tipicamente após uma queda. Mostra que os ursos tentaram empurrar mais para baixo, mas os touros absorveram tudo e mantiveram o preço. <strong>Sinal clássico de reversão de baixa para alta</strong>.</li>
+          <li><strong>Shooting star</strong> (estrela cadente) — exatamente o inverso do hammer. Corpo pequeno em baixo, sombra longa para cima. Aparece após uma subida e sinaliza <strong>possível reversão de alta para baixa</strong>.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">o que é um Doji?</div>
+          <p>
+            Às vezes você verá um candle que não tem corpo nenhum, parecendo uma cruz ou um sinal de "mais". Isso chama-se <strong>Doji</strong>. Acontece quando a abertura e o fechamento são exatamente no mesmo preço (ou separados por menos de 1 tick). Significa <strong>indecisão absoluta</strong>: touros e ursos lutaram, mas o round acabou em empate matemático perfeito. Dojis frequentemente antecedem reversões violentas — porque sinalizam que a tendência atual ficou sem combustível.
+          </p>
+        </div>
+
+        <h2>Contexto é tudo</h2>
+
+        <p>
+          Aviso prático: decorar 50 "padrões de velas japonesas" com nomes como "Corvo Negro" ou "Bebê Abandonado" é perda de tempo e cria confusão mental. A abordagem útil é mais crua: em vez de memorizar nomes exóticos, leia a força e a fraqueza nos corpos e nas sombras. O padrão importa pelo que diz sobre o equilíbrio entre compradores e vendedores naquele momento — não pelo seu nome.
+        </p>
+
+        <p>
+          Mas há um princípio que vai além: <strong>nenhum candle, por si só, significa coisa nenhuma</strong>. O mesmo doji no topo de uma tendência longa de alta sinaliza potencial reversão. O mesmo doji dentro de uma lateralização sem direção é apenas ruído. O mesmo hammer no fundo de uma queda de 4% no mini-índice é provavelmente um sinal de compra. O mesmo hammer no meio de um mercado lateral à toa é nada.
+        </p>
+
+        <p>
+          Por isso, traders experientes nunca olham para um candle isolado. Olham para a <strong>sequência de 5 a 10 candles anteriores</strong>, e o contexto maior — tendência, suporte/resistência, volume. Isto é a essência do <em>price action</em>, que vamos explorar nas próximas lições.
+        </p>
+
+        <h2>Volume: o irmão silencioso do candle</h2>
+
+        <p>
+          Por baixo de cada candle, no gráfico, há uma barrinha vertical: o <strong>volume</strong>. Mostra quantas ações (ou contratos) foram negociadas naquele período. Ignorar essa barra é jogar futebol vendado.
+        </p>
+
+        <p>
+          A regra é simples: <strong>volume confirma o movimento</strong>. Um candle verde grande com volume gigante embaixo significa que muita gente quis comprar de verdade — o movimento tem músculo. Um candle verde grande com volume pequeno significa que poucos compradores conseguiram empurrar o preço — provavelmente porque os vendedores estavam ausentes, e não porque havia força real. Esse movimento sem volume tende a falhar logo a seguir.
+        </p>
+
+        <p>
+          Para day trade de ações brasileiras, há um truque adicional: compare o volume do candle atual com o volume <strong>médio dos candles dos últimos dias àquela mesma hora</strong>. Se a média de volume de PETR4 às 10h05 nos últimos 10 dias é de 500 mil ações, e hoje aparece um candle às 10h05 com 2 milhões — algo importante está acontecendo. Esse candle merece atenção redobrada, qualquer que seja a sua cor.
+        </p>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>Candlesticks mostram 4 dados por período: Open, High, Low, Close (OHLC).</li>
+            <li>Corpos verdes mostram controle dos compradores (alta). Corpos vermelhos, controle dos vendedores (baixa).</li>
+            <li>O tamanho do corpo importa: corpo grande = decisão clara; corpo pequeno = indecisão.</li>
+            <li>As sombras (pavios) mostram preços testados e rejeitados. Sombras longas indicam rejeição forte e potencial exaustão.</li>
+            <li>Quatro velas merecem reconhecimento direto: Marubozu (força absoluta), spinning top (indecisão), hammer (reversão de baixa para alta), shooting star (reversão de alta para baixa).</li>
+            <li>Nenhum candle isolado significa algo. O que importa é o contexto — tendência, suporte/resistência, sequência.</li>
+            <li>Volume confirma o movimento. Candle grande com volume baixo é suspeito; candle grande com volume gigante tem força real.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="../modulos/ferramentas.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">módulo anterior</span>
+            <span class="lesson-nav-title">Módulo 2: Ferramentas</span>
+          </a>
+          <a href="3-2-tendencia-lateralizacao.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">3.2 Tendência, lateralização e reversão</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="../modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+              </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+

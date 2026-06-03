@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de risco e o problema do overnight · Lição 8.4 · Trading do Zero</title>
+  <meta name="description" content="Dormir com posição muda tudo. Gaps de abertura, eventos e position sizing com stops largos. A defesa para o risco que o day trader não enfrenta.">
+  <meta name="keywords" content="risco overnight swing, gap de abertura, position sizing swing, stop loss swing trade, gestão de risco swing">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gestão de risco e o problema do overnight · Lição 8.4 · Trading do Zero">
+  <meta property="og:description" content="Dormir com posição muda tudo. Gaps de abertura, eventos corporativos e position sizing com stops largos no swing trade.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/8-4-gestao-risco-overnight.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gestão de risco e o problema do overnight · Lição 8.4 · Trading do Zero">
+  <meta name="twitter:description" content="Dormir com posição muda tudo. Gaps, eventos e position sizing no swing trade.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/8-4-gestao-risco-overnight.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Gestão de risco e o problema do overnight · Lição 8.4",
+  "description": "Dormir com posição muda tudo. Gaps de abertura, eventos corporativos, position sizing com stops largos. Como construir defesa para o risco que o day trader nunca enfrenta.",
+  "url": "https://tradingdozero.com/licoes/8-4-gestao-risco-overnight.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "PT8M",
+  "wordCount": 1600,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 8: Swing trading",
+    "url": "https://tradingdozero.com/modulos/swing.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html">Módulos</a></li>
+      <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/swing.html" class="nav-cta">MÓDULO 8</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/swing.html">módulo 08</a>
+      <span class="sep">/</span>
+      <span>lição 8.4</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="eyebrow"><span>—</span>  lição 8.4  ·  intermediário</div>
+        <h1>Gestão de risco e o problema do overnight</h1>
+        <p class="lesson-lead">Dormir com posição aberta é a grande diferença do swing — e o seu maior risco. Gaps de abertura, eventos corporativos e notícias não respeitam o seu stop. Aqui está como construir defesa para o que o day trader nunca enfrenta.</p>
+
+        <div class="lesson-meta">
+          <span>leitura <strong>~8 min</strong></span>
+          <span>nível <strong>intermediário</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Toda a gestão de risco que aprendeu no Módulo 5 continua válida no swing: a regra dos 2%, o R:R mínimo, o stop definido antes da entrada. Mas o swing acrescenta uma camada de risco que o day trade simplesmente não tem — o <strong>risco overnight</strong>. E é precisamente aqui que muitos traders de swing se queimam, não por falta de método, mas por subestimarem o que acontece enquanto dormem.
+        </p>
+
+        <h2>O que é o risco overnight</h2>
+
+        <p>
+          Quando o day trader fecha todas as posições antes das 17h, o seu risco termina ali. Pode haver uma guerra, um colapso bancário ou um anúncio do Fed durante a noite — não importa, ele está em caixa. O swing trader, pelo contrário, <strong>carrega a posição para a noite, o fim de semana, e os feriados</strong>. Durante todo esse tempo, o mercado está fechado mas o mundo continua a acontecer.
+        </p>
+
+        <p>
+          O resultado materializa-se na forma mais perigosa que existe para um trader: o <strong>gap de abertura</strong>.
+        </p>
+
+        <h2>O gap: por que o stop não protege</h2>
+
+        <p>
+          Aqui está a verdade desconfortável que todo swing trader precisa interiorizar: <strong>o stop loss não protege contra gaps</strong>.
+        </p>
+
+        <p>
+          Um stop é uma ordem para vender quando o preço atinge determinado nível. Mas se o ativo fecha a R$ 50 e abre no dia seguinte a R$ 44 (porque saiu uma notícia péssima depois do pregão), o seu stop em R$ 48 não foi executado a R$ 48 — foi executado na abertura, a R$ 44. O preço "saltou" por cima do seu stop. Esse salto é o gap, e a diferença entre o que esperava perder e o que efetivamente perdeu chama-se <strong>slippage</strong>.
+        </p>
+
+        <p>
+          Um exemplo concreto: imagine uma posição em ações de uma empresa que divulga resultados trimestrais depois do fechamento. Você tinha stop calculado para perder no máximo 2% do capital. Os resultados decepcionam o mercado, e a ação abre 12% abaixo no dia seguinte. O seu stop executa na abertura, mas a perda real é de 6% do capital — três vezes o planejado. Nenhuma quantidade de disciplina teria evitado isto, porque o mercado estava fechado quando o estrago aconteceu.
+        </p>
+
+        <div class="callout">
+          <div class="callout-label">A regra de ouro do overnight</div>
+          <p>
+            Como o gap pode multiplicar a sua perda planejada, a defesa não está no stop — está no <strong>tamanho da posição</strong>. Se dimensionar cada trade assumindo que pode perder 2-3× o stop num gap adverso, um evento ruim torna-se um arranhão, não uma ferida grave.
+          </p>
+        </div>
+
+        <h2>Position sizing no swing: a matemática da defesa</h2>
+
+        <p>
+          No day trade, a regra dos 2% funciona de forma direta: arrisca-se no máximo 2% do capital por trade, e o stop garante (quase sempre) que essa perda é respeitada. No swing, como o gap pode furar o stop, a abordagem prudente é mais conservadora.
+        </p>
+
+        <p>
+          A adaptação recomendada para quem está começando no swing: <strong>arriscar 1% a 1,5% do capital por trade</strong>, em vez dos 2% do day trade. Esta margem extra existe precisamente para absorver o slippage de um gap ocasional sem comprometer a conta. A conta de position sizing é a mesma que viu na calculadora do site:
+        </p>
+
+        <ul>
+          <li><strong>Risco por trade</strong> = capital × 1% (ex: R$ 10.000 × 1% = R$ 100)</li>
+          <li><strong>Risco por ação</strong> = preço de entrada − preço do stop (ex: R$ 50 − R$ 47 = R$ 3)</li>
+          <li><strong>Quantidade</strong> = risco por trade ÷ risco por ação (ex: R$ 100 ÷ R$ 3 ≈ 33 ações)</li>
+        </ul>
+
+        <p>
+          Como os stops no swing são naturalmente mais largos (em pontos) do que no day trade, a quantidade de ações por posição tende a ser menor. Isto é correto e desejável: posições menores significam que um gap adverso causa menos dano absoluto.
+        </p>
+
+        <h2>Os eventos que merecem cuidado redobrado</h2>
+
+        <p>
+          Nem todos os overnights têm o mesmo risco. Alguns são razoavelmente calmos; outros são minas-terrestres conhecidas. Os eventos que aumentam drasticamente a probabilidade de gap:
+        </p>
+
+        <table class="lesson-table">
+          <thead>
+            <tr><th>Evento</th><th>Risco</th><th>Recomendação</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Divulgação de resultados (earnings)</td><td>Muito alto</td><td>Evitar segurar posição na data; gaps de 10-20% são comuns</td></tr>
+            <tr><td>Decisão de juros (Copom, Fed)</td><td>Alto</td><td>Reduzir exposição ou sair antes</td></tr>
+            <tr><td>Fim de semana prolongado / feriado</td><td>Médio</td><td>Considerar reduzir posição; mais tempo para notícias acumularem</td></tr>
+            <tr><td>Eventos políticos previstos (eleições)</td><td>Alto</td><td>Operar com posição reduzida ou ficar de fora</td></tr>
+            <tr><td>Noite normal de quarta-feira</td><td>Baixo</td><td>Risco overnight padrão; gestão normal</td></tr>
+          </tbody>
+        </table>
+
+        <p>
+          A regra prática mais valiosa: <strong>conheça o calendário dos seus ativos</strong>. Antes de entrar numa posição que vai segurar por dias, verifique se há divulgação de resultados ou evento macro relevante no horizonte. Segurar uma ação durante a divulgação de resultados é, para a maioria dos swing traders, apostar numa moeda — e apostar não é estratégia.
+        </p>
+
+        <h2>O stop GTC: deixar a defesa montada</h2>
+
+        <p>
+          No swing, como você não está à frente da tela durante o pregão, o stop precisa estar <strong>colocado na corretora</strong>, não na sua cabeça. A ordem usada é o stop <strong>GTC</strong> (Good Till Cancelled — válida até ser cancelada), que permanece ativa por dias até ser executada ou cancelada manualmente.
+        </p>
+
+        <p>
+          Isto contrasta com o "stop mental" que alguns traders usam (a intenção de sair se o preço chegar a X). O stop mental não funciona no swing por uma razão simples: você pode estar a trabalhar, a dormir, ou sem acesso ao mercado no momento em que o preço atinge o nível. A defesa tem de ser automática.
+        </p>
+
+        <h2>O que fazer quando o gap acontece contra você</h2>
+
+        <p>
+          Mesmo com toda a prudência, mais cedo ou mais tarde um gap adverso vai acontecer. É inevitável na vida de um swing trader. O que separa o profissional do amador não é evitar o gap — é como reage a ele. Quando abrir a tela e ver a sua posição num prejuízo maior que o planejado, há um protocolo:
+        </p>
+
+        <ul>
+          <li><strong>Não congele e não entre em pânico.</strong> A pior reação é ficar paralisado olhando, esperando "recuperar". A segunda pior é dobrar a posição para "fazer preço médio" — multiplicando o erro.</li>
+          <li><strong>Avalie a nova realidade.</strong> A tese do trade ainda é válida ou o gap quebrou a estrutura técnica? Se o suporte que justificava o trade foi violado, a saída é a decisão correta, mesmo com prejuízo maior.</li>
+          <li><strong>Execute a saída se o stop foi furado.</strong> Se o preço abriu abaixo do stop, a posição deveria ter sido fechada na abertura pela ordem GTC. Confirme que foi. Se por algum motivo ainda está aberta, saia.</li>
+          <li><strong>Registe no diário.</strong> Anote o evento, a causa do gap e a sua reação. Gaps são professores caros; aproveite a lição.</li>
+        </ul>
+
+        <p>
+          A chave psicológica é aceitar que <strong>o gap ocasional é o custo de fazer swing trading</strong> — como o aluguer é o custo de ter uma loja. Desde que o position sizing esteja correto, um gap adverso fere mas não mata. É exatamente para isto que serve dimensionar a 1-1,5% em vez de 2%.
+        </p>
+
+        <h2>Nem todo o gap é inimigo</h2>
+
+        <p>
+          Vale uma nota de equilíbrio, no espírito de não pintar o swing como assustador demais: <strong>os gaps também acontecem a seu favor</strong>. Se está comprado e sai uma notícia excelente depois do fechamento, o ativo pode abrir 8% acima — e esse lucro extra cai no seu colo sem esforço. Estatisticamente, em ativos líquidos de tendência, os gaps a favor e contra tendem a equilibrar-se ao longo do tempo.
+        </p>
+
+        <p>
+          O ponto da gestão de risco não é que os gaps sejam sempre maus — é que são <strong>imprevisíveis</strong>, e a defesa contra a imprevisibilidade é o tamanho de posição. Com posições corretamente dimensionadas, você sobrevive aos gaps adversos e beneficia dos favoráveis. É um jogo de longo prazo, e o objetivo é manter-se na mesa.
+        </p>
+
+        <h2>Diversificação e correlação</h2>
+
+        <p>
+          Um último elemento de defesa: <strong>não concentre todas as posições no mesmo risco</strong>. Se tem três posições abertas e todas são bancos brasileiros, na prática tem uma única aposta — se o setor bancário cai, as três caem juntas. A diversificação real significa posições em ativos que não se movem necessariamente na mesma direção: um banco, uma commodity, um ETF internacional, por exemplo.
+        </p>
+
+        <p>
+          Para quem administra capital menor, a alternativa é simplesmente <strong>ter menos posições simultâneas</strong> — uma ou duas bem escolhidas, em vez de cinco mal acompanhadas. Qualidade acima de quantidade, sempre.
+        </p>
+
+        <h2>Por que os stops do swing são (e devem ser) mais largos</h2>
+
+        <p>
+          Um ponto que confunde quem vem do day trade: no swing, os stops são naturalmente mais largos em termos de pontos ou porcentagem. Onde um day trader pode usar um stop de 0,5% no preço, um swing trader pode precisar de 3-5%. Isto não é falta de disciplina — é adaptação à escala do movimento.
+        </p>
+
+        <p>
+          A lógica é proporcional. O swing busca capturar movimentos de 8%, 15%, 20%. Para dar espaço a que esse movimento se desenvolva, o stop tem de estar longe o suficiente para não ser atingido pelo ruído normal do dia-a-dia. Um stop apertado demais num swing seria atingido por uma simples oscilação intradiária, tirando você de um trade que estava certo. O segredo está em ajustar o <strong>tamanho da posição</strong> para que, mesmo com um stop largo em pontos, a perda em reais continue dentro do seu 1-1,5% do capital.
+        </p>
+
+        <p>
+          É por isso que a calculadora de position sizing é ainda mais importante no swing do que no day trade. O stop largo e a posição menor trabalham juntos: você aceita menos ações por trade, mas cada trade tem espaço para respirar e atingir alvos maiores. A matemática protege-o de duas formas ao mesmo tempo.
+        </p>
+
+        <p>
+          Na próxima lição, descemos ao detalhe técnico: como ler os gráficos diário e semanal, que indicadores fazem sentido no swing, e como identificar uma tendência que vale a pena seguir.
+        </p>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>O risco overnight é a diferença fundamental do swing: a posição é carregada por noites, fins de semana e feriados, expondo-a a gaps.</li>
+            <li>O <strong>stop não protege contra gaps</strong> — se o preço salta por cima do stop, a execução acontece pior do que o planejado (slippage).</li>
+            <li>A defesa não está no stop, está no <strong>tamanho da posição</strong>: arriscar 1-1,5% por trade no swing (vs 2% no day) absorve o slippage de gaps ocasionais.</li>
+            <li>Eventos de alto risco de gap: divulgação de resultados, decisões de juros, eleições. Conhecer o calendário dos ativos é essencial.</li>
+            <li>O stop deve ser <strong>GTC colocado na corretora</strong>, nunca mental — você não está à frente da tela durante o pregão.</li>
+            <li>Diversificar por risco real (setores diferentes) ou simplesmente ter menos posições bem acompanhadas reduz a exposição a um único choque.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <nav class="lesson-nav" aria-label="Navegação entre lições">
+      <a href="8-3-setups-essenciais-swing.html" class="lesson-prev">
+        <span class="eyebrow">← lição anterior</span>
+        <h4>8.3 Os setups essenciais do swing</h4>
+      </a>
+      <a href="8-5-analise-tecnica-swing.html" class="lesson-next">
+        <span class="eyebrow">próxima lição →</span>
+        <h4>8.5 Análise técnica para swing trading</h4>
+      </a>
+      </nav>
+
+    </article>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="../modulos/swing.html">Swing Trading</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+          <li><a href="../modulos/risco.html">Gestão de Risco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

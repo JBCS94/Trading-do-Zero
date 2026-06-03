@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheat Sheets · Trading do Zero</title>
+  <meta name="description" content="Resumos práticos de day trade: 11 regras de sobrevivência, lista de setups clássicos e checklist de pré-mercado.">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cheat Sheets · Trading do Zero">
+  <meta property="og:description" content="Resumos práticos de day trade: 11 regras de sobrevivência, lista de setups clássicos e checklist de pré-mercado.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/cheatsheets.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cheat Sheets · Trading do Zero">
+  <meta name="twitter:description" content="Resumos práticos de day trade: 11 regras de sobrevivência, lista de setups clássicos e checklist de pré-mercado.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/cheatsheets.html">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <style>
+    .prose { max-width: var(--max-w-prose); }
+    .prose p.lead { font-size: var(--fs-lg); line-height: 1.65; color: var(--ink); margin-bottom: var(--space-6); }
+    
+    .sheet-section {
+      margin-bottom: var(--space-8);
+    }
+    .sheet-title {
+      font-size: var(--fs-2xl);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-5);
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-style: italic;
+    }
+    
+    /* Rule Cards */
+    .rule-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 600px) {
+      .rule-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 900px) {
+      .rule-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .rule-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .rule-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .rule-card strong {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      display: block;
+      margin-bottom: var(--space-2);
+      font-size: var(--fs-sm);
+    }
+    .rule-card p {
+      font-size: var(--fs-base);
+      color: var(--ink);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Table for Setups */
+    .table-wrapper {
+      overflow-x: auto;
+    }
+    .setup-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-base);
+      min-width: 600px;
+    }
+    .setup-table th, .setup-table td {
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .setup-table th {
+      background: var(--bg-elevated);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .setup-table tr:hover td {
+      background: rgba(212, 165, 116, 0.03);
+    }
+    .setup-table td strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .setup-name {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      color: var(--accent);
+    }
+    
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .checklist li {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      margin-bottom: var(--space-3);
+      padding: var(--space-3);
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .checklist li::before {
+      content: '☐';
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: var(--fs-lg);
+      line-height: 1;
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Cheat Sheets",
+  "description": "Resumos práticos de day trade: 11 regras de sobrevivência, lista de setups clássicos e checklist de pré-mercado.",
+  "url": "https://tradingdozero.com/cheatsheets.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Início",
+        "item": "https://tradingdozero.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cheat sheets",
+        "item": "https://tradingdozero.com/cheatsheets.html"
+      }
+    ]
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="modulos.html">Módulos</a></li>
+            <li><a href="ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="modulos/fundamentos.html" class="nav-cta">Começar agora</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="index.html">início</a>
+      <span class="sep">/</span>
+      <a href="ferramentas-dicas.html">recursos</a>
+      <span class="sep">/</span>
+      <span>cheat sheets</span>
+    </nav>
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">Resumos rápidos</div>
+    <h1>O seu <em>Cheat Sheet</em>.</h1>
+  </div>
+</header>
+
+<section style="padding-top: 0;">
+  <div class="container">
+    
+    <div class="prose">
+      <p class="lead">
+        Mantenha esta página aberta durante as suas sessões de simulador. Aqui você encontra o sumo de todo o curso, formatado para leitura instantânea quando há dúvidas no meio de um trade.
+      </p>
+    </div>
+
+    <!-- REGRA DAS 11 -->
+    <div class="sheet-section">
+      <h2 class="sheet-title">As 11 Regras de Sobrevivência</h2>
+      <div class="rule-grid">
+        <div class="rule-card">
+          <strong>Regra 01</strong>
+          <p>Day trading não é um esquema para ficar rico rápido. Exige tempo, estudo e capital que possas perder.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 02</strong>
+          <p>Day trading não é fácil. É uma das profissões mais exigentes do mundo em termos psicológicos e disciplinares.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 03</strong>
+          <p>Day traders não mantêm posições overnight (durante a noite). Todo o risco é fechado antes do fim do pregão.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 04</strong>
+          <p>Sempre se pergunte: "Esta ação está se movendo porque todo o mercado se move, ou tem um catalisador próprio?"</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 05</strong>
+          <p>O sucesso no day trading vem do controle de risco. O seu único trabalho real é proteger o seu capital.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 06</strong>
+          <p>A sua plataforma e a sua corretora são as suas ferramentas de trabalho. Escolha-as e domine-as como um cirurgião.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 07</strong>
+          <p>O simulador é inegociável. Só se passa para dinheiro real após meses consistentes a verde no simulador.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 08</strong>
+          <p>Ninguém ganha o seu dinheiro por você. Você precisa da sua própria mentoria e reflexão (Diário de Trading).</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 09</strong>
+          <p>Planeje o seu trade e opere o seu plano. Se o trade foge do plano (setup, stop, alvo), sai imediatamente.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 10</strong>
+          <p>A disciplina é o seu santo graal. Uma estratégia medíocre com disciplina perfeita ganha a uma excelente estratégia sem disciplina.</p>
+        </div>
+        <div class="rule-card">
+          <strong>Regra 11</strong>
+          <p>Quando você atingir o seu limite diário de perda (max loss), desligue o computador. O revenge trading queima dias inteiros de trabalho consistente.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETUPS -->
+    <div class="sheet-section">
+      <h2 class="sheet-title">Resumo dos Setups</h2>
+      <div class="table-wrapper">
+        <table class="setup-table">
+          <thead>
+            <tr>
+              <th>SETUP</th>
+              <th>QUANDO OPERAR</th>
+              <th>GATILHO DE ENTRADA</th>
+              <th>ONDE FICA O STOP LOSS?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="setup-name">Padrão ABCD</div></td>
+              <td>10:30 às 16:00 (continuação de tendência intradiária).</td>
+              <td>Rompimento do topo B no momento C, com aumento claro de volume.</td>
+              <td>Abaixo do fundo consolidado em C, ou abaixo da VWAP (se C recuar até ela).</td>
+            </tr>
+            <tr>
+              <td><div class="setup-name">Bull Flag</div></td>
+              <td>Mercado muito forte, grandes impulsos matinais.</td>
+              <td>Rompimento da linha de tendência de baixa da bandeira após consolidação.</td>
+              <td>Abaixo do mastro (fundo da consolidação da bandeira).</td>
+            </tr>
+            <tr>
+              <td><div class="setup-name">Top Reversal</div></td>
+              <td>Clímax de exaustão; ação esticou longe demais da VWAP e fez uma vela cadente.</td>
+              <td>Perda da mínima da vela de exaustão nos 5 minutos.</td>
+              <td>Ligeiramente acima da máxima absoluta da vela de exaustão.</td>
+            </tr>
+            <tr>
+              <td><div class="setup-name">Fallen Angel</div></td>
+              <td>Após um sell-off brutal e pânico, o preço faz um fundo de martelo no suporte diário.</td>
+              <td>Rompimento da máxima da vela de reversão (martelo) de 5min.</td>
+              <td>Abaixo do fundo absoluto do dia (Mínima do pânico).</td>
+            </tr>
+            <tr>
+              <td><div class="setup-name">VWAP Bounce</div></td>
+              <td>Preço forte (Bull) recua durante a hora de almoço até à linha da VWAP.</td>
+              <td>Quando o preço toca a VWAP, consolida, e faz nova máxima de 5 minutos.</td>
+              <td>Abaixo da linha da VWAP e do fundo deixado pela tentativa de queda.</td>
+            </tr>
+            <tr>
+              <td><div class="setup-name">Red-to-Green</div></td>
+              <td>Ação abre a cair (Red) e, subitamente, engolfa e cruza a linha de fechamento de ontem (Green).</td>
+              <td>Exato momento em que o preço cruza o preço de fechamento do dia anterior.</td>
+              <td>Abaixo da VWAP ou abaixo da mínima de 5 minutos anterior.</td>
+            </tr>
+            <tr>
+              <td><div class="setup-name">15-min ORB</div></td>
+              <td>Primeiros 15 minutos muito voláteis (10:00 às 10:15). Aguardar definição.</td>
+              <td>Rompimento da máxima (Long) ou da mínima (Short) dos primeiros 15 minutos.</td>
+              <td>Meio do range (habitualmente na VWAP) ou no extremo oposto (muito caro).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PRE-MARKET CHECKLIST -->
+    <div class="sheet-section">
+      <h2 class="sheet-title">Checklist de Pré-Mercado</h2>
+      <ul class="checklist">
+        <li><strong>Como estão os futuros do índice e o mercado global?</strong> (O dia será de baixa, alta ou lateral?)</li>
+        <li><strong>Quais ações têm notícias fortes ou "Gaps" maiores que 3%?</strong> (Isole 3 a 5 ações para a sua watchlist).</li>
+        <li><strong>Quais são os suportes e resistências no Gráfico Diário dessas 5 ações?</strong> (Trace as linhas antes das 10:00).</li>
+        <li><strong>Você tem a sua gestão de risco desenhada?</strong> (Ex: "Hoje não posso perder mais do que R$ 100. Vou usar position sizing rigoroso.").</li>
+        <li><strong>A plataforma está funcionando perfeitamente?</strong> (Internet estável, Hotkeys testadas e teclado no lugar).</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="modulos.html">Todos os módulos</a></li>
+          <li><a href="modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="modulos/estrategias.html">Estratégias</a></li>
+          <li><a href="modulos.html#m5">Gestão de risco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="calculadoras.html">Calculadoras</a></li>
+          <li><a href="glossario.html">Glossário</a></li>
+          <li><a href="cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="disclaimer.html">Aviso legal</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong style="color: var(--accent);">Aviso importante.</strong>
+        Este site é exclusivamente educacional. Não somos consultores financeiros nem analistas de valores mobiliários e não emitimos recomendações de compra ou venda.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trailing Stop e realização parcial · Lição 5.5 · Trading do Zero</title>
+  <meta name="description" content="Nunca deixe um trade vencedor transformar-se num perdedor. Aprenda a técnica de realização parcial e como usar um Trailing Stop para seguir tendências longas.">
+  <meta name="keywords" content="trailing stop, breakeven, realização parcial, lucro no day trade, price action, stop loss dinâmico">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Trailing Stop e realização parcial · Lição 5.5 · Trading do Zero">
+  <meta property="og:description" content="Nunca deixe um trade vencedor transformar-se num perdedor. Aprenda a técnica de realização parcial e como usar um Trailing Stop para seguir tendências longas.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/5-5-trailing-stop.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trailing Stop e realização parcial · Lição 5.5 · Trading do Zero">
+  <meta name="twitter:description" content="Nunca deixe um trade vencedor transformar-se num perdedor. Aprenda a técnica de realização parcial e como usar um Trailing Stop para seguir tendências longas.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/5-5-trailing-stop.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Trailing Stop e realização parcial · Lição 5.5",
+  "description": "Nunca deixe um trade vencedor transformar-se num perdedor. Aprenda a técnica de realização parcial e como usar um Trailing Stop para seguir tendências longas.",
+  "url": "https://tradingdozero.com/licoes/5-5-trailing-stop.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "PT7M",
+  "wordCount": 1219,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 5: Gestão de risco",
+    "url": "https://tradingdozero.com/modulos/risco.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/risco.html" class="nav-cta">Módulo 5</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/risco.html">módulo 05</a>
+      <span class="sep">/</span>
+      <span>lição 5.5</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 5.5 · avançado</div>
+        <h1>Trailing Stop e<br><em>realização parcial</em>.</h1>
+        <p class="lesson-summary">
+          Como resolver o eterno dilema do trader: Vender cedo demais e ver o ativo voar, ou não vender nada, ver o lucro sumir e o trade virar prejuízo?
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-avancado">avançado</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Você analisou o mercado, operou um Bull Flag com risco cirúrgico, o ativo disparou e você está R$ 300 positivo. De repente, uma pequena sombra de dúvida bate. "E se ele cair tudo agora?". O que você faz?
+        </p>
+
+        <p>
+          Se vender tudo, a ação provavelmente continuará a subir sem você e a frustração vai fazer você reentrar no topo. Se não vender nada, ela pode sofrer um recuo brutal, e um trade belíssimo se transforma num empate irritante.
+        </p>
+
+        <p>
+          Os profissionais resolvem este dilema emocional através de uma gestão de posição dinâmica em três fases: <strong>Realização Parcial</strong>, <strong>Breakeven</strong> e <strong>Trailing Stop</strong>.
+        </p>
+
+        <h2>Fase 1: A Realização Parcial (Tirar o seu da reta)</h2>
+
+        <p>
+          Se você comprou 200 ações num trade, a regra de ouro da gestão dinâmica é retirar a maior parte do risco o mais cedo possível — assim que a operação pagar a sua relação 1:2.
+        </p>
+
+        <p>
+          Quando a ação atinge o primeiro alvo lógico (uma resistência no gráfico de 5 minutos, ou uma VWAP no diário), você <strong>vende 50% ou 75% da sua posição</strong>.
+        </p>
+
+        <p>
+          Com 100 ações vendidas com lucro, aquele trade já é matematicamente positivo no dia. Você colocou dinheiro no bolso. A ansiedade vai a zero instantaneamente. Você agora está jogando com o dinheiro da casa (do mercado).
+        </p>
+
+        <h2>Fase 2: Mover para o Breakeven</h2>
+
+        <p>
+          Um dos crimes mortais no trading é permitir que uma operação que já deu um lucro significativo vire um prejuízo pesado.
+        </p>
+
+        <p>
+          No mesmo segundo em que você vendeu os seus primeiros 50% de lote, você pega o seu Stop Loss (que estava lá embaixo no nível de risco original) e <strong>o arrasta fisicamente para o seu Preço de Entrada (Breakeven)</strong>.
+        </p>
+
+        <p>
+          O que acontece a partir daqui?
+          <br>Se as notícias da bolsa azedarem e as suas 100 ações restantes derreterem no gráfico, elas baterão no Stop exatamente no preço que você as comprou (R$ 0 de prejuízo). Mas você já faturou o lucro da primeira metade. O trade foi um sucesso.
+        </p>
+
+        <h2>Fase 3: O Trailing Stop (Espremer o Limão)</h2>
+
+        <p>
+          Com o risco anulado (no breakeven) e o lucro parcial no bolso, você deixa as restantes ações (o seu lote residual) soltas para surfar um possível "dia de tendência épica" que pode gerar pagamentos absurdos de 1:8 ou 1:10.
+        </p>
+
+        <p>
+          Mas você não abandona as ações. Você usa um <strong>Trailing Stop (Stop Móvel)</strong>.
+          <br>O método de trailing mais seguro e comprovado é utilizar uma Média Móvel, como a <strong>EMA 9 ou EMA 20</strong> (dependendo do ativo).
+        </p>
+
+        <ol>
+          <li>O ativo rompeu e continua a subir.</li>
+          <li>A linha da Média Móvel sobe junto com ele.</li>
+          <li>Em vez de colocar um alvo final fixo no céu, você vai arrastando o seu Stop Loss para cima, mantendo-o sempre <strong>um centavo abaixo da mínima do último candle que tocou a EMA</strong>.</li>
+          <li>O ativo vai continuar a subir horas a fio, e o seu lucro continuará a inchar artificialmente no limite matemático. Você só será ejetado ("stopado" em lucro) quando a tendência morrer oficialmente e o ativo furar a média móvel.</li>
+        </ol>
+
+        <div class="callout">
+          <div class="callout-label">Automação com Ordens OCO Avançadas</div>
+          <p>
+            Plataformas modernas de trading têm o recurso "Trailing Stop" ou "Auto-Breakeven" nas regras OCO. Você programa: "Se o ativo andar 20 centavos a favor, mova automaticamente o meu stop de perda para 1 centavo de lucro". Use esta automação, salva vidas.
+          </p>
+        </div>
+
+        <h2>Os três tipos de trailing stop</h2>
+
+        <figure class="lesson-figure">
+          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="As tres fases da gestao dinamica: realizacao parcial no primeiro alvo, mover o stop para o breakeven, e trailing stop seguindo a media movel na continuacao">
+            <rect width="700" height="340" fill="#15130F"/>
+
+            <!-- EMA / trilha do trailing -->
+            <path d="M 120 250 Q 300 200 450 130 T 660 60" stroke="#D4A574" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+            <text x="615" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#D4A574">EMA 9</text>
+
+            <!-- Preço -->
+            <path d="M 60 290 L 110 250 L 170 190 L 230 215 L 300 150 L 380 175 L 450 110 L 540 130 L 620 50"
+                  stroke="#7A9D6F" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+
+            <!-- Entrada -->
+            <circle cx="60" cy="290" r="6" fill="#EDE6D6"/>
+            <text x="60" y="312" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#EDE6D6">entrada</text>
+
+            <!-- Fase 1: realização parcial no alvo 1 -->
+            <circle cx="170" cy="190" r="6" fill="#D4A574"/>
+            <text x="170" y="175" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#D4A574">vende 50%</text>
+            <line x1="60" y1="290" x2="170" y2="290" stroke="#C75B3E" stroke-width="1" stroke-dasharray="2 3"/>
+            <text x="115" y="305" text-anchor="middle" font-family="Geist, sans-serif" font-size="9" fill="#C75B3E">stop inicial</text>
+
+            <!-- Fase 2: breakeven -->
+            <line x1="170" y1="290" x2="320" y2="290" stroke="#807A6C" stroke-width="1" stroke-dasharray="2 3"/>
+            <line x1="170" y1="290" x2="170" y2="195" stroke="#807A6C" stroke-width="1" stroke-dasharray="1 3"/>
+            <text x="250" y="280" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#807A6C">stop → breakeven</text>
+
+            <!-- Fase 3: trailing -->
+            <circle cx="300" cy="150" r="4" fill="#7A9D6F"/>
+            <circle cx="450" cy="110" r="4" fill="#7A9D6F"/>
+            <text x="500" y="200" text-anchor="middle" font-family="Geist, sans-serif" font-size="11" fill="#7A9D6F">trailing segue a EMA</text>
+          </svg>
+          <figcaption>fig. 1 — As três fases: realização parcial, breakeven e trailing stop</figcaption>
+        </figure>
+
+        <p>
+          Há mais de uma forma de fazer o trailing. Cada uma com prós e contras diferentes — vale conhecer todas para escolher conforme o contexto:
+        </p>
+
+        <table class="lesson-table">
+          <thead>
+            <tr><th>tipo</th><th>como funciona</th><th>quando usar</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Trailing por EMA</strong></td>
+              <td>Stop arrastado sempre 1 centavo abaixo da mínima do último candle que tocou a EMA 9 ou 20.</td>
+              <td>Tendências limpas e direcionais. O método mais usado.</td>
+            </tr>
+            <tr>
+              <td><strong>Trailing por pivôs</strong></td>
+              <td>Stop sobe para a mínima do último pivô de baixa visível. Move a cada novo pivô formado.</td>
+              <td>Tendências com pernadas claras. Dá mais espaço ao trade.</td>
+            </tr>
+            <tr>
+              <td><strong>Trailing por porcentagem</strong></td>
+              <td>Stop fica sempre X% (ex: 1%) abaixo do pico mais alto atingido pela operação.</td>
+              <td>Mecânico, ideal para ativos voláteis sem estrutura clara de pivôs.</td>
+            </tr>
+            <tr>
+              <td><strong>Trailing por candles</strong></td>
+              <td>Stop sobe para a mínima do candle anterior, a cada novo candle de 5 minutos.</td>
+              <td>Movimentos muito rápidos onde a EMA fica atrás demais.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Não há método universalmente melhor. O <strong>trailing por EMA 9</strong> é o ponto de partida recomendado — equilibra proteção e espaço para o trade respirar. À medida que ganha experiência, pode experimentar os outros e escolher pelo desempenho no seu próprio diário.
+        </p>
+
+        <h2>Exemplo numérico — surfando um trade com gestão dinâmica</h2>
+
+        <p>
+          Cenário realista em PETR4 para ilustrar as três fases em sequência:
+        </p>
+
+        <ul>
+          <li><strong>Entrada:</strong> 200 ações compradas a R$ 38,00 num Bull Flag. Stop inicial em R$ 37,85. Risco = R$ 30.</li>
+          <li><strong>Alvo R:R 1:2:</strong> R$ 38,30. O preço chega lá em 25 minutos.</li>
+        </ul>
+
+        <p>
+          <strong>Fase 1 — realização parcial:</strong> vende 100 ações a R$ 38,30. Lucro garantido = R$ 30 (paga o risco inteiro do trade).
+        </p>
+
+        <p>
+          <strong>Fase 2 — breakeven:</strong> move o stop das 100 ações restantes de R$ 37,85 para R$ 38,01 (1 centavo acima da entrada). Se o trade reverter agora, sai com R$ 1 de lucro nas restantes 100 ações — o trade total é <strong>lucro garantido</strong>.
+        </p>
+
+        <p>
+          <strong>Fase 3 — trailing:</strong> nas 100 ações restantes, configura trailing por EMA 9. O preço continua a subir:
+        </p>
+
+        <ul>
+          <li>R$ 38,30 → 38,50 (EMA 9 está em 38,15, stop move para 38,10)</li>
+          <li>R$ 38,50 → 38,70 (EMA 9 em 38,35, stop em 38,30 — agora garantido 30 centavos de lucro)</li>
+          <li>R$ 38,70 → 38,85 (EMA 9 em 38,55, stop em 38,50)</li>
+          <li>R$ 38,85 → preço recua, fecha um candle abaixo da EMA 9 em R$ 38,55. <strong>Stop accionado a R$ 38,50.</strong></li>
+        </ul>
+
+        <p>
+          Resultado total do trade: R$ 30 (alvo parcial) + R$ 50 (100 ações × R$ 0,50) = <strong>R$ 80</strong>. Sem trailing, se tivesse alvo fixo em R$ 38,30 nas 200 ações, teria saído com R$ 60 e perdido os R$ 20 adicionais que o trailing capturou.
+        </p>
+
+        <h2>Quando NÃO usar trailing — e sair no alvo fixo</h2>
+
+        <p>
+          Trailing nem sempre é a melhor escolha. Cenários onde alvo fixo é superior:
+        </p>
+
+        <ul>
+          <li><strong>Mercados em lateralização.</strong> Trailing assume tendência continuada. Em mercado lateral, o preço bate no alvo e volta — saída por trailing acontece sempre no pior preço da onda.</li>
+          <li><strong>Próximo a resistência forte conhecida.</strong> Se sabe que há resistência em R$ 38,80 (no diário, nível psicológico, etc.), faz sentido vender em R$ 38,75 com alvo fixo do que arriscar trailing que vai estopar quando o preço bater na resistência e recuar.</li>
+          <li><strong>Fim do pregão se aproximando.</strong> Após as 16h30, a liquidez cai e a volatilidade é errática. Vale a pena fechar posições com alvos fixos próximos em vez de tentar trailing num mercado que vai dar saltos artificiais até o fechamento.</li>
+          <li><strong>Notícia macro pendente.</strong> Antes de Copom, FOMC, payroll — o preço pode ter movimento violento em ambas as direções em segundos. Trailing pode estopar exatamente antes da explosão. Alvo fixo perto e fechar a posição antes do anúncio é mais seguro.</li>
+        </ul>
+
+        <div class="callout warn">
+          <div class="callout-label">o trailing emocional</div>
+          <p>
+            Atenção a um erro comum: <em>mover o stop manualmente, no calor do trade, para "ganhar mais"</em>. Isto não é trailing — é improvisação. O trailing real é mecânico (regra fixa: EMA, pivô, porcentagem). Mover o stop "porque o preço está fluindo" é a porta de entrada para devolver lucros. A regra precisa estar definida antes de entrar, e executada sem decisões adicionais.
+          </p>
+        </div>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li>Nunca saia de uma posição forte a 100% no primeiro alvo. Venda a maioria e deixe uma "semente" para a tendência prolongada.</li>
+            <li>Quando atingir a meta parcial, traga imediatamente o stop do restante para o Breakeven (ponto de entrada).</li>
+            <li>A pior dor do day trader é transformar um trade de R$ 500 verdes numa perda de R$ 300 vermelhos. O Breakeven elimina isso.</li>
+            <li>Use a Média Móvel Exponencial (EMA 9/20) para arrastar o seu Stop (Trailing Stop) e tentar capturar o "home run" do dia.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="5-4-limite-diario.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">5.4 Limite de perda diária e Drawdowns</span>
+          </a>
+          <a href="5-6-preco-medio.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">5.6 O veneno do preço médio contra a posição</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+          <li><a href="../modulos/risco.html">Gestão de Risco</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+

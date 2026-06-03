@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3: Análise de mercado · Trading do Zero</title>
+  <meta name="description" content="Módulo 3: Análise de mercado. Aprenda a ler candlesticks, tendências, suportes, resistências e os indicadores essenciais do day trade.">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Módulo 3: Análise de mercado · Trading do Zero">
+  <meta property="og:description" content="Módulo 3: Análise de mercado. Aprenda a ler candlesticks, tendências, suportes, resistências e os indicadores essenciais do day trade.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/modulos/analise.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Módulo 3: Análise de mercado · Trading do Zero">
+  <meta name="twitter:description" content="Módulo 3: Análise de mercado. Aprenda a ler candlesticks, tendências, suportes, resistências e os indicadores essenciais do day trade.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/modulos/analise.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Módulo 3: Análise técnica essencial",
+  "description": "Candlesticks, tendência, suporte e resistência, indicadores e multi-timeframes.",
+  "url": "https://tradingdozero.com/modulos/analise.html",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "educationalLevel": "Beginner",
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com/modulos.html"
+  },
+  "hasPart": [
+    {
+      "@type": "LearningResource",
+      "name": "Como ler um gráfico de candles · Lição 3.1",
+      "url": "https://tradingdozero.com/licoes/3-1-grafico-candles.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Beginner"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Tendência, lateralização e reversão · Lição 3.2",
+      "url": "https://tradingdozero.com/licoes/3-2-tendencia-lateralizacao.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Beginner"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Suporte e resistência básico · Lição 3.3",
+      "url": "https://tradingdozero.com/licoes/3-3-suporte-resistencia-basico.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Beginner"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Suporte e resistência avançado · Lição 3.4",
+      "url": "https://tradingdozero.com/licoes/3-4-suporte-resistencia-avancado.html",
+      "timeRequired": "PT6M",
+      "educationalLevel": "Intermediate"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Indicadores essenciais (VWAP, Médias, Volume) · Lição 3.5",
+      "url": "https://tradingdozero.com/licoes/3-5-indicadores.html",
+      "timeRequired": "PT7M",
+      "educationalLevel": "Intermediate"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Timeframes e múltiplos timeframes · Lição 3.6",
+      "url": "https://tradingdozero.com/licoes/3-6-timeframes.html",
+      "timeRequired": "PT8M",
+      "educationalLevel": "Beginner"
+    }
+  ],
+  "numberOfLessons": 6
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos.html" class="nav-cta">Ver currículo</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <span>módulo 03</span>
+    </nav>
+
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">módulo 03 · iniciante a intermediário</div>
+    <h1>Análise<br>do <em>mercado</em>.</h1>
+    <p class="lead" style="color: var(--ink-muted); margin-top: var(--space-4); max-width: 60ch;">
+      O gráfico não é um desenho aleatório. É o registro histórico da <strong>psicologia das massas</strong>, medo e ganância impressos em pixels. Aprenda o idioma dos preços (Price Action) para saber onde o dinheiro inteligente está se escondendo.
+    </p>
+
+    <div class="module-meta">
+      <span>tempo estimado <strong>~42 MIN</strong></span>
+      <span>lições <strong>6</strong></span>
+      <span>nível <strong style="color: var(--success);">intermediário</strong></span>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top: 0;">
+  <div class="container">
+
+    <div class="section-header reveal" style="margin-bottom: var(--space-5);">
+      <div class="eyebrow">lições do módulo</div>
+    </div>
+
+    <div class="lessons-list">
+
+      <a href="../licoes/3-1-grafico-candles.html" class="lesson-item reveal">
+        <div class="lesson-num">3.1</div>
+        <div class="lesson-content">
+          <h4>Como ler um gráfico de candles</h4>
+          <p>O alfabeto do mercado. A anatomia das velas japonesas e a batalha entre touros e ursos num período de tempo.</p>
+        </div>
+        <div>
+          <span class="lesson-badge basic">básico</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/3-2-tendencia-lateralizacao.html" class="lesson-item reveal">
+        <div class="lesson-num">3.2</div>
+        <div class="lesson-content">
+          <h4>Tendência, lateralização e reversão</h4>
+          <p>As três únicas coisas que o mercado pode fazer. Por que operar num mercado lateral destruirá a sua conta.</p>
+        </div>
+        <div>
+          <span class="lesson-badge basic">básico</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/3-3-suporte-resistencia-basico.html" class="lesson-item reveal">
+        <div class="lesson-num">3.3</div>
+        <div class="lesson-content">
+          <h4>Suporte e resistência básico</h4>
+          <p>Onde as tendências nascem e morrem. Como traçar os níveis de preço que realmente importam no gráfico.</p>
+        </div>
+        <div>
+          <span class="lesson-badge basic">básico</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/3-4-suporte-resistencia-avancado.html" class="lesson-item reveal">
+        <div class="lesson-num">3.4</div>
+        <div class="lesson-content">
+          <h4>Suporte e resistência avançado</h4>
+          <p>O deep dive de níveis não-óbvios, falsos rompimentos (fakeouts) e armadilhas de liquidez.</p>
+        </div>
+        <div>
+          <span class="lesson-badge advanced">avançado</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/3-5-indicadores.html" class="lesson-item reveal">
+        <div class="lesson-num">3.5</div>
+        <div class="lesson-content">
+          <h4>Indicadores essenciais (VWAP, Médias, Volume)</h4>
+          <p>O que presta e o que é lixo. Por que a VWAP é o indicador mais respeitado pelos institucionais.</p>
+        </div>
+        <div>
+          <span class="lesson-badge advanced">avançado</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="../licoes/3-6-timeframes.html" class="lesson-item reveal">
+        <div class="lesson-num">3.6</div>
+        <div class="lesson-content">
+          <h4>Timeframes e múltiplos timeframes</h4>
+          <p>Por que olhar só para o gráfico de 5 minutos é como dirigir olhando pelo buraco da fechadura.</p>
+        </div>
+        <div>
+          <span class="lesson-badge basic">básico</span>
+          <span class="lesson-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Navegação entre módulos -->
+    <div style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+      <a href="ferramentas.html" class="btn btn-secondary">
+        <span style="display: inline-block; transform: rotate(180deg);">→</span>
+        Módulo 2: Ferramentas
+      </a>
+      <a href="estrategias.html" class="btn btn-primary">
+        Módulo 4: Estratégias
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="fundamentos.html">Fundamentos</a></li>
+          <li><a href="estrategias.html">Estratégias</a></li>
+              </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+

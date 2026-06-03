@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como usar as ferramentas · Trading do Zero</title>
+  <meta name="description" content="Workflows práticos para combinar calculadoras, glossário e cheatsheets no seu dia de trading. Dicas de uso, erros comuns e protocolo de rotina.">
+  <meta name="keywords" content="como usar calculadora day trade, workflow day trading, rotina diária trader, ferramentas trading brasil">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Como usar as ferramentas · Trading do Zero">
+  <meta property="og:description" content="Workflows práticos de como combinar as calculadoras, o glossário e os cheatsheets durante o seu dia de trading. Dicas de uso, erros comuns e o protocolo de rotina diária.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/ferramentas-dicas.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como usar as ferramentas · Trading do Zero">
+  <meta name="twitter:description" content="Workflows práticos de como combinar as calculadoras, o glossário e os cheatsheets durante o seu dia de trading. Dicas de uso, erros comuns e o protocolo de rotina diária.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/ferramentas-dicas.html">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <style>
+    .prose { max-width: 720px; }
+    .prose p.lead {
+      font-size: var(--fs-lg);
+      line-height: 1.55;
+      color: var(--ink-muted);
+      margin-bottom: var(--space-6);
+      font-family: var(--font-display);
+      font-weight: 350;
+      font-variation-settings: "opsz" 60;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-5);
+      margin: var(--space-6) 0;
+    }
+    @media (max-width: 700px) {
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+
+    .tool-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .tool-card-num {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-3);
+    }
+    .tool-card h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      margin-bottom: var(--space-3);
+      color: var(--ink);
+    }
+    .tool-card p {
+      font-size: var(--fs-sm);
+      color: var(--ink-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .tool-card-cta {
+      margin-top: var(--space-4);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--line);
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: var(--space-6);
+      margin: var(--space-6) 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: var(--line-strong);
+    }
+    .phase {
+      position: relative;
+      margin-bottom: var(--space-6);
+    }
+    .phase::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-6) + 1px);
+      top: 8px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--bg);
+    }
+    .phase-time {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .phase h3 {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      margin-bottom: var(--space-3);
+      color: var(--ink);
+    }
+    .phase p, .phase ul {
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    .phase ul {
+      padding-left: 0;
+      margin-top: var(--space-3);
+    }
+    .phase ul li {
+      position: relative;
+      padding-left: var(--space-5);
+      margin-bottom: var(--space-2);
+      list-style: none;
+    }
+    .phase ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 10px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .tip-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      margin-bottom: var(--space-4);
+    }
+    .tip-card h4 {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 400;
+      margin-bottom: var(--space-3);
+      color: var(--ink);
+    }
+    .tip-card h4 .tip-num {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7em;
+      color: var(--accent);
+      margin-right: var(--space-3);
+      letter-spacing: 0.1em;
+    }
+    .tip-card p {
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: var(--fs-base);
+      margin-bottom: var(--space-2);
+    }
+    .tip-card p:last-child { margin-bottom: 0; }
+    .tip-card em { color: var(--ink-muted); font-style: italic; }
+
+    .mistakes {
+      margin: var(--space-6) 0;
+    }
+    .mistake {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .mistake:last-child { border-bottom: none; }
+    .mistake-icon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--warn);
+      color: var(--warn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .mistake-text strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+      font-size: var(--fs-base);
+    }
+    .mistake-text p {
+      color: var(--ink-muted);
+      font-size: var(--fs-sm);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: var(--space-8) 0;
+    }
+
+    h2.section-h {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+      color: var(--ink);
+    }
+    h2.section-h em {
+      color: var(--accent);
+      font-style: italic;
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Como usar as ferramentas",
+  "description": "Workflows práticos de como combinar as calculadoras, o glossário e os cheatsheets durante o seu dia de trading. Dicas de uso, erros comuns e o protocolo de rotina diária.",
+  "url": "https://tradingdozero.com/ferramentas-dicas.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Início",
+        "item": "https://tradingdozero.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Recursos e ferramentas",
+        "item": "https://tradingdozero.com/ferramentas-dicas.html"
+      }
+    ]
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="modulos.html">Módulos</a></li>
+      <li><a href="ferramentas-dicas.html" class="active">Recursos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="modulos/fundamentos.html" class="nav-cta">Começar agora</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="index.html">início</a>
+      <span class="sep">/</span>
+      <span>recursos e dicas</span>
+    </nav>
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">O kit do day trader</div>
+    <h1>Como usar as <em>ferramentas</em>.</h1>
+  </div>
+</header>
+
+<section style="padding-top: 0;">
+  <div class="container">
+
+    <div class="prose">
+      <p class="lead">
+        O curso vem com três ferramentas que valem mais do que muito conteúdo escrito — desde que você saiba usá-las. Este é o guia prático: o que cada uma resolve, como combinar entre si, e o protocolo de rotina diária que separa o trader sério do amador improvisador.
+      </p>
+    </div>
+
+    <!-- HUB DAS TRÊS FERRAMENTAS -->
+    <div class="tool-grid">
+      <a href="calculadoras.html" class="tool-card">
+        <div class="tool-card-num">01 · CALCULADORAS</div>
+        <h3>Position sizing, R:R e juros compostos</h3>
+        <p>Três calculadoras que automatizam a matemática do risco antes de cada trade. A primeira diz quantas ações comprar. A segunda valida se o trade vale a pena. A terceira coloca expectativas em terra firme.</p>
+        <span class="tool-card-cta">abrir →</span>
+      </a>
+
+      <a href="glossario.html" class="tool-card">
+        <div class="tool-card-num">02 · GLOSSÁRIO</div>
+        <h3>29 termos essenciais com busca</h3>
+        <p>Quando aparecer um termo que você não conhece (VWAP, float, gap, breakout), o glossário tem definição curta e operacional. Busca instantânea por qualquer palavra do termo ou da explicação.</p>
+        <span class="tool-card-cta">abrir →</span>
+      </a>
+
+      <a href="cheatsheets.html" class="tool-card">
+        <div class="tool-card-num">03 · CHEATSHEETS</div>
+        <h3>Resumos de leitura instantânea</h3>
+        <p>As 11 regras de sobrevivência, a tabela de setups com gatilhos e stops, e o checklist de pré-mercado. Feito para você manter aberto numa segunda tela durante o pregão.</p>
+        <span class="tool-card-cta">abrir →</span>
+      </a>
+
+      <a href="faq.html" class="tool-card">
+        <div class="tool-card-num">04 · FAQ</div>
+        <h3>15 perguntas frequentes</h3>
+        <p>Capital mínimo, impostos, tempo até rentabilidade, escolha de corretora, sinais de Telegram. As dúvidas mais comuns sobre day trade respondidas sem rodeios nem promessas.</p>
+        <span class="tool-card-cta">abrir →</span>
+      </a>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- WORKFLOW DIÁRIO -->
+    <h2 class="section-h">O <em>workflow</em> de um dia de pregão</h2>
+
+    <div class="prose">
+      <p style="font-size: var(--fs-base); color: var(--ink); line-height: 1.7;">
+        As três ferramentas combinam-se num fluxo de trabalho com três momentos. Não é regra rígida — é o protocolo que faz com que cada ferramenta apareça quando é útil, e não atrapalhe quando não é.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="phase">
+        <div class="phase-time">antes — 09h00 às 09h45</div>
+        <h3>Preparação fria</h3>
+        <p>
+          Mercado ainda fechado. É a única hora do dia em que você toma decisões sem pressão de preço. Use bem:
+        </p>
+        <ul>
+          <li>Abrir os <strong>cheatsheets</strong> e ler em voz alta as 11 regras de sobrevivência. Não é ritual — é re-alinhamento.</li>
+          <li>Passar pelo <strong>checklist de pré-mercado</strong>: como abriram os futuros? Há ações com notícia? Qual é o viés do dia?</li>
+          <li>Para cada trade-candidato da watchlist, abrir a <strong>calculadora de position sizing</strong> e calcular o tamanho da posição com base no stop natural do setup. Anotar o resultado num post-it.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <div class="phase-time">durante — 10h00 às 17h00</div>
+        <h3>Execução fria, ferramentas frias</h3>
+        <p>
+          Aqui há uma regra contra-intuitiva: <strong>durante o trade, evite mexer nas calculadoras</strong>. Se você está fazendo cálculos enquanto o preço mexe, alguma coisa correu mal no plano. Mexer em calculadora durante candle ativo é gastar atenção no sítio errado.
+        </p>
+        <ul>
+          <li>O <strong>glossário</strong> pode ser consultado se aparecer um termo num livro de fluxo ou comentário. É consulta rápida, &lt;30 segundos.</li>
+          <li>Os <strong>cheatsheets</strong> ficam abertos numa segunda tela ou impressos colados ao lado do monitor — para confirmar visualmente o gatilho de entrada de um setup antes de apertar o botão.</li>
+          <li>A <strong>calculadora R:R</strong> só se justifica em situações novas, em que o setup é diferente do habitual e você quer validar a matemática antes de entrar.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <div class="phase-time">depois — após 17h00</div>
+        <h3>Revisão honesta</h3>
+        <p>
+          O fechamento é parte do trabalho, não recompensa. Aqui as ferramentas voltam à mesa para análise:
+        </p>
+        <ul>
+          <li>Para cada trade do dia, abrir a <strong>calculadora R:R</strong> retroactivamente: o alvo onde saiu correspondia ao R:R que tinha planejado? Saiu cedo demais? Tarde demais?</li>
+          <li>Uma vez por mês, abrir a <strong>calculadora de juros compostos</strong> com o resultado mensal real (não a projecção optimista) e ver onde você fica em 12 meses se mantiver esse ritmo. É o reality check.</li>
+          <li>Anotar no diário de trading: que termo do glossário foi mais útil? Que regra do cheatsheet foi quebrada? Esses são os ajustes para amanhã.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- DICAS POR FERRAMENTA -->
+    <h2 class="section-h">Dicas <em>específicas</em> por ferramenta</h2>
+
+    <h3 style="font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 400; margin: var(--space-5) 0 var(--space-3); color: var(--accent);">Calculadoras</h3>
+
+    <div class="tip-card">
+      <h4><span class="tip-num">01</span> O stop dita o tamanho, não o contrário</h4>
+      <p>
+        O erro mais comum é decidir primeiro quantas ações comprar e depois "ajustar" o stop. Inverta a ordem. Olhe o gráfico, decida onde o stop tem que ficar (logo abaixo de um suporte claro), e <strong>deixe a calculadora dizer quantas ações</strong>. Se o stop natural está longe, a posição vai ser pequena. Se está perto, a posição pode ser grande. O risco em reais fica constante.
+      </p>
+    </div>
+
+    <div class="tip-card">
+      <h4><span class="tip-num">02</span> Use 1% até ter 6 meses lucrativos</h4>
+      <p>
+        A regra dos 2% é o teto. Para quem está começando — e mesmo para profissionais conservadores — o uso real é entre 0,5% e 1%. Configure a calculadora com 1% como padrão. Suba para 1,5% só quando tiver 6 meses consecutivos lucrativos no simulador ou na conta real.
+      </p>
+    </div>
+
+    <div class="tip-card">
+      <h4><span class="tip-num">03</span> A calculadora de juros compostos é um anti-iludir</h4>
+      <p>
+        Não use a calculadora de juros compostos para sonhar — use para <strong>desinflacionar expectativas</strong>. Coloque um retorno realista (1% a 2% ao mês para um trader competente) e veja o número final. Você vai descobrir que o caminho para a riqueza via day trade é mais longo do que os vídeos do YouTube sugerem.
+      </p>
+      <p><em>Exemplo: R$ 10.000 a 1,5% ao mês durante 24 meses dá R$ 14.295. Sim, isso. Pouco para uma carreira. Compatível com a realidade.</em></p>
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 400; margin: var(--space-6) 0 var(--space-3); color: var(--accent);">Glossário</h3>
+
+    <div class="tip-card">
+      <h4><span class="tip-num">04</span> Não decore — consulte</h4>
+      <p>
+        Não tente decorar os 29 termos. O cérebro absorve melhor por uso. Quando aparecer "Fallen Angel" num comentário, abre o glossário, lê os 2-3 segundos da definição, fecha. Da terceira vez já não precisa abrir. Isso é aprendizagem orgânica e dura.
+      </p>
+    </div>
+
+    <div class="tip-card">
+      <h4><span class="tip-num">05</span> A busca filtra por descrição também</h4>
+      <p>
+        O campo de busca não procura só nos nomes dos termos — procura também nas explicações. Se você escrever "stop", aparecem os termos cuja <em>explicação</em> menciona stop (Position Sizing, R:R, Stop Loss). Útil para descobrir termos relacionados quando você nem sabe o nome certo.
+      </p>
+    </div>
+
+    <h3 style="font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 400; margin: var(--space-6) 0 var(--space-3); color: var(--accent);">Cheatsheets</h3>
+
+    <div class="tip-card">
+      <h4><span class="tip-num">06</span> Imprima e cole na parede</h4>
+      <p>
+        A tabela de setups e as 11 regras foram desenhadas para serem impressas. Imprima em A4, cole ao lado do monitor. Quando aparecer um setup que parece ABCD mas não bate certo, você olha de relance para a tabela em vez de procurar mentalmente. Reduz erros de classificação no calor do pregão.
+      </p>
+    </div>
+
+    <div class="tip-card">
+      <h4><span class="tip-num">07</span> Use o checklist de pré-mercado como ritual</h4>
+      <p>
+        O checklist é simples — cinco perguntas. Mas o valor não está no conteúdo, está em <strong>fazer todos os dias</strong>. Vire ritual. Café, abrir o checklist, responder cada ponto antes de tocar no botão de compra. Em três semanas é hábito. Em três meses é instinto.
+      </p>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- ERROS COMUNS -->
+    <h2 class="section-h">Os erros mais comuns no uso destas ferramentas</h2>
+
+    <div class="prose">
+      <p style="color: var(--ink); line-height: 1.7;">
+        Ferramentas só servem se forem usadas como suporte à disciplina — não para a substituir. Os quatro erros que mais sabotam o uso destes recursos:
+      </p>
+    </div>
+
+    <div class="mistakes">
+      <div class="mistake">
+        <div class="mistake-icon">!</div>
+        <div class="mistake-text">
+          <strong>Calcular o position sizing depois de já ter entrado</strong>
+          <p>Vai contra o ponto inteiro. Se você já está dentro do trade, a posição é o que é — calcular agora só serve para descobrir que estava errada. A calculadora vai <em>antes</em> do clique, sempre.</p>
+        </div>
+      </div>
+
+      <div class="mistake">
+        <div class="mistake-icon">!</div>
+        <div class="mistake-text">
+          <strong>Usar o R:R para justificar trades duvidosos</strong>
+          <p>"Mas o R:R é 1:5!" — claro, porque você imaginou um alvo distante e um stop apertado. R:R numa calculadora é só matemática; sem leitura técnica que sustente o alvo, é só wishful thinking com decimais.</p>
+        </div>
+      </div>
+
+      <div class="mistake">
+        <div class="mistake-icon">!</div>
+        <div class="mistake-text">
+          <strong>Mexer nos cheatsheets durante o trade</strong>
+          <p>Se você precisa olhar para o cheatsheet para lembrar o gatilho do Bull Flag <em>enquanto está em frente ao gráfico</em>, ainda não dominou o setup. Volte ao simulador. Cheatsheet é referência periférica, não tutorial em tempo real.</p>
+        </div>
+      </div>
+
+      <div class="mistake">
+        <div class="mistake-icon">!</div>
+        <div class="mistake-text">
+          <strong>Projectar com a calculadora de juros compostos sem desconto</strong>
+          <p>Quem coloca 5% mensal por 36 meses na calculadora e fica empolgado com o número final está fazendo ficção. A realidade tem drawdowns, meses negativos, impostos, custos, eventos macro. Use sempre números <em>abaixo</em> do que acha que vai conseguir.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- DICA AVANÇADA -->
+    <h2 class="section-h">Uma <em>dica avançada</em> de combinação</h2>
+
+    <div class="prose">
+      <p style="color: var(--ink); line-height: 1.7;">
+        Quando você tiver 3 a 6 meses de experiência, faça este exercício uma vez por mês:
+      </p>
+
+      <ol style="padding-left: var(--space-5); margin: var(--space-4) 0; line-height: 1.7;">
+        <li style="margin-bottom: var(--space-3);">Pegue os <strong>10 melhores trades do mês</strong> no seu diário.</li>
+        <li style="margin-bottom: var(--space-3);">Para cada um, abra a <strong>calculadora R:R</strong> e calcule a relação real que conseguiu (não a planejada — o que <em>de fato</em> aconteceu, com o preço de saída real).</li>
+        <li style="margin-bottom: var(--space-3);">Calcule a média. Se a média ficar acima de 1:2, você está executando bem. Se ficar entre 1:1 e 1:2, está saindo cedo demais. Se ficar abaixo de 1:1, está errando o que define como "melhor trade".</li>
+        <li>Use esse número médio na <strong>calculadora de juros compostos</strong> combinado com a sua taxa de acerto e número médio de trades por mês. O resultado é a sua projecção realista — não a optimista, não a pessimista. A que está baseada em dados seus.</li>
+      </ol>
+
+      <p style="color: var(--ink); line-height: 1.7;">
+        Este exercício costuma ser revelador. Muitos traders que pensam estar "indo bem" descobrem que o seu R:R médio é 1:1,2 — e o trabalho é capturar mais dos movimentos a favor, não procurar setups novos.
+      </p>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- CTA FINAL -->
+    <div style="margin-top: var(--space-8); padding-top: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center;">
+      <div>
+        <p style="font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 400; margin-bottom: var(--space-2);">Pronto para o pregão?</p>
+        <p style="color: var(--ink-muted); margin: 0;">As ferramentas estão à mão. As lições continuam.</p>
+      </div>
+      <a href="modulos.html" class="btn btn-primary">
+        Voltar ao currículo
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="modulos.html">Todos os módulos</a></li>
+          <li><a href="modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="modulos/estrategias.html">Estratégias</a></li>
+          <li><a href="modulos.html#m5">Gestão de risco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="calculadoras.html">Calculadoras</a></li>
+          <li><a href="glossario.html">Glossário</a></li>
+          <li><a href="cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="disclaimer.html">Aviso legal</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong style="color: var(--accent);">Aviso importante.</strong>
+        Este site é exclusivamente educacional. Não somos consultores financeiros nem analistas de valores mobiliários e não emitimos recomendações de compra ou venda.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

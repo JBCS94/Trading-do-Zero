@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /em-breve.html
+
+# Site público gratuito de educação financeira
+# Indexação encorajada
+
+Sitemap: https://tradingdozero.com/sitemap.xml

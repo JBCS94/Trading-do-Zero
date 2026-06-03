@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book de ofertas e Level 2 · Lição 2.4 · Trading do Zero</title>
+  <meta name="description" content="Entenda o que é o Book de Ofertas e a tela Level 2. Como a leitura de fluxo (Tape Reading) revela as intenções institucionais antes de o preço se mover.">
+  <meta name="keywords" content="book de ofertas, level 2, tape reading, fluxo de ordens, spoofing, profundidade do mercado, B3">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Book de ofertas e Level 2 · Lição 2.4 · Trading do Zero">
+  <meta property="og:description" content="Entenda o que é o Book de Ofertas e a tela Level 2. Como a leitura de fluxo (Tape Reading) revela as intenções institucionais antes de o preço se mover.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/licoes/2-4-book-ofertas.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Book de ofertas e Level 2 · Lição 2.4 · Trading do Zero">
+  <meta name="twitter:description" content="Entenda o que é o Book de Ofertas e a tela Level 2. Como a leitura de fluxo (Tape Reading) revela as intenções institucionais antes de o preço se mover.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/licoes/2-4-book-ofertas.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Book de ofertas e Level 2 · Lição 2.4",
+  "description": "Entenda o que é o Book de Ofertas e a tela Level 2. Como a leitura de fluxo (Tape Reading) revela as intenções institucionais antes de o preço se mover.",
+  "url": "https://tradingdozero.com/licoes/2-4-book-ofertas.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Intermediate",
+  "timeRequired": "PT7M",
+  "wordCount": 1260,
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "Módulo 2: Ferramentas e infraestrutura",
+    "url": "https://tradingdozero.com/modulos/ferramentas.html"
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">
+        <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../modulos.html" class="active">Módulos</a></li>
+            <li><a href="../ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="../sobre.html">Sobre</a></li>
+      <li><a href="../modulos/ferramentas.html" class="nav-cta">Módulo 2</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main class="lesson-page">
+  <div class="container">
+
+    <nav class="breadcrumbs" aria-label="Navegação">
+      <a href="../index.html">início</a>
+      <span class="sep">/</span>
+      <a href="../modulos.html">currículo</a>
+      <span class="sep">/</span>
+      <a href="../modulos/ferramentas.html">módulo 02</a>
+      <span class="sep">/</span>
+      <span>lição 2.4</span>
+    </nav>
+
+    <article class="lesson-wrap">
+
+      <header class="lesson-header">
+        <div class="lesson-tag">lição 2.4 · avançado</div>
+        <h1>Book de ofertas<br>e <em>Level 2</em>.</h1>
+        <p class="lesson-summary">
+          O gráfico mostra apenas a história do que já aconteceu. O Book de Ofertas revela as intenções do mercado no presente e pode ser a sua janela para os movimentos dos grandes players.
+        </p>
+        <div class="lesson-meta">
+          <span>leitura <strong>~7 min</strong></span>
+          <span>nível <strong class="nivel-avancado">avançado</strong></span>
+        </div>
+      </header>
+
+      <div class="lesson-body">
+
+        <p>
+          Se você ligar a televisão em qualquer canal de finanças, vai ver gráficos. Barras verdes e vermelhas, médias móveis, linhas traçadas. O gráfico é fácil de ler e excelente para entender tendências de preço.
+        </p>
+
+        <p>
+          Mas há um problema com o gráfico: ele é a sombra do mercado. Ele só desenha o preço <em>depois</em> que uma transação já foi concretizada. O gráfico é o passado.
+        </p>
+
+        <p>
+          Para entender o <strong>presente</strong>, e para onde o preço tem maior probabilidade de ir nos próximos segundos, você precisa ir aos bastidores do mercado. Você precisa ler o Livro de Ofertas (ou <em>Order Book</em>) através de uma janela chamada <strong>Level 2</strong>.
+        </p>
+
+        <h2>Level 1 vs Level 2</h2>
+
+        <p>
+          Quando o portal de notícias financeiras avisa que a ação da Petrobras está cotada a R$ 38,00, isso é informação <strong>Level 1</strong>. É o preço atual, e muitas vezes mostra a melhor oferta de compra e a melhor oferta de venda. Para o pequeno investidor que vai comprar 100 ações, essa informação basta.
+        </p>
+
+        <p>
+          Mas imagine que você é um grande fundo, ou um day trader focado em scalping (trades rápidos). Saber que o preço atual é 38,00 não é suficiente. Você precisa saber o que existe além disso.
+        </p>
+
+        <p>
+          A tela de <strong>Level 2</strong> (ou Profundidade de Mercado / Depth of Market) mostra o Book de Ofertas aberto. É uma tabela que exibe, em tempo real, as "filas de espera" formadas pelas ordens Limitadas de milhares de participantes, agrupadas por níveis de preço.
+        </p>
+
+        <table class="lesson-table" style="max-width: 400px; margin: var(--space-4) auto;">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align: center; color: #7A9D6F;">COMPRA (Bid)</th>
+              <th colspan="2" style="text-align: center; color: #C75B3E;">VENDA (Ask)</th>
+            </tr>
+            <tr>
+              <th style="text-align: right;">Qtd</th>
+              <th>Preço</th>
+              <th>Preço</th>
+              <th>Qtd</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: right; color: #8A8275;">50.000</td>
+              <td style="font-weight: 500;">38,00</td>
+              <td style="font-weight: 500;">38,01</td>
+              <td style="color: #8A8275;">12.000</td>
+            </tr>
+            <tr>
+              <td style="text-align: right; color: #8A8275;">30.000</td>
+              <td style="font-weight: 500;">37,99</td>
+              <td style="font-weight: 500;">38,02</td>
+              <td style="color: #8A8275;">5.000</td>
+            </tr>
+            <tr>
+              <td style="text-align: right; color: #8A8275;">15.000</td>
+              <td style="font-weight: 500;">37,98</td>
+              <td style="font-weight: 500;">38,03</td>
+              <td style="color: #8A8275;">80.000</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Como interpretar a tela</h2>
+
+        <p>
+          Olhando para o exemplo acima, o que você lê?
+        </p>
+
+        <p>
+          No topo do book, a <strong>Compra (Bid)</strong> é mais agressiva: há intenção de comprar 50.000 ações a R$ 38,00. A <strong>Venda (Ask)</strong> é mais fraca no primeiro nível: há apenas 12.000 ações à venda no R$ 38,01. Se alguém enviar uma ordem de compra a mercado agora para comprar 15.000 ações, vai consumir as 12.000 de R$ 38,01 e mais 3.000 a R$ 38,02. O preço vai <em>subir</em> pela pura pressão de fluxo.
+        </p>
+
+        <p>
+          Mas repare no terceiro nível de venda (R$ 38,03). Há um "lote de grande porte" posicionado lá (80.000 ações). Isso atua como um <strong>suporte/resistência natural</strong>, desenhado com ordens reais em vez de linhas teóricas. Se o preço subir até R$ 38,03, encontrará uma muralha de vendedores a defender aquela zona.
+        </p>
+
+        <div class="callout">
+          <div class="callout-label">A leitura da matriz</div>
+          <p>
+            No day trade, esta análise constante do fluxo do dinheiro entre ordens limitadas paradas (liquidez) e ordens a mercado agressoras chama-se <strong>Tape Reading</strong> (Leitura de Fita). No Brasil, em especial no Mini-Dólar (WDO), é quase impossível ser consistente a curto prazo sem saber pelo menos o básico de leitura de book.
+          </p>
+        </div>
+
+        <h2>O perigo dos blefes (Spoofing)</h2>
+
+        <p>
+          A literatura técnica de day trading adverte repetidas vezes sobre a manipulação moderna de mercado usando algoritmos. A forma mais comum de manipulação que você verá no Level 2 chama-se <em>Spoofing</em> (falsificação ou blefe).
+        </p>
+
+        <p>
+          Imagine que o preço do ativo é R$ 38,00 e você vê um enorme bloco de compra de 200.000 ações na fila do R$ 37,90. Aquilo parece um suporte gigantesco de granito maciço. Muitos traders compram ações a R$ 37,95 acreditando que, se o preço cair, aquele elefante de 200.000 ações protegerá a queda.
+        </p>
+
+        <p>
+          Mas, no instante exato em que o preço chega perto (R$ 37,91), as ordens "fantasmas" de 200.000 ações de repente são canceladas e desaparecem do book. O "elefante" era, na verdade, um robô (HFT - High Frequency Trader) a blefar para convencer outros a comprar e depois esmagá-los no Stop Loss. A isto chama-se manipular liquidez.
+        </p>
+
+        <p>
+          <strong>Como reconhecer spoofing em tempo real:</strong>
+        </p>
+
+        <ul>
+          <li>A ordem grande aparece <em>rapidamente</em> no book, em segundos — não estava lá antes.</li>
+          <li>É anormalmente maior do que as outras ordens próximas (10× ou mais).</li>
+          <li>Quando o preço se aproxima, ela <em>recua</em> alguns ticks ou desaparece — não é executada.</li>
+          <li>Pode aparecer e desaparecer múltiplas vezes nos mesmos minutos.</li>
+        </ul>
+
+        <p>
+          Em mercados regulados como a B3, o spoofing é tecnicamente ilegal — a CVM (e a SEC nos EUA) já condenaram operadores em vários casos. Mas a fiscalização é difícil em tempo real, e a prática ainda acontece. <strong>Regra prática: não baseie a sua tese só num bloco gigante isolado. Confirme com o gráfico.</strong>
+        </p>
+
+        <h2>Iceberg orders — o oposto do spoofing</h2>
+
+        <p>
+          Há também a manipulação contrária: <strong>iceberg orders</strong> (ordens iceberg). Os grandes fundos institucionais que precisam comprar 500.000 ações de uma empresa não posicionam toda essa ordem visível no book — isso assustaria o mercado e o preço subiria antes deles terminarem. Eles fatiam a ordem em pequenos pedaços e só expõem a "ponta do iceberg".
+        </p>
+
+        <p>
+          Exemplo: no book, você vê uma ordem de venda de 5.000 ações no R$ 38,05. Alguém compra a mercado e absorve essas 5.000. Logo a seguir, magicamente aparecem mais 5.000 no mesmo R$ 38,05. Você compra também — outras 5.000 surgem. Este padrão repete-se cinco, dez, vinte vezes. É iceberg em acção: existem 200.000 ações para vender naquele preço, mas mostradas em fatias de 5.000.
+        </p>
+
+        <p>
+          Implicação prática: quando você vê este padrão, há um vendedor institucional grande naquela zona. Operar contra ele (comprando para tentar romper) costuma falhar — você não tem munição suficiente. Melhor estratégia: <em>operar a favor</em> — vender com ele.
+        </p>
+
+        <h2>Como configurar o Level 2 na plataforma</h2>
+
+        <p>
+          Configuração padrão para day trade brasileiro no Profit Pro:
+        </p>
+
+        <ol>
+          <li>Abra o ativo e adicione o componente "Book de Ofertas" ao layout (geralmente atalho B ou via menu Inserir).</li>
+          <li>Configure o número de níveis visíveis. Para day trade tipico, <strong>5-10 níveis</strong> de profundidade são suficientes. Mais do que isso é informação demais para processar a quente.</li>
+          <li>Ative o "Volume agregado" — mostra a soma de ordens em cada nível, mais útil do que ordens individuais.</li>
+          <li>Configure cores: bid em verde, ask em vermelho, destaque para o nível 1 (melhor preço).</li>
+          <li>Acrescente o painel "Times &amp; Trades" ao lado — vai mostrar cada negócio executado em tempo real, complementando a informação do book com o fluxo real.</li>
+        </ol>
+
+        <h2>Times &amp; Trades — o irmão essencial do Level 2</h2>
+
+        <p>
+          O Level 2 mostra <em>intenções</em> (ordens limitadas paradas). O <strong>Times &amp; Trades</strong> mostra <em>execuções</em> reais — cada negócio que aconteceu, com horário exato, preço e volume. Ler os dois juntos é como ver simultaneamente as filas de pessoas no supermercado e os ítems efectivamente vendidos.
+        </p>
+
+        <p>
+          Padrões importantes para reconhecer no Times &amp; Trades:
+        </p>
+
+        <ul>
+          <li><strong>Agressividade comprada vs vendida.</strong> Cada negócio é executado no bid (vendedor agressivo) ou no ask (comprador agressivo). Se 80% dos últimos 50 negócios foram executados no ask, há pressão compradora real.</li>
+          <li><strong>Negócios grandes em sequência.</strong> Se aparecerem 10 negócios de 50.000 ações em 30 segundos, todos no ask — é institucional comprando agressivamente. Vento a favor do long.</li>
+          <li><strong>Velocidade do fluxo.</strong> Negócios a entrar a cada segundo significam alta liquidez e interesse. Negócios espaçados (de 30 em 30 segundos) indicam frieza — não é hora de operar agressivo.</li>
+        </ul>
+
+        <h2>Vale a pena olhar para o Level 2?</h2>
+
+        <p>
+          Nem todos os traders precisam ser mestres do fluxo de ordens. O Price Action clássico, baseado unicamente em gráficos, candlesticks e indicadores móveis, é mais do que suficiente para muitas das estratégias do Módulo 4 deste curso.
+        </p>
+
+        <p>
+          Contudo, se você combina a sua visão gráfica com a "visão raio-X" do Level 2, suas chances aumentam. Quando um gráfico mostra que há um forte Suporte numa zona específica, e o Level 2 confirma que existem ordens monstruosas de players reais amontoadas na mesma zona, a sua operação de <em>rebound</em> (pulo) tem uma probabilidade de sucesso significativamente maior.
+        </p>
+
+        <div class="key-points">
+          <h3>Pontos-chave da lição</h3>
+          <ul>
+            <li><strong>O Gráfico é passado. O Book é presente.</strong> O Level 2 expõe a fila das ordens Limit escondidas do público comum.</li>
+            <li><strong>Tamanho de lote:</strong> Lotes grandes nas filas criam suportes ou resistências de curtíssimo prazo que repelem o preço ou absorvem a agressão oposta.</li>
+            <li><strong>Spoofing:</strong> Ordens gigantes podem ser canceladas rapidamente por robôs (HFT) apenas para enganar os traders do varejo e mover falsamente a percepção de liquidez. Nunca confie cegamente num bloco estático se ele sumir ao ser atacado.</li>
+            <li>Combinar uma resistência de Price Action (gráfico) com um muro real no Level 2 (book) cria setups de alta convicção.</li>
+          </ul>
+        </div>
+
+        <nav class="lesson-nav" aria-label="Navegação entre lições">
+          <a href="2-3-tipos-ordens.html" class="lesson-nav-item prev">
+            <span class="lesson-nav-label">lição anterior</span>
+            <span class="lesson-nav-title">2.3 Tipos de ordens na prática</span>
+          </a>
+          <a href="2-5-hotkeys.html" class="lesson-nav-item next">
+            <span class="lesson-nav-label">próxima lição</span>
+            <span class="lesson-nav-title">2.5 Hotkeys e velocidade de execução</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </article>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">
+          <span class="logo-mark">
+            <img src="../logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="../modulos.html">Todos os módulos</a></li>
+          <li><a href="../modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="../modulos/estrategias.html">Estratégias</a></li>
+              </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="../calculadoras.html">Calculadoras</a></li>
+          <li><a href="../glossario.html">Glossário</a></li>
+          <li><a href="../cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../disclaimer.html">Aviso legal</a></li>
+          <li><a href="../privacidade.html">Privacidade</a></li>
+          <li><a href="../termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadoras de Risco · Trading do Zero</title>
+  <meta name="description" content="Ferramentas interativas para calcular Position Sizing (tamanho de lote) e relação Risco/Retorno. Sobreviva no day trade gerindo o seu risco.">
+
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Calculadoras de Risco · Trading do Zero">
+  <meta property="og:description" content="Ferramentas interativas para calcular Position Sizing (tamanho de lote) e relação Risco/Retorno. Sobreviva no day trade gerindo o seu risco.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/calculadoras.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadoras de Risco · Trading do Zero">
+  <meta name="twitter:description" content="Ferramentas interativas para calcular Position Sizing (tamanho de lote) e relação Risco/Retorno. Sobreviva no day trade gerindo o seu risco.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://tradingdozero.com/calculadoras.html">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <style>
+    .prose { max-width: var(--max-w-prose); }
+    .prose p.lead { font-size: var(--fs-lg); line-height: 1.65; color: var(--ink); margin-bottom: var(--space-6); }
+    
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+      max-width: 1000px;
+    }
+    @media (min-width: 800px) {
+      .calc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .calc-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+    }
+    .calc-card h2 {
+      font-size: var(--fs-xl);
+      margin-bottom: var(--space-2);
+    }
+    .calc-desc {
+      font-size: var(--fs-sm);
+      color: var(--ink-muted);
+      margin-bottom: var(--space-5);
+      line-height: 1.5;
+    }
+    .form-group {
+      margin-bottom: var(--space-4);
+    }
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      color: var(--ink-soft);
+      margin-bottom: var(--space-2);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .input-wrapper {
+      position: relative;
+    }
+    .input-prefix {
+      position: absolute;
+      left: var(--space-3);
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
+    }
+    .form-group input {
+      width: 100%;
+      padding: var(--space-3);
+      background: var(--bg-card);
+      border: 1px solid var(--line-strong);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: var(--fs-base);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .form-group input.has-prefix {
+      padding-left: 36px;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #1A1815;
+    }
+    .calc-result {
+      margin-top: var(--space-5);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--line);
+    }
+    .res-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-3);
+    }
+    .res-label {
+      font-size: var(--fs-sm);
+      color: var(--ink-muted);
+    }
+    .res-value {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      color: var(--accent);
+    }
+    .res-value.large {
+      font-size: 2.2rem;
+      color: var(--success);
+    }
+    .res-value.warn {
+      color: var(--warn);
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Calculadoras de Risco",
+  "description": "Ferramentas interativas para calcular Position Sizing (tamanho de lote) e relação Risco/Retorno. Sobreviva no day trade gerindo o seu risco.",
+  "url": "https://tradingdozero.com/calculadoras.html",
+  "inLanguage": "pt-BR",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "EducationalOrganization",
+    "name": "Trading do Zero",
+    "url": "https://tradingdozero.com"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Início",
+        "item": "https://tradingdozero.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Calculadoras de risco",
+        "item": "https://tradingdozero.com/calculadoras.html"
+      }
+    ]
+  }
+}
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="modulos.html">Módulos</a></li>
+            <li><a href="ferramentas-dicas.html">Recursos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="modulos/fundamentos.html" class="nav-cta">Começar agora</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="index.html">início</a>
+      <span class="sep">/</span>
+      <a href="ferramentas-dicas.html">recursos</a>
+      <span class="sep">/</span>
+      <span>calculadoras</span>
+    </nav>
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">A matemática da sobrevivência</div>
+    <h1>Calculadoras.</h1>
+  </div>
+</header>
+
+<section style="padding-top: 0;">
+  <div class="container">
+    
+    <div class="prose">
+      <p class="lead">
+        No trading profissional, o tamanho da sua posição não depende de "quanto dinheiro você tem" — depende de <strong>onde está o seu stop loss</strong>. Use estas ferramentas para automatizar a matemática do risco antes de entrar no trade.
+      </p>
+    </div>
+
+    <div class="calc-grid">
+      
+      <!-- CALCULADORA 1: POSITION SIZING -->
+      <div class="calc-card">
+        <h2>Position Sizing</h2>
+        <p class="calc-desc">Quantas ações devo comprar para que a perda máxima — se o stop loss for atingido — não passe do percentual de risco que defini?</p>
+        
+        <div class="form-group">
+          <label for="ps_capital">Capital da conta</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="ps_capital" class="has-prefix" value="10000" step="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ps_risk">Risco por trade (%)</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">%</span>
+            <input type="number" id="ps_risk" class="has-prefix" value="1.0" step="0.1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ps_entry">Preço de entrada</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="ps_entry" class="has-prefix" value="38.00" step="0.01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ps_stop">Preço do stop loss</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="ps_stop" class="has-prefix" value="37.80" step="0.01">
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="res-item">
+            <span class="res-label">Risco máximo aceitável:</span>
+            <span class="res-value warn" id="ps_res_risk">R$ 100,00</span>
+          </div>
+          <div class="res-item">
+            <span class="res-label">Distância do stop (por ação):</span>
+            <span class="res-value" id="ps_res_dist">R$ 0,20</span>
+          </div>
+          <div class="res-item" style="margin-top: var(--space-4);">
+            <span class="res-label"><strong>Ações a comprar:</strong></span>
+            <span class="res-value large" id="ps_res_shares">500</span>
+          </div>
+          <div class="res-item" style="margin-top: var(--space-2);">
+            <span class="res-label">Capital total alocado:</span>
+            <span class="res-value" style="font-size: var(--fs-base);" id="ps_res_cost">R$ 19.000,00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALCULADORA 2: RISCO/RETORNO -->
+      <div class="calc-card">
+        <h2>Risco / Retorno (R:R)</h2>
+        <p class="calc-desc">O alvo deste trade justifica o risco assumido? Profissionais exigem pelo menos R:R de 1:2.</p>
+        
+        <div class="form-group">
+          <label for="rr_entry">Preço de entrada</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="rr_entry" class="has-prefix" value="38.00" step="0.01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rr_stop">Preço do stop loss</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="rr_stop" class="has-prefix" value="37.80" step="0.01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rr_target">Preço alvo (take profit)</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="rr_target" class="has-prefix" value="38.60" step="0.01">
+          </div>
+        </div>
+
+        <div class="calc-result" style="margin-top: var(--space-6);">
+          <div class="res-item">
+            <span class="res-label">Risco (distância ao stop):</span>
+            <span class="res-value warn" id="rr_res_risk">R$ 0,20</span>
+          </div>
+          <div class="res-item">
+            <span class="res-label">Retorno (distância ao alvo):</span>
+            <span class="res-value" style="color: var(--success);" id="rr_res_reward">R$ 0,60</span>
+          </div>
+          <div class="res-item" style="margin-top: var(--space-5);">
+            <span class="res-label"><strong>Relação Final:</strong></span>
+            <span class="res-value large" id="rr_res_ratio">1:3.00</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CALCULADORA 3: JUROS COMPOSTOS (full width) -->
+    <div class="calc-card" style="max-width: 1000px; margin-top: var(--space-5);">
+      <h2>Crescimento composto</h2>
+      <p class="calc-desc">
+        Simula o efeito do retorno mensal composto ao longo do tempo. Útil para colocar expectativas em terra firme: 3% ao mês parece pouco até você ver o que faz em 24 meses. Mas também útil para o contrário — entender quanto capital precisa para gerar uma renda viável.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-4);">
+        <div class="form-group">
+          <label for="jc_capital">Capital inicial</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="jc_capital" class="has-prefix" value="10000" step="500">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="jc_retorno">Retorno médio mensal (%)</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">%</span>
+            <input type="number" id="jc_retorno" class="has-prefix" value="3" step="0.1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="jc_meses">Período (meses)</label>
+          <div class="input-wrapper">
+            <input type="number" id="jc_meses" value="24" step="1" min="1" max="120">
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="res-item">
+          <span class="res-label">Capital final (bruto):</span>
+          <span class="res-value large" style="color: var(--success);" id="jc_res_final">R$ 20.328,00</span>
+        </div>
+        <div class="res-item">
+          <span class="res-label">Ganho total acumulado:</span>
+          <span class="res-value" id="jc_res_ganho">R$ 10.328,00</span>
+        </div>
+        <div class="res-item">
+          <span class="res-label">Multiplicador do capital:</span>
+          <span class="res-value" id="jc_res_mult">2,03×</span>
+        </div>
+        <div class="res-item" style="margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--line);">
+          <span class="res-label" style="font-size: var(--fs-xs); color: var(--ink-soft);">Renda mensal a esse capital final, a 3%:</span>
+          <span class="res-value" style="font-size: var(--fs-base);" id="jc_res_renda">R$ 609,84/mês</span>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: var(--space-5); background: rgba(199, 91, 62, 0.05); border-left-color: var(--warn);">
+        <div class="callout-label" style="color: var(--warn);">aviso de realismo</div>
+        <p style="font-size: var(--fs-sm);">
+          Este cálculo assume retorno mensal <strong>constante e positivo</strong> — o que não existe no trading real. A média de 3% ao mês é considerada excelente para fundos profissionais (raramente acima de 2%). Day traders amadores que prometem 10–30% ao mês estão ignorando os meses negativos que destroem composição. Use esta calculadora para entender ordens de grandeza, não como projeção.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="modulos.html">Todos os módulos</a></li>
+          <li><a href="modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="modulos/estrategias.html">Estratégias</a></li>
+          <li><a href="modulos.html#m5">Gestão de risco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="calculadoras.html">Calculadoras</a></li>
+          <li><a href="glossario.html">Glossário</a></li>
+          <li><a href="cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="disclaimer.html">Aviso legal</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong style="color: var(--accent);">Aviso importante.</strong>
+        Este site é exclusivamente educacional. Não somos consultores financeiros nem analistas de valores mobiliários e não emitimos recomendações de compra ou venda.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // -- Position Sizing Calculator --
+  const ps_capital = document.getElementById('ps_capital');
+  const ps_risk = document.getElementById('ps_risk');
+  const ps_entry = document.getElementById('ps_entry');
+  const ps_stop = document.getElementById('ps_stop');
+
+  const ps_res_risk = document.getElementById('ps_res_risk');
+  const ps_res_dist = document.getElementById('ps_res_dist');
+  const ps_res_shares = document.getElementById('ps_res_shares');
+  const ps_res_cost = document.getElementById('ps_res_cost');
+
+  function calculatePosition() {
+    const cap = parseFloat(ps_capital.value) || 0;
+    const rsk = parseFloat(ps_risk.value) || 0;
+    const ent = parseFloat(ps_entry.value) || 0;
+    const stp = parseFloat(ps_stop.value) || 0;
+
+    if (ent === stp) {
+      ps_res_shares.textContent = "0";
+      return;
+    }
+
+    const maxRiskDollar = cap * (rsk / 100);
+    const stopDist = Math.abs(ent - stp);
+    
+    // shares = max risk / stop distance
+    // Adicionar epsilon pequeno para compensar imprecisão de floating point
+    // (ex: 100/0.20 dá 499.9999... em JS, deveria ser 500)
+    const shares = Math.floor((maxRiskDollar / stopDist) + 1e-9);
+    const totalCost = shares * ent;
+
+    ps_res_risk.textContent = 'R$ ' + maxRiskDollar.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    ps_res_dist.textContent = 'R$ ' + stopDist.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    ps_res_shares.textContent = shares > 0 ? shares : "0";
+    
+    // formatausto de número grande
+    ps_res_cost.textContent = 'R$ ' + totalCost.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+
+  [ps_capital, ps_risk, ps_entry, ps_stop].forEach(el => el.addEventListener('input', calculatePosition));
+
+  // -- Risco/Retorno Calculator --
+  const rr_entry = document.getElementById('rr_entry');
+  const rr_stop = document.getElementById('rr_stop');
+  const rr_target = document.getElementById('rr_target');
+
+  const rr_res_risk = document.getElementById('rr_res_risk');
+  const rr_res_reward = document.getElementById('rr_res_reward');
+  const rr_res_ratio = document.getElementById('rr_res_ratio');
+
+  function calculateRR() {
+    const ent = parseFloat(rr_entry.value) || 0;
+    const stp = parseFloat(rr_stop.value) || 0;
+    const tgt = parseFloat(rr_target.value) || 0;
+
+    const risk = Math.abs(ent - stp);
+    const reward = Math.abs(tgt - ent);
+
+    rr_res_risk.textContent = 'R$ ' + risk.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    rr_res_reward.textContent = 'R$ ' + reward.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+    if (risk > 0) {
+      const ratio = reward / risk;
+      rr_res_ratio.textContent = `1:${ratio.toFixed(2)}`;
+      
+      // Color coding the ratio
+      if(ratio >= 2) {
+        rr_res_ratio.style.color = "var(--success)";
+      } else if(ratio >= 1) {
+        rr_res_ratio.style.color = "var(--accent)";
+      } else {
+        rr_res_ratio.style.color = "var(--warn)";
+      }
+    } else {
+      rr_res_ratio.textContent = "1:0";
+    }
+  }
+
+  [rr_entry, rr_stop, rr_target].forEach(el => el.addEventListener('input', calculateRR));
+
+  // -- Juros Compostos Calculator --
+  const jc_capital = document.getElementById('jc_capital');
+  const jc_retorno = document.getElementById('jc_retorno');
+  const jc_meses = document.getElementById('jc_meses');
+
+  const jc_res_final = document.getElementById('jc_res_final');
+  const jc_res_ganho = document.getElementById('jc_res_ganho');
+  const jc_res_mult = document.getElementById('jc_res_mult');
+  const jc_res_renda = document.getElementById('jc_res_renda');
+
+  function fmtBRL(v) {
+    return 'R$ ' + v.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+
+  function calculateCompound() {
+    const cap = parseFloat(jc_capital.value) || 0;
+    const ret = parseFloat(jc_retorno.value) || 0;
+    const meses = parseInt(jc_meses.value) || 0;
+
+    // M = C × (1 + r)^n
+    const fator = Math.pow(1 + (ret / 100), meses);
+    const final = cap * fator;
+    const ganho = final - cap;
+    const mult = fator;
+    // Renda mensal a esse capital final, ao mesmo retorno
+    const renda = final * (ret / 100);
+
+    jc_res_final.textContent = fmtBRL(final);
+    jc_res_ganho.textContent = fmtBRL(ganho);
+    jc_res_mult.textContent = mult.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '×';
+    jc_res_renda.textContent = fmtBRL(renda) + '/mês';
+
+    // Cor do multiplicador conforme magnitude
+    if (mult >= 5) {
+      jc_res_mult.style.color = 'var(--accent)';
+    } else if (mult >= 2) {
+      jc_res_mult.style.color = 'var(--success)';
+    } else {
+      jc_res_mult.style.color = 'var(--ink)';
+    }
+  }
+
+  [jc_capital, jc_retorno, jc_meses].forEach(el => el.addEventListener('input', calculateCompound));
+
+  // Init
+  calculatePosition();
+  calculateRR();
+  calculateCompound();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
