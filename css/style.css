@@ -20,6 +20,7 @@ html {
 body {
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 img,
@@ -234,6 +235,15 @@ p.muted {
   padding: 0 var(--space-5);
   position: relative;
   z-index: 5;
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 var(--space-3);
+  }
+  .hero-title {
+    font-size: 2.6rem;
+  }
 }
 
 .container-narrow {
@@ -965,7 +975,8 @@ section.large {
 
 .module-meta {
   display: flex;
-  gap: var(--space-6);
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
   margin-top: var(--space-6);
   padding-top: var(--space-5);
   border-top: 1px solid var(--line);
@@ -1186,6 +1197,12 @@ section.large {
   .lesson-item {
     grid-template-columns: 40px 1fr 20px;
     gap: var(--space-3);
+  }
+
+  /* No mobile o badge de nível não cabe na coluna estreita e causava
+     scroll horizontal nas páginas de módulo — ocultamos, mantendo a seta. */
+  .lesson-item .lesson-badge {
+    display: none;
   }
 }
 

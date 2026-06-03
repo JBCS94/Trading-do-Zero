@@ -197,27 +197,41 @@
         </p>
 
         <figure class="lesson-figure">
-          <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pirâmide dos participantes do mercado financeiro mostrando retail, institucional e HFT">
-            <rect width="700" height="300" fill="#15130F"/>
+          <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Os tres tipos de participantes do mercado: retail (pessoa fisica) e a base em numero de pessoas mas a menor fatia do volume; institucionais movimentam a maior parte; HFT opera por algoritmos. As barras a direita mostram a fatia aproximada do volume de cada grupo.">
+            <rect width="700" height="320" fill="#15130F"/>
 
-            <!-- HFT layer (small top) -->
-            <polygon points="290,40 410,40 425,90 275,90" fill="rgba(212, 165, 116, 0.15)" stroke="#D4A574" stroke-width="1.2"/>
-            <text x="350" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#D4A574" letter-spacing="2">HFT · ALGORITMOS</text>
-            <text x="600" y="68" font-family="Geist, sans-serif" font-size="10" fill="#8A8275">milissegundos · microcapture</text>
+            <text x="40" y="40" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.5" fill="#B5AD9E">QUEM MOVE O MERCADO</text>
 
-            <!-- Institutional layer (middle) -->
-            <polygon points="275,90 425,90 475,180 225,180" fill="rgba(232, 185, 122, 0.07)" stroke="#A87E4F" stroke-width="1.2"/>
-            <text x="350" y="125" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8B97A" letter-spacing="2">INSTITUCIONAIS</text>
-            <text x="350" y="145" text-anchor="middle" font-family="Geist, sans-serif" font-size="10" fill="#8A8275">bancos · hedge funds · gestores estrangeiros</text>
-            <text x="600" y="135" font-family="Geist, sans-serif" font-size="10" fill="#8A8275">~70% do volume</text>
+            <!-- HFT -->
+            <rect x="40" y="62" width="300" height="60" rx="4" fill="rgba(212,165,116,0.10)" stroke="#D4A574" stroke-width="1"/>
+            <text x="56" y="88" font-family="JetBrains Mono, monospace" font-size="13" fill="#D4A574">HFT · algoritmos</text>
+            <text x="56" y="108" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">milhares de ordens por segundo</text>
 
-            <!-- Retail layer (base) -->
-            <polygon points="225,180 475,180 540,265 160,265" fill="rgba(122, 157, 111, 0.06)" stroke="#7A9D6F" stroke-width="1.2"/>
-            <text x="350" y="215" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7A9D6F" letter-spacing="2">RETAIL · PESSOA FÍSICA</text>
-            <text x="350" y="235" text-anchor="middle" font-family="Geist, sans-serif" font-size="10" fill="#8A8275">milhões de pessoas · você está aqui</text>
-            <text x="600" y="225" font-family="Geist, sans-serif" font-size="10" fill="#8A8275">~20–25% do volume</text>
+            <!-- Institucionais -->
+            <rect x="40" y="132" width="300" height="60" rx="4" fill="rgba(232,185,122,0.08)" stroke="#A87E4F" stroke-width="1"/>
+            <text x="56" y="158" font-family="JetBrains Mono, monospace" font-size="13" fill="#E8B97A">institucionais</text>
+            <text x="56" y="178" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">bancos · fundos · gestores</text>
+
+            <!-- Retail -->
+            <rect x="40" y="202" width="300" height="60" rx="4" fill="rgba(122,157,111,0.10)" stroke="#7A9D6F" stroke-width="1"/>
+            <text x="56" y="228" font-family="JetBrains Mono, monospace" font-size="13" fill="#EDE6D6">retail · pessoa física</text>
+            <text x="56" y="248" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">milhões de pessoas · você está aqui</text>
+
+            <!-- Eixo das barras de volume -->
+            <text x="400" y="40" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.5" fill="#B5AD9E">FATIA DO VOLUME</text>
+            <line x1="400" y1="55" x2="400" y2="270" stroke="#3D372E" stroke-width="0.5"/>
+
+            <!-- barra HFT + institucionais juntos (a maior parte) -->
+            <rect x="400" y="72" width="250" height="40" rx="3" fill="#A87E4F"/>
+            <text x="414" y="97" font-family="Geist, sans-serif" font-size="13" fill="#15130F">instituições + HFT ≈ 75–85%</text>
+
+            <!-- barra retail (a menor) -->
+            <rect x="400" y="212" width="70" height="40" rx="3" fill="#7A9D6F"/>
+            <text x="484" y="237" font-family="Geist, sans-serif" font-size="13" fill="#B5AD9E">retail ≈ 15–25%</text>
+
+            <text x="40" y="298" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">a base em número de pessoas é a menor fatia do volume — e o contrário também é verdade</text>
           </svg>
-          <figcaption>fig. 1 — Os três tipos de participantes e o seu peso no volume da B3 (estimativas aproximadas)</figcaption>
+          <figcaption>fig. 1 — Os três tipos de participantes e a sua fatia aproximada do volume</figcaption>
         </figure>
 
         <h2>"Como vou competir contra isso?"</h2>

@@ -155,6 +155,43 @@
 
         <h2>Como o MTF evita desastres</h2>
 
+        <figure class="lesson-figure">
+          <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="O mesmo ativo visto em tres janelas de tempo: grafico diario mostra a tendencia de fundo, grafico de 5 minutos mostra onde operar, e grafico de 1 minuto mostra o gatilho de entrada">
+            <rect width="700" height="280" fill="#15130F"/>
+
+            <!-- Janela 1: Diário (o mapa) -->
+            <rect x="30" y="50" width="195" height="160" rx="4" fill="#0E0E0E" stroke="#3D372E" stroke-width="1"/>
+            <path d="M 50 180 L 80 160 L 110 170 L 140 130 L 170 145 L 205 90" stroke="#7A9D6F" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <text x="127" y="40" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#D4A574">DIÁRIO</text>
+            <text x="127" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">a tendência de fundo</text>
+
+            <!-- zoom indicator -->
+            <rect x="155" y="120" width="60" height="50" fill="#D4A574" opacity="0.12" stroke="#D4A574" stroke-width="0.5" stroke-dasharray="2 2"/>
+
+            <!-- Janela 2: 5 min (onde operar) -->
+            <rect x="255" y="50" width="195" height="160" rx="4" fill="#0E0E0E" stroke="#3D372E" stroke-width="1"/>
+            <path d="M 270 160 L 295 110 L 320 140 L 350 95 L 380 120 L 410 70 L 435 100" stroke="#7A9D6F" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <text x="352" y="40" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#D4A574">5 MINUTOS</text>
+            <text x="352" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">onde você opera</text>
+            <rect x="375" y="80" width="45" height="45" fill="#D4A574" opacity="0.12" stroke="#D4A574" stroke-width="0.5" stroke-dasharray="2 2"/>
+
+            <!-- Janela 3: 1 min (gatilho) -->
+            <rect x="480" y="50" width="190" height="160" rx="4" fill="#0E0E0E" stroke="#3D372E" stroke-width="1"/>
+            <path d="M 495 150 L 520 130 L 545 145 L 570 100 L 600 115 L 630 65 L 655 80" stroke="#7A9D6F" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="600" cy="115" r="5" fill="#D4A574"/>
+            <text x="575" y="40" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#D4A574">1 MINUTO</text>
+            <text x="575" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">o gatilho de entrada</text>
+
+            <!-- setas conectando o zoom -->
+            <path d="M 225 145 L 252 110" stroke="#807A6C" stroke-width="1" stroke-dasharray="3 3" fill="none" marker-end="url(#tfa)"/>
+            <path d="M 450 100 L 477 100" stroke="#807A6C" stroke-width="1" stroke-dasharray="3 3" fill="none" marker-end="url(#tfa)"/>
+            <defs><marker id="tfa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#807A6C" stroke-width="1.5"/></marker></defs>
+
+            <text x="350" y="265" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">do macro ao micro: cada zoom refina a decisão, sem nunca perder o mapa</text>
+          </svg>
+          <figcaption>fig. 1 — O mesmo movimento em três janelas de tempo</figcaption>
+        </figure>
+
         <p>
           Você está olhando maravilhado para o seu gráfico de 5 minutos. Uma ação rompeu a resistência e fez uma Bull Flag perfeita (uma estratégia que veremos no Módulo 4). A EMA 9 cruzou para cima. A VWAP foi respeitada. "Este é o trade do mês!", pensa você, e clica em Comprar sem olhar para mais nada.
         </p>

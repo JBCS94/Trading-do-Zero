@@ -157,31 +157,53 @@
         </ol>
 
         <figure class="lesson-figure">
-          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ORB: caixa do range de abertura formada entre 10h00 e 10h15, com a linha de maxima rompida e entrada de compra apos o rompimento">
+          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ORB: entre 10h00 e 10h15 forma-se a caixa do range de abertura; depois o preco rompe a maxima e segue em tendencia. Entrada no rompimento, stop no meio do range. Legenda numerada a direita.">
             <rect width="700" height="340" fill="#15130F"/>
+            <defs>
+              <radialGradient id="orb-zone" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#D4A574" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#D4A574" stop-opacity="0.03"/>
+              </radialGradient>
+              <radialGradient id="orb-dot" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#7A9D6F" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#7A9D6F" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
 
             <!-- Caixa do Opening Range -->
-            <rect x="60" y="110" width="180" height="120" fill="#D4A574" opacity="0.08" stroke="#D4A574" stroke-width="1" stroke-dasharray="3 3"/>
-            <line x1="60" y1="110" x2="400" y2="110" stroke="#8A8275" stroke-width="1" stroke-dasharray="5 4"/>
-            <line x1="60" y1="230" x2="400" y2="230" stroke="#8A8275" stroke-width="1" stroke-dasharray="5 4"/>
-            <text x="430" y="114" text-anchor="start" font-family="Geist, sans-serif" font-size="11" fill="#8A8275">máxima do range</text>
-            <text x="430" y="234" text-anchor="start" font-family="Geist, sans-serif" font-size="11" fill="#8A8275">mínima do range</text>
+            <rect x="55" y="110" width="170" height="120" fill="url(#orb-zone)" stroke="#D4A574" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.8"/>
+            <line x1="55" y1="110" x2="400" y2="110" stroke="#8A8275" stroke-width="0.5" stroke-dasharray="5 4" opacity="0.7"/>
+            <line x1="55" y1="230" x2="400" y2="230" stroke="#8A8275" stroke-width="0.5" stroke-dasharray="5 4" opacity="0.7"/>
 
-            <!-- Oscilação caótica dentro do range (10h00-10h15) -->
-            <path d="M 70 170 L 95 130 L 120 210 L 145 150 L 170 215 L 195 140 L 220 190 L 240 130" stroke="#807A6C" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-            <text x="150" y="270" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" fill="#807A6C">10h00 – 10h15</text>
-            <text x="150" y="287" text-anchor="middle" font-family="Geist, sans-serif" font-size="10" fill="#8A8275">o caos da abertura (só observar)</text>
+            <!-- Oscilação caótica dentro do range -->
+            <path d="M 65 170 L 90 130 L 115 210 L 140 150 L 165 215 L 190 140 L 215 190 L 225 130" stroke="#807A6C" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
 
-            <!-- Rompimento da máxima + tendência -->
-            <path d="M 240 130 L 270 108 L 310 80 L 360 55 L 420 35" stroke="#7A9D6F" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- Rompimento -->
+            <path d="M 225 130 L 260 105 L 310 78 L 370 50" stroke="#7A9D6F" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
 
-            <!-- Ponto de rompimento/entrada -->
-            <circle cx="285" cy="95" r="6" fill="#7A9D6F"/>
-            <text x="285" y="84" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7A9D6F" font-weight="bold">entrada</text>
+            <!-- Marcadores -->
+            <circle cx="140" cy="170" r="13" fill="#15130F" stroke="#807A6C" stroke-width="1.5"/>
+            <text x="140" y="174" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#EDE6D6" font-weight="bold">1</text>
 
-            <!-- Stop no meio do range (VWAP) -->
-            <line x1="60" y1="170" x2="240" y2="170" stroke="#C75B3E" stroke-width="1" stroke-dasharray="2 3"/>
-            <text x="155" y="165" text-anchor="middle" font-family="Geist, sans-serif" font-size="10" fill="#C75B3E">stop ≈ meio do range (VWAP)</text>
+            <circle cx="270" cy="100" r="13" fill="url(#orb-dot)"/>
+            <circle cx="270" cy="100" r="10" fill="#15130F" stroke="#7A9D6F" stroke-width="1.5"/>
+            <text x="270" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#EDE6D6" font-weight="bold">2</text>
+
+            <!-- Legenda -->
+            <text x="460" y="92" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1" fill="#B5AD9E">COMO LER</text>
+
+            <circle cx="468" cy="122" r="9" fill="#15130F" stroke="#807A6C" stroke-width="1.5"/>
+            <text x="468" y="126" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">1</text>
+            <text x="486" y="120" font-family="Geist, sans-serif" font-size="13" fill="#EDE6D6">a caixa (10h00–10h15)</text>
+            <text x="486" y="137" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">o caos inicial, só observar</text>
+
+            <circle cx="468" cy="172" r="9" fill="#15130F" stroke="#7A9D6F" stroke-width="1.5"/>
+            <text x="468" y="176" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#EDE6D6">2</text>
+            <text x="486" y="170" font-family="Geist, sans-serif" font-size="13" fill="#EDE6D6">entrada</text>
+            <text x="486" y="187" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">no rompimento da máxima</text>
+
+            <text x="460" y="232" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">stop: meio do range (VWAP)</text>
+            <text x="460" y="252" font-family="Geist, sans-serif" font-size="12" fill="#B5AD9E">alvo: tamanho do range</text>
           </svg>
           <figcaption>fig. 1 — Opening Range Breakout: a caixa da abertura e o rompimento</figcaption>
         </figure>

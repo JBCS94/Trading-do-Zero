@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste do Trader · Trading do Zero</title>
+  <meta name="description" content="Quiz interativo de day trade: 10 perguntas sobre gestão de risco, leitura de gráficos e psicologia. Teste o que aprendeu e veja onde precisa melhorar.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Teste do Trader · Trading do Zero">
+  <meta property="og:description" content="Quiz interativo de day trade: 10 perguntas sobre gestão de risco, leitura de gráficos e psicologia. Teste o que aprendeu.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/teste-do-trader.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Teste do Trader · Trading do Zero">
+  <meta name="twitter:description" content="Quiz interativo de day trade: teste o que aprendeu.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="canonical" href="https://tradingdozero.com/teste-do-trader.html">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <style>
+    .quiz-shell { max-width: 760px; }
+    .quiz-progress-wrap {
+      display: flex; align-items: center; gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    .quiz-progress-track {
+      flex: 1; height: 6px; background: var(--bg-elevated);
+      border-radius: 3px; overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%; width: 0%; background: var(--accent);
+      border-radius: 3px; transition: width 0.4s ease;
+    }
+    .quiz-progress-label {
+      font-family: var(--font-mono); font-size: var(--fs-sm);
+      color: var(--ink-muted); white-space: nowrap;
+    }
+    .quiz-tag {
+      display: inline-block; font-family: var(--font-mono);
+      font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent); margin-bottom: var(--space-3);
+    }
+    .quiz-question {
+      font-family: var(--font-display); font-size: var(--fs-xl);
+      line-height: 1.3; margin-bottom: var(--space-5); color: var(--ink);
+    }
+    .quiz-figure {
+      margin: 0 0 var(--space-5) 0; padding: var(--space-4);
+      background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+    }
+    .quiz-figure svg { display: block; width: 100%; height: auto; }
+    .quiz-options { display: flex; flex-direction: column; gap: var(--space-3); }
+    .quiz-option {
+      text-align: left; width: 100%;
+      padding: var(--space-4);
+      background: var(--bg-elevated); border: 1px solid var(--line);
+      border-radius: var(--radius); color: var(--ink);
+      font-family: var(--font-sans); font-size: var(--fs-base);
+      cursor: pointer; transition: var(--transition);
+      display: flex; gap: var(--space-3); align-items: flex-start;
+    }
+    .quiz-option:hover:not(:disabled) { border-color: var(--accent); transform: translateY(-1px); }
+    .quiz-option:disabled { cursor: default; }
+    .quiz-option .opt-letter {
+      font-family: var(--font-mono); color: var(--ink-muted);
+      flex-shrink: 0; width: 1.5rem;
+    }
+    .quiz-option.correct { border-color: var(--success); background: rgba(122,157,111,0.10); }
+    .quiz-option.correct .opt-letter { color: var(--success); }
+    .quiz-option.wrong { border-color: var(--warn); background: rgba(199,91,62,0.10); }
+    .quiz-option.wrong .opt-letter { color: var(--warn); }
+    .quiz-option.dim { opacity: 0.5; }
+    .quiz-feedback {
+      margin-top: var(--space-4); padding: var(--space-4);
+      border-radius: var(--radius); border-left: 3px solid var(--accent);
+      background: var(--bg-elevated); display: none;
+    }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback .fb-verdict { font-weight: 600; margin-bottom: var(--space-2); display: block; }
+    .quiz-feedback.ok { border-left-color: var(--success); }
+    .quiz-feedback.ok .fb-verdict { color: var(--success); }
+    .quiz-feedback.no { border-left-color: var(--warn); }
+    .quiz-feedback.no .fb-verdict { color: var(--warn); }
+    .quiz-feedback p { margin: 0; color: var(--ink); line-height: 1.55; }
+    .quiz-nav { margin-top: var(--space-5); display: flex; justify-content: flex-end; }
+    .quiz-next {
+      padding: var(--space-3) var(--space-5); border-radius: var(--radius);
+      background: var(--accent); color: var(--bg); border: none;
+      font-family: var(--font-mono); font-size: var(--fs-sm); letter-spacing: 0.05em;
+      cursor: pointer; transition: var(--transition);
+    }
+    .quiz-next:hover { background: var(--accent-bright); }
+    .quiz-next:disabled { opacity: 0.4; cursor: not-allowed; }
+    /* Resultado */
+    .quiz-result { text-align: center; display: none; }
+    .quiz-result.show { display: block; }
+    .result-score {
+      font-family: var(--font-display); font-size: 4rem; line-height: 1;
+      color: var(--accent); margin: var(--space-4) 0;
+    }
+    .result-score span { font-size: 2rem; color: var(--ink-muted); }
+    .result-bar-track { height: 10px; background: var(--bg-elevated); border-radius: 5px; overflow: hidden; margin: var(--space-5) 0; }
+    .result-bar-fill { height: 100%; background: var(--accent); border-radius: 5px; width: 0; transition: width 0.8s ease; }
+    .result-verdict { font-family: var(--font-display); font-size: var(--fs-xl); margin-bottom: var(--space-3); }
+    .quiz-breakdown { text-align: left; margin: var(--space-6) 0; }
+    .quiz-breakdown-item {
+      display: flex; gap: var(--space-3); align-items: baseline;
+      padding: var(--space-2) 0; border-bottom: 1px solid var(--line);
+      font-size: var(--fs-sm);
+    }
+    .quiz-breakdown-item .bd-mark { font-family: var(--font-mono); flex-shrink: 0; }
+    .bd-mark.ok { color: var(--success); }
+    .bd-mark.no { color: var(--warn); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">
+        <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+      </span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="modulos.html">Módulos</a></li>
+      <li><a href="ferramentas-dicas.html" class="active">Recursos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="modulos/fundamentos.html" class="nav-cta">Começar agora</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="index.html">início</a>
+      <span class="sep">/</span>
+      <a href="ferramentas-dicas.html">recursos</a>
+      <span class="sep">/</span>
+      <span>teste do trader</span>
+    </nav>
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">Quiz interativo</div>
+    <h1>Teste do <em>Trader</em>.</h1>
+    <p style="max-width: 60ch; color: var(--ink-muted); margin-top: var(--space-3);">
+      Dez perguntas sobre risco, leitura de gráfico e psicologia. Não é sobre adivinhar o mercado — é sobre tomar a decisão certa de processo. Cada resposta explica o porquê.
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="container quiz-shell" style="padding-top: var(--space-7); padding-bottom: var(--space-8);">
+
+    <!-- Tela do quiz -->
+    <div id="quiz-area">
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-track"><div class="quiz-progress-fill" id="progressFill"></div></div>
+        <div class="quiz-progress-label" id="progressLabel">1 / 10</div>
+      </div>
+
+      <div class="quiz-tag" id="qTag">Gestão de risco</div>
+      <div class="quiz-question" id="qText">Carregando…</div>
+      <div class="quiz-figure" id="qFigure" style="display:none;"></div>
+      <div class="quiz-options" id="qOptions"></div>
+      <div class="quiz-feedback" id="qFeedback">
+        <span class="fb-verdict" id="fbVerdict"></span>
+        <p id="fbText"></p>
+      </div>
+      <div class="quiz-nav">
+        <button class="quiz-next" id="nextBtn" disabled>Responda para continuar</button>
+      </div>
+    </div>
+
+    <!-- Tela de resultado -->
+    <div class="quiz-result" id="resultArea">
+      <div class="quiz-tag">Resultado</div>
+      <div class="result-score"><span id="scoreNum">0</span><span>/10</span></div>
+      <div class="result-bar-track"><div class="result-bar-fill" id="resultBar"></div></div>
+      <div class="result-verdict" id="resultVerdict"></div>
+      <p id="resultMsg" style="color: var(--ink-muted); max-width: 50ch; margin: 0 auto var(--space-5);"></p>
+
+      <div class="quiz-breakdown" id="breakdown"></div>
+
+      <div style="display:flex; gap: var(--space-4); justify-content:center; flex-wrap:wrap; margin-top: var(--space-6);">
+        <button class="btn-primary" id="retryBtn">Refazer o teste</button>
+        <a href="modulos.html" class="btn-secondary">Rever os módulos</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">
+            <img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img">
+          </span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="modulos.html">Todos os módulos</a></li>
+          <li><a href="modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="modulos/estrategias.html">Estratégias</a></li>
+          <li><a href="modulos.html#m5">Gestão de risco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="calculadoras.html">Calculadoras</a></li>
+          <li><a href="glossario.html">Glossário</a></li>
+          <li><a href="cheatsheets.html">Cheat sheets</a></li>
+          <li><a href="teste-do-trader.html">Teste do trader</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="disclaimer.html">Aviso legal</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong style="color: var(--accent);">Aviso importante.</strong>
+        Este site é exclusivamente educacional. Não somos consultores financeiros e não emitimos recomendações de compra ou venda. Este teste serve para fixar conceitos, não para validar nenhuma estratégia real.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // SVGs reutilizáveis para as perguntas de leitura de gráfico
+  var FIG_BULLFLAG = '<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafico: uma subida forte (mastro), seguida de uma pequena consolidacao em leve queda (bandeira), e depois um novo impulso de alta.">' +
+    '<rect width="700" height="300" fill="#15130F"/>' +
+    '<path d="M 60 250 L 110 210 L 160 150 L 210 95" stroke="#7A9D6F" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>' +
+    '<path d="M 210 95 L 255 120 L 300 108 L 345 132" stroke="#C75B3E" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>' +
+    '<path d="M 345 132 L 400 90 L 460 55 L 520 30" stroke="#7A9D6F" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>' +
+    '</svg>';
+  var FIG_REVERSAL = '<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafico: uma subida muito ingreme e prolongada que se afasta bastante da media, terminando numa vela com pavio longo no topo.">' +
+    '<rect width="700" height="300" fill="#15130F"/>' +
+    '<path d="M 60 250 Q 180 240 320 220 T 600 205" stroke="#D4A574" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>' +
+    '<text x="58" y="240" font-family="JetBrains Mono, monospace" font-size="12" fill="#D4A574">média</text>' +
+    '<path d="M 80 270 L 150 220 L 220 160 L 290 95 L 350 55" stroke="#7A9D6F" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>' +
+    '<line x1="350" y1="30" x2="350" y2="70" stroke="#C75B3E" stroke-width="2"/>' +
+    '<rect x="343" y="55" width="14" height="16" fill="#C75B3E"/>' +
+    '</svg>';
+  var FIG_SUPPORT = '<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafico: o preco desce e toca uma linha horizontal de suporte, fura ligeiramente abaixo dela, e volta a subir com forca.">' +
+    '<rect width="700" height="300" fill="#15130F"/>' +
+    '<line x1="40" y1="200" x2="660" y2="200" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6 4"/>' +
+    '<text x="600" y="190" font-family="JetBrains Mono, monospace" font-size="12" fill="#D4A574">suporte</text>' +
+    '<path d="M 70 90 L 130 140 L 190 200 L 250 255 L 300 200 L 360 140 L 440 90 L 520 50" stroke="#807A6C" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>' +
+    '</svg>';
+
+  var QUESTIONS = [
+    {
+      tag: "Gestão de risco",
+      q: "A sua conta tem R$ 10.000 e você segue a regra dos 2%. Qual é a perda máxima que aceita num único trade?",
+      opts: ["R$ 1.000", "R$ 200", "R$ 2.000", "Depende do meu feeling no dia"],
+      correct: 1,
+      fb: "2% de R$ 10.000 = R$ 200. Essa é a perda máxima por trade que mantém você no jogo mesmo numa sequência ruim. 'Feeling' não é regra de risco."
+    },
+    {
+      tag: "Leitura de gráfico",
+      fig: FIG_BULLFLAG,
+      q: "Que padrão o gráfico acima descreve?",
+      opts: ["Topo de reversão", "Bull Flag (bandeira de alta)", "Lateralização sem direção", "Cabeça e ombros"],
+      correct: 1,
+      fb: "É uma Bull Flag: o mastro (subida forte), a bandeira (recuo leve e ordenado) e o novo impulso de alta. O recuo de baixo volume antes da continuação é a assinatura do padrão (Lição 4.2)."
+    },
+    {
+      tag: "Risco / Retorno",
+      q: "Você arrisca R$ 0,30 por ação para tentar ganhar R$ 0,90. Qual é a relação risco/retorno?",
+      opts: ["1:0,3 (péssima)", "1:3 (boa)", "3:1 (boa)", "1:1 (neutra)"],
+      correct: 1,
+      fb: "Arriscar 0,30 para ganhar 0,90 é uma relação de 1:3 — para cada real arriscado, busca-se três. Com 1:3 você pode errar a maioria dos trades e ainda assim lucrar (Lição 5.2)."
+    },
+    {
+      tag: "Psicologia",
+      q: "Você teve 3 stops seguidos e está com raiva. Sente vontade de 'recuperar tudo' num trade maior. O que fazer?",
+      opts: ["Dobrar a posição para recuperar rápido", "Parar de operar por hoje", "Tirar o stop do próximo trade para não ser estopado de novo", "Operar um ativo mais volátil"],
+      correct: 1,
+      fb: "Isso é revenge trading (Lição 6.3). Depois de uma sequência de perdas, a decisão correta é parar — o cérebro está em modo emocional, não analítico. As outras opções são receitas para transformar um dia ruim num desastre."
+    },
+    {
+      tag: "Leitura de gráfico",
+      fig: FIG_REVERSAL,
+      q: "O preço subiu de forma íngreme e se afastou muito da média, terminando com um pavio longo no topo. O que isso sugere?",
+      opts: ["Comprar agora, a tendência é forte", "Possível exaustão — risco de reversão", "Nada, é um movimento normal", "Aumentar a posição comprada"],
+      correct: 1,
+      fb: "Um movimento muito esticado para longe da média, com vela de exaustão (pavio longo), sugere que o impulso pode estar acabando — o 'elástico' tende a voltar (Lição 4.3). Comprar no topo de um movimento exausto é dos erros mais caros."
+    },
+    {
+      tag: "Position sizing",
+      q: "Risco máximo de R$ 200, distância do stop de R$ 0,20 por ação. Quantas ações você compra?",
+      opts: ["100 ações", "400 ações", "1.000 ações", "Quantas o dinheiro permitir"],
+      correct: 2,
+      fb: "R$ 200 ÷ R$ 0,20 = 1.000 ações. O tamanho da posição nasce do risco e da distância do stop, não de quanto dinheiro você tem na conta (Lição 5.3)."
+    },
+    {
+      tag: "Leitura de gráfico",
+      fig: FIG_SUPPORT,
+      q: "O preço furou levemente o suporte e voltou a subir com força. Como se chama essa armadilha?",
+      opts: ["Pullback normal", "Fakeout (falsa quebra)", "Gap de abertura", "Topo duplo"],
+      correct: 1,
+      fb: "É um fakeout: o preço fura o suporte só o suficiente para acionar os stops do varejo, e então dispara na direção oposta. Quem vendeu na quebra cai na armadilha (Lição 3.4)."
+    },
+    {
+      tag: "Fundamentos",
+      q: "No day trade brasileiro, qual a afirmação correta sobre o imposto?",
+      opts: ["Há isenção até R$ 20 mil de vendas por mês", "Qualquer lucro mensal é tributado (20%), sem isenção", "Só se paga imposto no fim do ano", "Day trade é isento de imposto"],
+      correct: 1,
+      fb: "No day trade, qualquer lucro é tributado a 20%, sem isenção — a isenção de R$ 20 mil vale só para swing trade. E o imposto é apurado e pago mês a mês via DARF (Lição 7.5)."
+    },
+    {
+      tag: "Disciplina",
+      q: "Você entrou num trade com stop e alvo definidos. O preço sobe e mostra +R$ 50 no lucro flutuante, ainda longe do alvo. O que a disciplina manda?",
+      opts: ["Fechar já, lucro é lucro", "Manter o plano: deixar correr até o alvo ou o stop", "Tirar o stop, já que está no lucro", "Dobrar a posição"],
+      correct: 1,
+      fb: "Você definiu alvo e stop por um motivo. Fechar cedo no impulso destrói a relação risco/retorno que justificava o trade. O lucro flutuante piscando é a tentação — o plano é a resposta (Lição 6.1)."
+    },
+    {
+      tag: "Prática",
+      q: "Você acabou de aprender a teoria toda e está empolgado. Qual o próximo passo certo?",
+      opts: ["Abrir conta real e começar com pouco dinheiro", "Praticar meses no simulador até provar consistência", "Pedir dinheiro emprestado para ter capital suficiente", "Copiar sinais de um grupo de Telegram"],
+      correct: 1,
+      fb: "A teoria é só o bilhete de entrada. O jogo se joga no simulador, por meses, até você provar consistência — só então faz sentido pensar em dinheiro real, e nunca com dinheiro emprestado (Lição 7.4)."
+    }
+  ];
+
+  var current = 0, score = 0, answered = false;
+  var results = [];
+
+  var qTag = document.getElementById('qTag');
+  var qText = document.getElementById('qText');
+  var qFigure = document.getElementById('qFigure');
+  var qOptions = document.getElementById('qOptions');
+  var qFeedback = document.getElementById('qFeedback');
+  var fbVerdict = document.getElementById('fbVerdict');
+  var fbText = document.getElementById('fbText');
+  var nextBtn = document.getElementById('nextBtn');
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+
+  var LETTERS = ['A','B','C','D'];
+
+  function render() {
+    var Q = QUESTIONS[current];
+    answered = false;
+    qTag.textContent = Q.tag;
+    qText.textContent = Q.q;
+    if (Q.fig) { qFigure.innerHTML = Q.fig; qFigure.style.display = 'block'; }
+    else { qFigure.style.display = 'none'; qFigure.innerHTML = ''; }
+    qOptions.innerHTML = '';
+    Q.opts.forEach(function(opt, i){
+      var btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.innerHTML = '<span class="opt-letter">' + LETTERS[i] + '</span><span>' + opt + '</span>';
+      btn.addEventListener('click', function(){ choose(i); });
+      qOptions.appendChild(btn);
+    });
+    qFeedback.className = 'quiz-feedback';
+    qFeedback.classList.remove('show');
+    nextBtn.disabled = true;
+    nextBtn.textContent = 'Responda para continuar';
+    progressFill.style.width = ((current) / QUESTIONS.length * 100) + '%';
+    progressLabel.textContent = (current + 1) + ' / ' + QUESTIONS.length;
+  }
+
+  function choose(i) {
+    if (answered) return;
+    answered = true;
+    var Q = QUESTIONS[current];
+    var btns = qOptions.querySelectorAll('.quiz-option');
+    var isCorrect = (i === Q.correct);
+    if (isCorrect) score++;
+    results.push({ tag: Q.tag, q: Q.q, ok: isCorrect });
+    btns.forEach(function(b, idx){
+      b.disabled = true;
+      if (idx === Q.correct) b.classList.add('correct');
+      else if (idx === i) b.classList.add('wrong');
+      else b.classList.add('dim');
+    });
+    fbVerdict.textContent = isCorrect ? '✓ Correto' : '✗ Não foi dessa vez';
+    fbText.textContent = Q.fb;
+    qFeedback.classList.add('show');
+    qFeedback.classList.add(isCorrect ? 'ok' : 'no');
+    nextBtn.disabled = false;
+    nextBtn.textContent = (current < QUESTIONS.length - 1) ? 'Próxima pergunta →' : 'Ver resultado →';
+  }
+
+  nextBtn.addEventListener('click', function(){
+    if (!answered) return;
+    if (current < QUESTIONS.length - 1) { current++; render(); }
+    else showResult();
+  });
+
+  function showResult() {
+    document.getElementById('quiz-area').style.display = 'none';
+    var ra = document.getElementById('resultArea');
+    ra.classList.add('show');
+    document.getElementById('scoreNum').textContent = score;
+    setTimeout(function(){
+      document.getElementById('resultBar').style.width = (score / QUESTIONS.length * 100) + '%';
+    }, 100);
+
+    var verdict, msg;
+    if (score <= 4) {
+      verdict = 'Ainda a construir a base.';
+      msg = 'Tudo bem — é assim que se começa. Volte aos módulos com calma; cada erro aqui aponta exatamente o que rever. O importante é não ter pressa para o dinheiro real.';
+    } else if (score <= 7) {
+      verdict = 'No caminho certo.';
+      msg = 'Você já tem boa parte dos conceitos. Reforce os pontos que errou abaixo e siga praticando no simulador. Consistência vem da repetição, não da pressa.';
+    } else if (score <= 9) {
+      verdict = 'Base sólida.';
+      msg = 'Muito bom — você domina os fundamentos de risco, leitura e disciplina. Lembre-se: saber a teoria é diferente de executar sob pressão. O simulador é onde isso se prova.';
+    } else {
+      verdict = 'Gabaritou.';
+      msg = 'Excelente domínio dos conceitos. Mas atenção: nenhum quiz substitui meses de prática no simulador. Saber responder certo aqui é o começo, não a chegada.';
+    }
+    document.getElementById('resultVerdict').textContent = verdict;
+    document.getElementById('resultMsg').textContent = msg;
+
+    var bd = document.getElementById('breakdown');
+    bd.innerHTML = '';
+    results.forEach(function(r, idx){
+      var row = document.createElement('div');
+      row.className = 'quiz-breakdown-item';
+      row.innerHTML = '<span class="bd-mark ' + (r.ok ? 'ok' : 'no') + '">' + (r.ok ? '✓' : '✗') + '</span>' +
+                      '<span style="color:var(--ink-muted)">' + (idx+1) + '.</span>' +
+                      '<span>' + r.tag + '</span>';
+      bd.appendChild(row);
+    });
+  }
+
+  document.getElementById('retryBtn').addEventListener('click', function(){
+    current = 0; score = 0; answered = false; results = [];
+    document.getElementById('resultArea').classList.remove('show');
+    document.getElementById('quiz-area').style.display = 'block';
+    render();
+  });
+
+  render();
+})();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
