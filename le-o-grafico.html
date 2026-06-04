@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lê o Gráfico · Trading do Zero</title>
+  <meta name="description" content="Treino de reconhecimento de padrões: veja o gráfico e identifique o padrão, ou decida onde colocar o stop. Oito desafios visuais com explicação.">
+
+  <meta property="og:title" content="Lê o Gráfico · Trading do Zero">
+  <meta property="og:description" content="Treino de reconhecimento de padrões: veja o gráfico e identifique o padrão ou decida a ação. Oito desafios visuais.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/le-o-grafico.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lê o Gráfico · Trading do Zero">
+  <meta name="twitter:description" content="Treino de reconhecimento de padrões em gráficos.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="canonical" href="https://tradingdozero.com/le-o-grafico.html">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <style>
+    .game-shell { max-width: 760px; }
+    .game-progress-wrap { display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5); }
+    .game-progress-track { flex:1; height:6px; background:var(--bg-elevated); border-radius:3px; overflow:hidden; }
+    .game-progress-fill { height:100%; width:0%; background:var(--accent); border-radius:3px; transition:width 0.4s ease; }
+    .game-progress-label { font-family:var(--font-mono); font-size:var(--fs-sm); color:var(--ink-muted); white-space:nowrap; }
+    .game-tag { display:inline-block; font-family:var(--font-mono); font-size:var(--fs-xs); text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:var(--space-3); }
+    .game-figure { margin:0 0 var(--space-5) 0; padding:var(--space-4); background:var(--bg-card); border:1px solid var(--line-strong); border-radius:var(--radius); }
+    .game-figure svg { display:block; width:100%; height:auto; }
+    .game-question { font-family:var(--font-display); font-size:var(--fs-xl); line-height:1.3; margin-bottom:var(--space-5); color:var(--ink); }
+    .game-options { display:grid; grid-template-columns:1fr; gap:var(--space-3); }
+    @media (min-width:560px){ .game-options { grid-template-columns:1fr 1fr; } }
+    .game-option {
+      text-align:left; width:100%; padding:var(--space-4);
+      background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius);
+      color:var(--ink); font-family:var(--font-sans); font-size:var(--fs-base); cursor:pointer; transition:var(--transition);
+      display:flex; gap:var(--space-3); align-items:flex-start;
+    }
+    .game-option:hover:not(:disabled){ border-color:var(--accent); transform:translateY(-1px); }
+    .game-option:disabled{ cursor:default; }
+    .game-option .opt-letter{ font-family:var(--font-mono); color:var(--ink-muted); flex-shrink:0; }
+    .game-option.correct{ border-color:var(--success); background:rgba(122,157,111,0.10); }
+    .game-option.correct .opt-letter{ color:var(--success); }
+    .game-option.wrong{ border-color:var(--warn); background:rgba(199,91,62,0.10); }
+    .game-option.wrong .opt-letter{ color:var(--warn); }
+    .game-option.dim{ opacity:0.5; }
+    .game-feedback{ margin-top:var(--space-4); padding:var(--space-4); border-radius:var(--radius); border-left:3px solid var(--accent); background:var(--bg-elevated); display:none; }
+    .game-feedback.show{ display:block; }
+    .game-feedback.ok{ border-left-color:var(--success); } .game-feedback.ok .fb-verdict{ color:var(--success); }
+    .game-feedback.no{ border-left-color:var(--warn); } .game-feedback.no .fb-verdict{ color:var(--warn); }
+    .game-feedback .fb-verdict{ font-weight:600; margin-bottom:var(--space-2); display:block; }
+    .game-feedback p{ margin:0; color:var(--ink); line-height:1.55; }
+    .game-nav{ margin-top:var(--space-5); display:flex; justify-content:flex-end; }
+    .game-next{ padding:var(--space-3) var(--space-5); border-radius:var(--radius); background:var(--accent); color:var(--bg); border:none; font-family:var(--font-mono); font-size:var(--fs-sm); letter-spacing:0.05em; cursor:pointer; transition:var(--transition); }
+    .game-next:hover{ background:var(--accent-bright); } .game-next:disabled{ opacity:0.4; cursor:not-allowed; }
+    .game-result{ text-align:center; display:none; } .game-result.show{ display:block; }
+    .result-score{ font-family:var(--font-display); font-size:4rem; line-height:1; color:var(--accent); margin:var(--space-4) 0; }
+    .result-score span{ font-size:2rem; color:var(--ink-muted); }
+    .result-bar-track{ height:10px; background:var(--bg-elevated); border-radius:5px; overflow:hidden; margin:var(--space-5) 0; }
+    .result-bar-fill{ height:100%; background:var(--accent); border-radius:5px; width:0; transition:width 0.8s ease; }
+    .result-verdict{ font-family:var(--font-display); font-size:var(--fs-xl); margin-bottom:var(--space-3); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark"><img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img"></span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="modulos.html">Módulos</a></li>
+      <li><a href="ferramentas-dicas.html" class="active">Recursos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="modulos/fundamentos.html" class="nav-cta">Começar agora</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="index.html">início</a><span class="sep">/</span>
+      <a href="ferramentas-dicas.html">recursos</a><span class="sep">/</span>
+      <span>lê o gráfico</span>
+    </nav>
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">Treino visual</div>
+    <h1>Lê o <em>gráfico</em>.</h1>
+    <p style="max-width: 60ch; color: var(--ink-muted); margin-top: var(--space-3);">
+      Reconhecer um padrão num instante é o que distingue o olho treinado. Oito gráficos: identifique o padrão, ou decida a ação certa. Cada um explica o que procurar.
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="container game-shell" style="padding-top: var(--space-7); padding-bottom: var(--space-8);">
+
+    <div id="game-area">
+      <div class="game-progress-wrap">
+        <div class="game-progress-track"><div class="game-progress-fill" id="progressFill"></div></div>
+        <div class="game-progress-label" id="progressLabel">1 / 8</div>
+      </div>
+
+      <div class="game-tag" id="gTag">Identificar o padrão</div>
+      <div class="game-figure" id="gFigure"></div>
+      <div class="game-question" id="gQuestion">Carregando…</div>
+      <div class="game-options" id="gOptions"></div>
+      <div class="game-feedback" id="gFeedback">
+        <span class="fb-verdict" id="fbVerdict"></span>
+        <p id="fbText"></p>
+      </div>
+      <div class="game-nav">
+        <button class="game-next" id="nextBtn" disabled>Responda para continuar</button>
+      </div>
+    </div>
+
+    <div class="game-result" id="resultArea">
+      <div class="eyebrow" style="margin-bottom: var(--space-3);">Resultado</div>
+      <div class="result-score"><span id="scoreNum">0</span><span>/8</span></div>
+      <div class="result-bar-track"><div class="result-bar-fill" id="resultBar"></div></div>
+      <div class="result-verdict" id="resultVerdict"></div>
+      <p id="resultMsg" style="color: var(--ink-muted); max-width: 52ch; margin: 0 auto var(--space-5);"></p>
+      <div style="display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap; margin-top:var(--space-5);">
+        <button class="btn-primary" id="retryBtn">Jogar de novo</button>
+        <a href="modulos/analise.html" class="btn-secondary">Rever análise técnica</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"><img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img"></span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="modulos.html">Todos os módulos</a></li>
+          <li><a href="modulos/analise.html">Análise técnica</a></li>
+          <li><a href="modulos/estrategias.html">Estratégias</a></li>
+          <li><a href="modulos.html#m5">Gestão de risco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="teste-do-trader.html">Teste do trader</a></li>
+          <li><a href="simulador-risco.html">Simulador de risco</a></li>
+          <li><a href="le-o-grafico.html">Lê o gráfico</a></li>
+          <li><a href="calculadoras.html">Calculadoras</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="disclaimer.html">Aviso legal</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p><strong style="color: var(--accent);">Aviso importante.</strong> Este site é exclusivamente educacional. Não somos consultores financeiros e não emitimos recomendações. Os gráficos são esquemáticos e servem apenas para treinar o reconhecimento de padrões.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var W = '#EDE6D6', G = '#7A9D6F', R = '#C75B3E', A = '#D4A574', M = '#807A6C', GR = '#B5AD9E';
+  function svg(inner, vb){ return '<svg viewBox="0 0 700 ' + (vb||300) + '" xmlns="http://www.w3.org/2000/svg">' +
+    '<rect width="700" height="' + (vb||300) + '" fill="#15130F"/>' + inner + '</svg>'; }
+  function path(d, c, w){ return '<path d="'+d+'" stroke="'+c+'" stroke-width="'+(w||3)+'" fill="none" stroke-linejoin="round" stroke-linecap="round"/>'; }
+  function dline(x1,y1,x2,y2,c){ return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+c+'" stroke-width="1.5" stroke-dasharray="6 4"/>'; }
+  function dot(x,y,c){ return '<circle cx="'+x+'" cy="'+y+'" r="6" fill="'+c+'"/>'; }
+  function txt(x,y,s,c,sz){ return '<text x="'+x+'" y="'+y+'" font-family="JetBrains Mono, monospace" font-size="'+(sz||12)+'" fill="'+(c||GR)+'">'+s+'</text>'; }
+
+  var CH = [
+    {
+      tag: "Identificar o padrão",
+      fig: svg( path("M 60 250 L 110 205 L 160 145 L 210 90", G) + path("M 210 90 L 255 118 L 300 105 L 345 130", R) + path("M 345 130 L 400 88 L 460 52 L 520 28", G) ),
+      q: "Que padrão este gráfico mostra?",
+      opts: ["Topo de reversão", "Bull Flag", "Lateralização", "Cabeça e ombros"],
+      correct: 1,
+      fb: "Bull Flag: subida forte (mastro), recuo curto e ordenado (bandeira) e novo impulso de alta. O recuo controlado depois de uma alta forte é a assinatura (Lição 4.2)."
+    },
+    {
+      tag: "Identificar o regime",
+      fig: svg( dline(40,110,660,110,M) + dline(40,200,660,200,M) + path("M 60 200 L 130 115 L 200 200 L 270 115 L 340 200 L 410 115 L 480 200 L 550 115 L 620 200", A) + txt(600,100,"resistência",GR) + txt(600,220,"suporte",GR) ),
+      q: "Em que regime o preço está?",
+      opts: ["Tendência de alta", "Tendência de baixa", "Lateralização", "Reversão"],
+      correct: 2,
+      fb: "Lateralização: o preço bate no teto (resistência) e no chão (suporte) repetidamente, sem topos ou fundos progressivos. É o 'moedor' onde muitos iniciantes perdem (Lição 3.2)."
+    },
+    {
+      tag: "Decidir a ação",
+      fig: svg( dline(40,210,660,210,A) + txt(580,200,"fecho de ontem",A) + path("M 60 250 L 110 280 L 170 255 L 230 215 L 300 175 L 380 130 L 470 85", M) + path("M 270 210 L 300 175 L 380 130 L 470 85", G) + dot(285,210,A) ),
+      q: "O preço acabou de cruzar a linha do fechamento anterior, de baixo para cima. O que é isto?",
+      opts: ["Sinal de venda", "Setup Red-to-Green (sinal de compra)", "Topo duplo", "Não significa nada"],
+      correct: 1,
+      fb: "Red-to-Green: o ativo abriu no vermelho (abaixo do fecho de ontem) e cruzou para o verde. Esse cruzamento costuma atrair compradores e dar impulso (Lição 4.5)."
+    },
+    {
+      tag: "Identificar o padrão",
+      fig: svg( '<path d="M 40 250 Q 180 240 330 222 T 600 210" stroke="'+A+'" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>' + txt(55,240,"média",A) + path("M 70 270 L 150 215 L 220 155 L 290 95 L 350 52", G) + '<line x1="350" y1="28" x2="350" y2="68" stroke="'+R+'" stroke-width="2"/>' + '<rect x="343" y="52" width="14" height="16" fill="'+R+'"/>', 300),
+      q: "A subida foi íngreme, esticou-se para longe da média e formou um pavio longo no topo. O que sugere?",
+      opts: ["Comprar mais, a alta é forte", "Possível exaustão e reversão", "Lateralização", "Nada de especial"],
+      correct: 1,
+      fb: "Exaustão: um movimento muito esticado para longe da média, com vela de pavio longo, sinaliza que o impulso pode acabar. O elástico tende a voltar — cuidado em comprar topos assim (Lição 4.3)."
+    },
+    {
+      tag: "Decidir o stop",
+      fig: svg( path("M 60 300 L 120 235 L 160 260 L 230 185 L 280 210 L 360 130 L 410 158 L 480 80", G) + '<rect x="378" y="135" width="55" height="55" fill="rgba(122,157,111,0.12)" stroke="'+G+'" stroke-width="0.5" stroke-dasharray="2 2"/>' + dot(410,158,G) + txt(300,300,"entrada na zona destacada",GR) + dot(120,235,W) + dot(280,210,W) + dot(410,158,W), 320),
+      q: "Você comprou no pullback (ponto destacado). Onde colocar o stop?",
+      opts: ["Acima da entrada", "Logo abaixo da mínima do pullback", "No topo anterior", "Não preciso de stop"],
+      correct: 1,
+      fb: "O stop vai logo abaixo da mínima do recuo. Se o preço perder esse ponto, a estrutura de alta foi quebrada e a tese do trade morreu. Stop sempre — não é opcional (Lição 5.4)."
+    },
+    {
+      tag: "Identificar a armadilha",
+      fig: svg( dline(40,200,660,200,A) + txt(600,190,"suporte",A) + path("M 70 95 L 140 145 L 210 200 L 270 245 L 320 200 L 390 150 L 470 100 L 540 55", M) + dot(270,245,R) + txt(180,275,"furou e voltou",GR) ),
+      q: "O preço furou o suporte por um instante e voltou a subir com força. Como se chama?",
+      opts: ["Rompimento real", "Fakeout (falsa quebra)", "Pullback", "Gap"],
+      correct: 1,
+      fb: "Fakeout: o preço fura o suporte só o suficiente para acionar os stops de quem vendeu, e então reverte. Os grandes usam essas armadilhas para capturar liquidez (Lição 3.4)."
+    },
+    {
+      tag: "Identificar o padrão",
+      fig: svg( dline(160,75,650,75,M) + path("M 55 290 L 160 75 L 250 175 L 320 150 L 400 60", G) + dot(160,75,W) + dot(250,175,W) + dot(320,150,A) + dot(400,60,W) + txt(150,65,"A",W) + txt(250,200,"B",W) + txt(320,138,"C",A) + txt(405,48,"D",W), 300),
+      q: "Pontos A-B-C-D, com B sendo um recuo e D rompendo o topo de A. Que padrão é?",
+      opts: ["Cabeça e ombros", "Padrão ABCD", "Triângulo", "Bandeira de baixa"],
+      correct: 1,
+      fb: "Padrão ABCD: sobe até A, recua até B (fundo mais alto), sobe parcial até C, e rompe em D. A entrada costuma ser na zona de C, com alvo no rompimento (Lição 4.1)."
+    },
+    {
+      tag: "Decidir a ação",
+      fig: svg( dline(40,150,660,150,A) + txt(60,80,"caixa da abertura (10h00–10h15)",A) + '<rect x="55" y="95" width="180" height="120" fill="rgba(212,165,116,0.10)" stroke="'+A+'" stroke-width="0.5" stroke-dasharray="3 3"/>' + path("M 65 160 L 90 120 L 115 200 L 140 140 L 165 205 L 190 130 L 225 175", M) + path("M 225 175 L 270 120 L 330 85 L 400 50", G) + dot(255,135,G), 280),
+      q: "Os primeiros 15 minutos formaram uma caixa e o preço rompeu a máxima dela. O que é?",
+      opts: ["Opening Range Breakout (rompimento)", "Topo de reversão", "Lateralização eterna", "Sinal de venda"],
+      correct: 0,
+      fb: "Opening Range Breakout: a caixa dos primeiros minutos define o range; o rompimento da máxima costuma dar tendência para o resto da manhã. O stop fica no meio da caixa (Lição 4.6)."
+    }
+  ];
+
+  var current = 0, score = 0, answered = false, results = [];
+  var LETTERS = ['A','B','C','D'];
+  var el = function(id){ return document.getElementById(id); };
+
+  function render(){
+    var C = CH[current]; answered = false;
+    el('gTag').textContent = C.tag;
+    el('gFigure').innerHTML = C.fig;
+    el('gQuestion').textContent = C.q;
+    var opts = el('gOptions'); opts.innerHTML = '';
+    C.opts.forEach(function(o,i){
+      var btn = document.createElement('button');
+      btn.className = 'game-option';
+      btn.innerHTML = '<span class="opt-letter">'+LETTERS[i]+'</span><span>'+o+'</span>';
+      btn.addEventListener('click', function(){ choose(i); });
+      opts.appendChild(btn);
+    });
+    el('gFeedback').className = 'game-feedback';
+    el('nextBtn').disabled = true;
+    el('nextBtn').textContent = 'Responda para continuar';
+    el('progressFill').style.width = (current/CH.length*100)+'%';
+    el('progressLabel').textContent = (current+1)+' / '+CH.length;
+  }
+
+  function choose(i){
+    if (answered) return; answered = true;
+    var C = CH[current];
+    var btns = el('gOptions').querySelectorAll('.game-option');
+    var ok = (i === C.correct);
+    if (ok) score++;
+    results.push(ok);
+    btns.forEach(function(b,idx){
+      b.disabled = true;
+      if (idx === C.correct) b.classList.add('correct');
+      else if (idx === i) b.classList.add('wrong');
+      else b.classList.add('dim');
+    });
+    var fb = el('gFeedback');
+    fb.className = 'game-feedback show ' + (ok ? 'ok' : 'no');
+    el('fbVerdict').textContent = ok ? '✓ Olho treinado' : '✗ Olha de novo';
+    el('fbText').textContent = C.fb;
+    el('nextBtn').disabled = false;
+    el('nextBtn').textContent = (current < CH.length-1) ? 'Próximo gráfico →' : 'Ver resultado →';
+  }
+
+  el('nextBtn').addEventListener('click', function(){
+    if (!answered) return;
+    if (current < CH.length-1){ current++; render(); }
+    else showResult();
+  });
+
+  function showResult(){
+    el('game-area').style.display = 'none';
+    el('resultArea').classList.add('show');
+    el('scoreNum').textContent = score;
+    setTimeout(function(){ el('resultBar').style.width = (score/CH.length*100)+'%'; }, 100);
+    var verdict, msg, pct = score/CH.length;
+    if (pct < 0.5){
+      verdict = 'O olho ainda está a treinar.';
+      msg = 'Reconhecer padrões vem da repetição. Reveja o Módulo 3 (análise) e o Módulo 4 (estratégias), olhe os diagramas com calma, e volte. Cada padrão que você fixa é um sinal a mais que vai notar no mercado real.';
+    } else if (pct < 0.875){
+      verdict = 'Bom olho.';
+      msg = 'Você já reconhece a maioria dos padrões. Reforce os que errou — e lembre-se de que, no gráfico real, eles aparecem mais sujos e ambíguos do que nestes esquemas limpos.';
+    } else {
+      verdict = 'Olho de trader.';
+      msg = 'Excelente reconhecimento. Mas um aviso honesto: o gráfico real é mais ruidoso que estes diagramas. Saber o padrão no esquema é o começo; vê-lo nascer ao vivo, sob pressão, é o que se treina no simulador.';
+    }
+    el('resultVerdict').textContent = verdict;
+    el('resultMsg').textContent = msg;
+  }
+
+  el('retryBtn').addEventListener('click', function(){
+    current = 0; score = 0; answered = false; results = [];
+    el('resultArea').classList.remove('show');
+    el('game-area').style.display = 'block';
+    render();
+  });
+
+  render();
+})();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

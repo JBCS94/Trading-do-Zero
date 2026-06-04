@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Risco · Trading do Zero</title>
+  <meta name="description" content="Treine o cálculo de gestão de risco: dado um cenário, calcule o tamanho da posição e decida se o trade vale a pena. Prática ativa, com correção e explicação.">
+
+  <meta property="og:title" content="Simulador de Risco · Trading do Zero">
+  <meta property="og:description" content="Treine o cálculo de gestão de risco: posição, risco/retorno e a decisão de entrar ou passar. Prática ativa com correção.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://tradingdozero.com/simulador-risco.html">
+  <meta property="og:image" content="https://tradingdozero.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Trading do Zero">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simulador de Risco · Trading do Zero">
+  <meta name="twitter:description" content="Treine o cálculo de gestão de risco com cenários e correção.">
+  <meta name="twitter:image" content="https://tradingdozero.com/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="canonical" href="https://tradingdozero.com/simulador-risco.html">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0E0E0E">
+
+  <style>
+    .sim-shell { max-width: 760px; }
+    .sim-progress-wrap { display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5); }
+    .sim-progress-track { flex:1; height:6px; background:var(--bg-elevated); border-radius:3px; overflow:hidden; }
+    .sim-progress-fill { height:100%; width:0%; background:var(--accent); border-radius:3px; transition:width 0.4s ease; }
+    .sim-progress-label { font-family:var(--font-mono); font-size:var(--fs-sm); color:var(--ink-muted); white-space:nowrap; }
+
+    .scenario-card {
+      background: var(--bg-card); border:1px solid var(--line-strong);
+      border-radius: var(--radius); padding: var(--space-5); margin-bottom: var(--space-5);
+    }
+    .scenario-title { font-family:var(--font-mono); font-size:var(--fs-xs); text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:var(--space-4); }
+    .scenario-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:var(--space-3); }
+    @media (min-width:560px){ .scenario-grid { grid-template-columns: repeat(4, 1fr); } }
+    .scenario-item { background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius); padding:var(--space-3) var(--space-4); }
+    .scenario-item .si-label { font-size:var(--fs-xs); color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.05em; display:block; margin-bottom:4px; }
+    .scenario-item .si-value { font-family:var(--font-mono); font-size:var(--fs-lg); color:var(--ink); }
+
+    .sim-task { margin-bottom: var(--space-5); }
+    .sim-task-q { font-family:var(--font-display); font-size:var(--fs-lg); margin-bottom:var(--space-4); color:var(--ink); }
+    .sim-input-row { display:flex; gap:var(--space-3); align-items:center; flex-wrap:wrap; }
+    .sim-input {
+      background:var(--bg-elevated); border:1px solid var(--line-strong); border-radius:var(--radius);
+      padding:var(--space-3) var(--space-4); color:var(--ink); font-family:var(--font-mono); font-size:var(--fs-lg);
+      width:180px;
+    }
+    .sim-input:focus { outline:none; border-color:var(--accent); }
+
+    .sim-choice-row { display:flex; gap:var(--space-3); flex-wrap:wrap; }
+    .sim-choice {
+      flex:1; min-width:140px; padding:var(--space-4);
+      background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius);
+      color:var(--ink); font-family:var(--font-sans); font-size:var(--fs-base); cursor:pointer;
+      transition:var(--transition); text-align:center;
+    }
+    .sim-choice:hover:not(:disabled){ border-color:var(--accent); transform:translateY(-1px); }
+    .sim-choice:disabled{ cursor:default; }
+    .sim-choice.sel { border-color:var(--accent); }
+    .sim-choice.correct { border-color:var(--success); background:rgba(122,157,111,0.10); }
+    .sim-choice.wrong { border-color:var(--warn); background:rgba(199,91,62,0.10); }
+
+    .sim-feedback { margin-top:var(--space-5); padding:var(--space-4); border-radius:var(--radius); border-left:3px solid var(--accent); background:var(--bg-elevated); display:none; }
+    .sim-feedback.show { display:block; }
+    .sim-feedback.ok { border-left-color:var(--success); }
+    .sim-feedback.no { border-left-color:var(--warn); }
+    .sim-feedback .fb-verdict { font-weight:600; margin-bottom:var(--space-2); display:block; }
+    .sim-feedback.ok .fb-verdict { color:var(--success); }
+    .sim-feedback.no .fb-verdict { color:var(--warn); }
+    .sim-calc { font-family:var(--font-mono); font-size:var(--fs-sm); color:var(--ink-muted); margin-top:var(--space-3); line-height:1.7; }
+    .sim-calc strong { color:var(--ink); }
+
+    .sim-nav { margin-top:var(--space-5); display:flex; gap:var(--space-3); justify-content:flex-end; }
+    .sim-btn { padding:var(--space-3) var(--space-5); border-radius:var(--radius); border:none; font-family:var(--font-mono); font-size:var(--fs-sm); letter-spacing:0.05em; cursor:pointer; transition:var(--transition); }
+    .sim-btn-primary { background:var(--accent); color:var(--bg); }
+    .sim-btn-primary:hover { background:var(--accent-bright); }
+    .sim-btn-primary:disabled { opacity:0.4; cursor:not-allowed; }
+
+    .sim-result { text-align:center; display:none; }
+    .sim-result.show { display:block; }
+    .result-score { font-family:var(--font-display); font-size:4rem; line-height:1; color:var(--accent); margin:var(--space-4) 0; }
+    .result-score span { font-size:2rem; color:var(--ink-muted); }
+    .result-bar-track { height:10px; background:var(--bg-elevated); border-radius:5px; overflow:hidden; margin:var(--space-5) 0; }
+    .result-bar-fill { height:100%; background:var(--accent); border-radius:5px; width:0; transition:width 0.8s ease; }
+    .result-verdict { font-family:var(--font-display); font-size:var(--fs-xl); margin-bottom:var(--space-3); }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark"><img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img"></span>
+      <span class="logo-text">Trading <em>do zero</em></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="modulos.html">Módulos</a></li>
+      <li><a href="ferramentas-dicas.html" class="active">Recursos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="modulos/fundamentos.html" class="nav-cta">Começar agora</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <a href="index.html">início</a><span class="sep">/</span>
+      <a href="ferramentas-dicas.html">recursos</a><span class="sep">/</span>
+      <span>simulador de risco</span>
+    </nav>
+    <div class="eyebrow" style="margin-bottom: var(--space-4);">Prática ativa</div>
+    <h1>Simulador de <em>risco</em>.</h1>
+    <p style="max-width: 60ch; color: var(--ink-muted); margin-top: var(--space-3);">
+      A conta que todo trader faz antes de cada entrada. Dado um cenário, descubra o tamanho certo da posição e decida se o trade vale a pena. Oito rodadas, com a conta explicada em cada uma.
+    </p>
+  </div>
+</header>
+
+<main>
+  <div class="container sim-shell" style="padding-top: var(--space-7); padding-bottom: var(--space-8);">
+
+    <div class="callout" style="margin-bottom: var(--space-6);">
+      <div class="callout-label">Como funciona</div>
+      <p>Cada rodada apresenta um cenário com capital, risco máximo, entrada e stop. Você faz duas coisas: calcula <strong>quantas ações</strong> comprar para respeitar o risco, e decide se a <strong>relação risco/retorno</strong> do alvo é boa o suficiente para entrar. Use papel e caneta se ajudar — é assim que se treina.</p>
+    </div>
+
+    <div id="sim-area">
+      <div class="sim-progress-wrap">
+        <div class="sim-progress-track"><div class="sim-progress-fill" id="progressFill"></div></div>
+        <div class="sim-progress-label" id="progressLabel">1 / 8</div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-title">Cenário</div>
+        <div class="scenario-grid">
+          <div class="scenario-item"><span class="si-label">Capital</span><span class="si-value" id="scCapital">—</span></div>
+          <div class="scenario-item"><span class="si-label">Risco máx.</span><span class="si-value" id="scRisk">—</span></div>
+          <div class="scenario-item"><span class="si-label">Entrada</span><span class="si-value" id="scEntry">—</span></div>
+          <div class="scenario-item"><span class="si-label">Stop</span><span class="si-value" id="scStop">—</span></div>
+        </div>
+      </div>
+
+      <!-- Tarefa 1: position sizing -->
+      <div class="sim-task" id="task1">
+        <div class="sim-task-q">1. Quantas ações comprar para não arriscar mais que o limite?</div>
+        <div class="sim-input-row">
+          <input type="number" class="sim-input" id="sharesInput" placeholder="nº de ações" min="0" step="1">
+          <button class="sim-btn sim-btn-primary" id="checkSharesBtn">Conferir</button>
+        </div>
+      </div>
+
+      <!-- Tarefa 2: decisão R:R (aparece após tarefa 1) -->
+      <div class="sim-task" id="task2" style="display:none;">
+        <div class="sim-task-q">2. O alvo desse trade é <span id="scTarget" style="font-family:var(--font-mono); color:var(--accent);">—</span>. Vale a pena entrar?</div>
+        <div class="sim-choice-row">
+          <button class="sim-choice" id="choiceYes">Sim, entro</button>
+          <button class="sim-choice" id="choiceNo">Não, passo</button>
+        </div>
+      </div>
+
+      <div class="sim-feedback" id="simFeedback">
+        <span class="fb-verdict" id="fbVerdict"></span>
+        <p id="fbText"></p>
+        <div class="sim-calc" id="fbCalc"></div>
+      </div>
+
+      <div class="sim-nav">
+        <button class="sim-btn sim-btn-primary" id="nextBtn" disabled>Resolva para continuar</button>
+      </div>
+    </div>
+
+    <div class="sim-result" id="resultArea">
+      <div class="eyebrow" style="margin-bottom: var(--space-3);">Resultado</div>
+      <div class="result-score"><span id="scoreNum">0</span><span>/16</span></div>
+      <div class="result-bar-track"><div class="result-bar-fill" id="resultBar"></div></div>
+      <div class="result-verdict" id="resultVerdict"></div>
+      <p id="resultMsg" style="color: var(--ink-muted); max-width: 52ch; margin: 0 auto var(--space-5);"></p>
+      <div style="display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap; margin-top:var(--space-5);">
+        <button class="btn-primary" id="retryBtn">Novos cenários</button>
+        <a href="calculadoras.html" class="btn-secondary">Abrir as calculadoras</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"><img src="logo-mark-208.png" alt="Trading do Zero" width="52" height="52" class="logo-img"></span>
+          <span class="logo-text">Trading <em>do zero</em></span>
+        </a>
+        <p>Curso gratuito e independente sobre trading e day trading.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Currículo</h5>
+        <ul>
+          <li><a href="modulos.html">Todos os módulos</a></li>
+          <li><a href="modulos/fundamentos.html">Fundamentos</a></li>
+          <li><a href="modulos/estrategias.html">Estratégias</a></li>
+          <li><a href="modulos.html#m5">Gestão de risco</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul>
+          <li><a href="calculadoras.html">Calculadoras</a></li>
+          <li><a href="teste-do-trader.html">Teste do trader</a></li>
+          <li><a href="simulador-risco.html">Simulador de risco</a></li>
+          <li><a href="cheatsheets.html">Cheat sheets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>O projeto</h5>
+        <ul>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="disclaimer.html">Aviso legal</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+          <li><a href="termos.html">Termos de uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p><strong style="color: var(--accent);">Aviso importante.</strong> Este site é exclusivamente educacional. Não somos consultores financeiros e não emitimos recomendações. Os cenários são fictícios e servem apenas para treinar o raciocínio de risco.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 trading do zero · todos os direitos reservados</p>
+      <p>feito com método. <span style="color: var(--accent);">sem atalhos.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ROUNDS = 8;
+  var current = 0, score = 0;
+  var scenario = null;
+  var phase = 1; // 1 = aguardando ações, 2 = aguardando decisão R:R, 3 = resolvido
+  var sharesOK = false;
+  var sharesMsg = '';
+
+  var el = function(id){ return document.getElementById(id); };
+  var brl = function(v){ return 'R$ ' + v.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2}); };
+
+  function rnd(min, max){ return Math.floor(Math.random()*(max-min+1))+min; }
+  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+  function makeScenario(){
+    // capital em passos "redondos"
+    var capital = pick([5000, 8000, 10000, 15000, 20000, 25000]);
+    var riskPct = pick([1, 1, 2, 2]); // 1% ou 2%
+    var maxRisk = capital * riskPct/100;
+    // entrada e distância de stop "limpas" para a conta fechar redonda
+    var entry = pick([12.00, 18.50, 24.00, 30.00, 38.50, 45.00, 60.00]);
+    var stopDist = pick([0.10, 0.20, 0.25, 0.40, 0.50]);
+    var stop = +(entry - stopDist).toFixed(2);
+    var shares = Math.floor(maxRisk / stopDist + 1e-9);
+    // relação R:R do alvo: às vezes boa (>=2), às vezes ruim (<1.5)
+    var rrGood = Math.random() < 0.5;
+    var rrMult = rrGood ? pick([2, 2.5, 3]) : pick([0.8, 1, 1.2]);
+    var targetDist = +(stopDist * rrMult).toFixed(2);
+    var target = +(entry + targetDist).toFixed(2);
+    return {
+      capital: capital, riskPct: riskPct, maxRisk: maxRisk,
+      entry: entry, stop: stop, stopDist: stopDist, shares: shares,
+      target: target, targetDist: targetDist, rrMult: rrMult, rrGood: rrGood
+    };
+  }
+
+  function render(){
+    scenario = makeScenario();
+    phase = 1; sharesOK = false;
+    el('scCapital').textContent = brl(scenario.capital);
+    el('scRisk').textContent = scenario.riskPct + '% · ' + brl(scenario.maxRisk);
+    el('scEntry').textContent = brl(scenario.entry);
+    el('scStop').textContent = brl(scenario.stop);
+    el('scTarget').textContent = brl(scenario.target);
+
+    el('task1').style.display = 'block';
+    el('task2').style.display = 'none';
+    el('sharesInput').value = '';
+    el('sharesInput').disabled = false;
+    el('checkSharesBtn').disabled = false;
+    el('choiceYes').className = 'sim-choice'; el('choiceYes').disabled = false;
+    el('choiceNo').className = 'sim-choice'; el('choiceNo').disabled = false;
+    var fb = el('simFeedback'); fb.className = 'sim-feedback';
+    el('nextBtn').disabled = true;
+    el('nextBtn').textContent = 'Resolva para continuar';
+    el('progressFill').style.width = (current / ROUNDS * 100) + '%';
+    el('progressLabel').textContent = (current+1) + ' / ' + ROUNDS;
+  }
+
+  function showFeedback(kind, verdict, text, calc){
+    var fb = el('simFeedback');
+    fb.className = 'sim-feedback show ' + kind;
+    el('fbVerdict').textContent = verdict;
+    el('fbText').textContent = text;
+    el('fbCalc').innerHTML = calc || '';
+  }
+
+  el('checkSharesBtn').addEventListener('click', function(){
+    if (phase !== 1) return;
+    var val = parseInt(el('sharesInput').value, 10);
+    if (isNaN(val)) { el('sharesInput').focus(); return; }
+    el('sharesInput').disabled = true;
+    el('checkSharesBtn').disabled = true;
+    // tolerância: aceitar exato (a conta foi feita para fechar redonda)
+    var correct = scenario.shares;
+    sharesOK = (val === correct);
+    if (sharesOK) score++;
+    var calc = 'risco máximo: ' + brl(scenario.maxRisk) + ' &nbsp;÷&nbsp; distância do stop: ' + brl(scenario.stopDist) + '<br>' +
+               '= <strong>' + correct + ' ações</strong>';
+    if (sharesOK) {
+      sharesMsg = '✓ Posição certa (' + correct + ' ações)';
+      showFeedback('ok', '✓ Posição correta', 'É isso. O tamanho da posição nasce do risco dividido pela distância do stop — nunca de quanto dinheiro você tem disponível.', calc);
+    } else {
+      sharesMsg = '✗ Posição errada (era ' + correct + ' ações)';
+      showFeedback('no', '✗ A conta foi outra', 'A resposta certa era ' + correct + ' ações. A fórmula é sempre risco máximo dividido pela distância do stop (Lição 5.3).', calc);
+    }
+    // revelar tarefa 2
+    phase = 2;
+    el('task2').style.display = 'block';
+  });
+
+  function decideRR(entered){
+    if (phase !== 2) return;
+    phase = 3;
+    el('choiceYes').disabled = true; el('choiceNo').disabled = true;
+    // decisão correta: entrar se rrGood (R:R >= ~2), passar caso contrário
+    var shouldEnter = scenario.rrGood;
+    var right = (entered === shouldEnter);
+    if (right) score++;
+    // marcação clara: verde no botão certo; vermelho no escolhido se errou
+    var yesBtn = el('choiceYes'), noBtn = el('choiceNo');
+    yesBtn.classList.remove('sel'); noBtn.classList.remove('sel');
+    if (shouldEnter) { yesBtn.classList.add('correct'); } else { noBtn.classList.add('correct'); }
+    if (!right) { (entered ? yesBtn : noBtn).classList.add('wrong'); }
+    var rrText = '1 : ' + scenario.rrMult.toString().replace('.', ',');
+    var calc = '<span style="color:var(--ink-muted)">' + sharesMsg + '</span><br>' +
+               'ganho potencial: ' + brl(scenario.targetDist) + ' &nbsp;por&nbsp; risco: ' + brl(scenario.stopDist) + '<br>' +
+               '= relação risco/retorno de <strong>' + rrText + '</strong>';
+    if (right) {
+      var msg = shouldEnter
+        ? 'Certo. Com R:R de ' + rrText + ', o ganho potencial compensa bem o risco — é um trade que vale considerar.'
+        : 'Certo. Com R:R de ' + rrText + ', você arrisca quase tanto quanto pode ganhar. Não compensa: o profissional passa e espera um trade melhor.';
+      showFeedback('ok', '✓ Decisão certa', msg, calc);
+    } else {
+      var msg2 = shouldEnter
+        ? 'Na verdade valia a pena: o R:R de ' + rrText + ' é favorável. Passar de bons trades por medo também é um erro (Lição 5.2).'
+        : 'Cuidado: com R:R de ' + rrText + ', o risco quase iguala o ganho. Entrar nesses trades, mesmo acertando às vezes, não paga as contas no longo prazo.';
+      showFeedback('no', '✗ Repense a decisão', msg2, calc);
+    }
+    el('nextBtn').disabled = false;
+    el('nextBtn').textContent = (current < ROUNDS-1) ? 'Próximo cenário →' : 'Ver resultado →';
+  }
+
+  el('choiceYes').addEventListener('click', function(){ el('choiceYes').classList.add('sel'); decideRR(true); });
+  el('choiceNo').addEventListener('click', function(){ el('choiceNo').classList.add('sel'); decideRR(false); });
+
+  el('nextBtn').addEventListener('click', function(){
+    if (phase !== 3) return;
+    if (current < ROUNDS-1){ current++; render(); }
+    else showResult();
+  });
+
+  function showResult(){
+    el('sim-area').style.display = 'none';
+    var ra = el('resultArea'); ra.classList.add('show');
+    var total = ROUNDS * 2;
+    el('scoreNum').textContent = score;
+    document.querySelector('.result-score span:last-child').textContent = '/' + total;
+    setTimeout(function(){ el('resultBar').style.width = (score/total*100) + '%'; }, 100);
+    var pct = score/total;
+    var verdict, msg;
+    if (pct < 0.5){
+      verdict = 'O risco ainda escapa.';
+      msg = 'A gestão de risco é o alicerce de tudo. Reveja a Lição 5.1 (regra dos 2%), 5.2 (risco/retorno) e 5.3 (tamanho da posição) e tente de novo — esta conta tem de virar automática.';
+    } else if (pct < 0.8){
+      verdict = 'Quase lá.';
+      msg = 'Você já pega a lógica. Falta automatizar a conta para fazê-la em segundos, sem hesitar. Repita com novos cenários até não precisar pensar.';
+    } else {
+      verdict = 'Conta na ponta da língua.';
+      msg = 'É exatamente esse o objetivo: calcular posição e julgar o risco/retorno sem esforço. Esse reflexo é o que separa quem sobrevive de quem quebra. Bom trabalho.';
+    }
+    el('resultVerdict').textContent = verdict;
+    el('resultMsg').textContent = msg;
+  }
+
+  el('retryBtn').addEventListener('click', function(){
+    current = 0; score = 0;
+    el('resultArea').classList.remove('show');
+    el('sim-area').style.display = 'block';
+    render();
+  });
+
+  // permitir Enter no input
+  el('sharesInput').addEventListener('keydown', function(e){ if(e.key==='Enter'){ el('checkSharesBtn').click(); } });
+
+  render();
+})();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
